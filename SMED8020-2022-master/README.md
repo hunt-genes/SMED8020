@@ -1,3 +1,6 @@
+
+[Precourse materials](/SMED 8020 - pre-course preparations 2022.pdf)
+
 # SMED8020 Practicals
 
 [Day 1 - Downloads and setup](Day1)
