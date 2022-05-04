@@ -1,5 +1,5 @@
 
-[Precourse materials](/SMED 8020 - pre-course preparations 2022.pdf)
+[Precourse materials](SMED 8020 - pre-course preparations 2022.pdf)
 
 # SMED8020 Practicals
 
