@@ -1,5 +1,5 @@
 # SMED8020
-Genetic Epidemiology short-course for PhD students
+Norwegian University of Science and Technology (NTNU) [Genetic Epidemiology short-course](https://www.ntnu.edu/studies/courses/SMED8020) for PhD students
 
 ## Resources
 | Directory | Description |
