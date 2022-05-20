@@ -11,7 +11,7 @@ Please refer to the paper as you work through the practical.
 
 Any command line code will be presented in red text, R code in green text and questions to answer in blue text.
 
-# QC of Base Data
+# 1. QC of Base Data
 The first step in Polygenic Risk Score (PRS) analyses is to generate or obtain the base data (GWAS summary statistics). Ideally these will correspond to the most powerful GWAS results available on the phenotype under study. In this example, we will use GWAS summary statistics from simulated height data (these will be provided in the folder with this document).
 
 ## Reading the base data file
@@ -102,7 +102,7 @@ The above command does the following:
 Compresses and writes the results to **Height.nodup.gz**
 
 ??? note "How many duplicated SNPs are there?"
-    There are a total of `2` duplicated SNPs
+
 
 ## \# Ambiguous SNPs
 If the base and target data were generated using different genotyping chips and the chromosome strand (+/-) that was used for either is unknown, then it is not possible to pair-up the alleles of ambiguous SNPs (i.e. those with complementary alleles, either C/G or A/T SNPs) across the data sets, because it will be unknown whether the base and target data are referring to the same allele or not. While allele frequencies could be used to infer which alleles are on the same strand, the accuracy of this could be low for SNPs with MAF close to 50% or when the base and target data are from different populations. Therefore, we recommend removing all ambiguous SNPs to avoid introducing this potential source of systematic error.
@@ -120,7 +120,7 @@ awk '!( ($4=="A" && $5=="T") || \
 ```
 
 ??? note "How many non-ambiguous SNPs were there?"
-    There are `499,617` non-ambiguous SNPs
+
 
 
 
@@ -130,7 +130,7 @@ Closely related individuals within and between the base and the target data may 
 
 The Height.QC.gz base data are now ready for using in downstream analyses.
 
-# QC of Target Data
+# 2. QC of Target Data
 Target data consist of individual-level genotype-phenotype data, usually generated within your lab/department/collaboration. For this tutorial, we have simulated some genotype-phenotype data using the 1000 Genomes Project European samples. You can download the data here
 
 Unzip the data as follow:
@@ -333,7 +333,7 @@ Each of the parameters corresponds to the following
 | a1-allele |  EUR.a1 | Fix all A1 alleles to those specified in `EUR.a1` |
 | out | EUR.QC | Informs `plink` that all output should have a prefix of `EUR.QC` |
 
-# Calculating and Analysing PRS
+# 3. Calculating and Analysing PRS
 
 ## Background
 On this page, you will compute PRS using the popular genetic analyses tool `plink` - while `plink` is not a dedicated PRS software, you can perform every required steps of the C+T approach with `plink`. 
