@@ -51,6 +51,7 @@ It is important to know which allele is the effect allele and which is the non-e
 
     To avoid misleading conclusions the effect allele from the base (GWAS) data must be known.
 
+
 ## \# Genome build
 The height summary statistic are on the same genome build as the target data that we will be using. 
 You must check that your base and target data are on the same genome build, and if they are not then use a tool such as [LiftOver](https://genome.ucsc.edu/cgi-bin/hgLiftOver) to make the builds consistent across the data sets.
@@ -97,7 +98,8 @@ gzip - > Height.nodup.gz
 The above command does the following:
 
 1. Decompresses and reads the **Height.gz** file
-2. Count number of time SNP ID was observed, assuming the third column contian the SNP ID (`seen[$3]++`). If this it the first time seeing this SNP ID, print it. 3. Compresses and writes the results to **Height.nodup.gz**
+2. Count number of time SNP ID was observed, assuming the third column contian the SNP ID (`seen[$3]++`). If this is the first time seeing this SNP ID, print it. 3. 
+Compresses and writes the results to **Height.nodup.gz**
 
 ??? note "How many duplicated SNPs are there?"
     There are a total of `2` duplicated SNPs
@@ -119,6 +121,7 @@ awk '!( ($4=="A" && $5=="T") || \
 
 ??? note "How many non-ambiguous SNPs were there?"
     There are `499,617` non-ambiguous SNPs
+
 
 
 ## \# Sample overlap and relatedness
