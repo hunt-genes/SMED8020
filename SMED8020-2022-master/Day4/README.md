@@ -536,7 +536,6 @@ This can be achieved using `R` as follows:
     }
     # Best result is:
     prs.result[which.max(prs.result$R2),]
-    q() # exit R
     ```
 ??? note "Which P-value threshold generates the "best-fit" PRS?"
 
