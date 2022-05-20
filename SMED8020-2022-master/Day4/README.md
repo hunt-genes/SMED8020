@@ -482,7 +482,8 @@ plink \
     --extract EUR.prune.in \
     --pca 6 \
     --out EUR
-	```
+```
+
 
 
 Here the PCs have been stored in the **EUR.eigenvec** file and can be used as covariates in the regression model to account for population stratification.
