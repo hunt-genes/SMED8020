@@ -361,7 +361,7 @@ We can obtain the transformed summary statistics with `R`:
     dat$BETA <- log(dat$OR)
     write.table(dat, "Height.QC.Transformed", quote=F, row.names=F)
     q() # exit R
-    ```
+    ````
 ## Clumping
 Linkage disequilibrium, which corresponds to the correlation between the genotypes of genetic variants across the genome, makes identifying the contribution from causal independent genetic variants extremely challenging. 
 One way of approximately capturing the right level of causal signal is to perform clumping, which removes SNPs in ways that only weakly correlated SNPs are retained but preferentially retaining the SNPs most associated with the phenotype under study. 
@@ -493,7 +493,7 @@ The P-value threshold that provides the "best-fit" PRS under the C+T method is u
 To approximate the "best-fit" PRS, we can perform a regression between PRS calculated at a range of P-value thresholds and then select the PRS that explains the highest phenotypic variance (please see Section 4.6 of our paper on overfitting issues). 
 This can be achieved using `R` as follows:
 
-```R 
+    ```R 
     p.threshold <- c(0.001,0.05,0.1,0.2,0.3,0.4,0.5)
     # Read in the phenotype file 
     phenotype <- read.table("EUR.height", header=T)
@@ -537,7 +537,8 @@ This can be achieved using `R` as follows:
     }
     # Best result is:
     prs.result[which.max(prs.result$R2),]
-    ```
+    q() # exit R
+    	```    
 ??? note "Which P-value threshold generates the "best-fit" PRS?"
 
 
