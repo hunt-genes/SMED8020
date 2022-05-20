@@ -538,12 +538,13 @@ This can be achieved using `R` as follows:
     q() # exit R
     ```
 ??? note "Which P-value threshold generates the "best-fit" PRS?"
-    0.3
+
 
 ??? note "How much phenotypic variation does the "best-fit" PRS explain?"
-    0.1612372
 
-# 4.	Visualising the PRS results
+
+# 4. Visualising the PRS results
+
 The PRS results corresponding to a range of P-value thresholds obtained by application of the C+T PRS method (eg. using PLINK or PRSice-2) can be visualised using `R` as follows:
 
 ```R
