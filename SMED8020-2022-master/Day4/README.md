@@ -539,10 +539,10 @@ This can be achieved using `R` as follows:
     prs.result[which.max(prs.result$R2),]
     q() # exit R
     	```    
-??? note "Which P-value threshold generates the "best-fit" PRS?"
+Which P-value threshold generates the "best-fit" PRS?"
 
 
-??? note "How much phenotypic variation does the "best-fit" PRS explain?"
+How much phenotypic variation does the "best-fit" PRS explain?"
 
 
 # 4. Visualising the PRS results
