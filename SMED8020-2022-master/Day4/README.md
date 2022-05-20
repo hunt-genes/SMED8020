@@ -549,8 +549,7 @@ How much phenotypic variation does the "best-fit" PRS explain?"
 The PRS results corresponding to a range of P-value thresholds obtained by application of the C+T PRS method (eg. using PLINK or PRSice-2) can be visualised using `R` as follows:
 
 ```R
-    # We strongly recommend the use of ggplot2. Only follow this code if you
-    # are desperate.
+    # We strongly recommend the use of ggplot2. (see code in online tutorial – I’ve included this code here in case some people are unable to install the ggplot2 package).
     # Specify that we want to generate plot in EUR.height.bar.png
     png("EUR.height.bar.png",
         height=10, width=10, res=300, unit="in")
