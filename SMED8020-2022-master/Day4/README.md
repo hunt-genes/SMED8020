@@ -544,6 +544,7 @@ This can be achieved using `R` as follows:
 
 
 # 4. Visualising the PRS results
+# 1. QC of Base Data
 
 The PRS results corresponding to a range of P-value thresholds obtained by application of the C+T PRS method (eg. using PLINK or PRSice-2) can be visualised using `R` as follows:
 
