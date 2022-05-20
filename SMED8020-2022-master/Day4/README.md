@@ -58,7 +58,6 @@ Therefore, SNPs with low MAF and INFO are typically removed before performing do
 We recommend removing SNPs with MAF < 1% and INFO < 0.8 (with very large base sample sizes these thresholds could be reduced if sensitivity checks indicate reliable results).
 These SNP filters can be achieved using the following code:
 
-=== "Using bash"
     ```bash 
     gunzip -c Height.gwas.txt.gz |\
     awk 'NR==1 || ($11 > 0.01) && ($10 > 0.8) {print}' |\
