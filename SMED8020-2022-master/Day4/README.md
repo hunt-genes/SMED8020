@@ -43,13 +43,7 @@ The chip-heritability of a GWAS can be estimated using e.g. LD Score Regression 
 Our height GWAS data are simulated to have a chip-heritability much greater than 0.05 and so we can move on to the next QC step. 
 
 ## \# Effect allele
-It is important to know which allele is the effect allele and which is the non-effect allele for PRS association results to be in the correct direction.
-
-!!! Important
-    Some GWAS results files do not make clear which allele is the effect allele and which is the non-effect allele.
-    If the incorrect assumption is made in computing the PRS, then the effect of the PRS in the target data will be in the wrong direction.
-
-    To avoid misleading conclusions the effect allele from the base (GWAS) data must be known.
+It is important to know which allele is the effect allele and which is the non-effect allele for PRS association results to be in the correct direction.    Some GWAS results files do not make clear which allele is the effect allele and which is the non-effect allele. If the incorrect assumption is made in computing the PRS, then the effect of the PRS in the target data will be in the wrong direction. To avoid misleading conclusions the effect allele from the base (GWAS) data must be known.
 
 
 ## \# Genome build
