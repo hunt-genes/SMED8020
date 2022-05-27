@@ -4,8 +4,6 @@
 > The aim for this session is for you to 1) become familar with gitlab and how to navigate the practicals, 2) 
 > download and install the required programs, and 3) test the scripts used in the practicals.
 
-Doing the practical on your computer is not mandatory as we will have live walk-thoughts where you will be able to see step-by-step what is done. However it can be very useful if you will be doing any of these types of analyses during your Masters, PhD or research work.
-
 ### Required downloads   
 
 R version 4.0.0 https://cran.uib.no/   
