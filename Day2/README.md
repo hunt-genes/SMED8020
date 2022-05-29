@@ -47,7 +47,7 @@ You can find useful information regarding these files here:
   [https://www.cog‐genomics.org/plink/1.9/formats#bed](https://www.cog‐genomics.org/plink/1.9/formats#bed)
    
 *You can have a look at them in the terminal:*
-Open Terminal (Mac) or Ubuntu (Windows) or command line of choice
+*Open Terminal (Mac) or Ubuntu (Windows) or command line of choice*
     
 ###### In terminal:
 
@@ -126,6 +126,8 @@ are the files which give you important information regarding the analysis run.
 Every subsequent PLINK command will make these two other files together with the analyses output.
 
 **Start an R session by writing "R" in the command line or open R/RStudio**
+*The functions for R are also in the script R_script_Practical_Day2.R*
+
 *We will set a working directory first in R as well to tell R where to find or save files.  
 ###### An example in an R session:
 ```  
