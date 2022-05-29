@@ -18,5 +18,5 @@
 
 # Required software
 1. [R](https://www.r-project.org/) (**version 4.0.0+**)
-2. [PLINK 1.9](https://www.cog-genomics.org/plink2)
-3. For Windows users: Ubuntu
+2. [PLINK 1.9] From zip archive for Practical Day 2 here or directly from: https://www.cog-genomics.org/plink2  
+3. For Windows users: Ubuntu from Microsoft Store on your computer
