@@ -12,7 +12,7 @@ RStudio https://www.rstudio.com/products/rstudio/download/
 If you are using windows, please install bash to run the suggested commands in the terminal:
 https://itsfoss.com/install-bash-on-windows/   
 
-You can use Plink from the zip archive herer: https://github.com/hunt-genes/SMED8020/tree/main/Day2 
+You can use Plink from the zip archive here: https://github.com/hunt-genes/SMED8020/tree/main/Day2 
 or from the originating site for PLINK: (PLINK 1.9) [https://www.cog-genomics.org/plink/] 
 
 ### Specific installations and tests for practicals
