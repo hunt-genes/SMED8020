@@ -126,9 +126,11 @@ are the files which give you important information regarding the analysis run.
 Every subsequent PLINK command will make these two other files together with the analyses output.
 
 **Start an R session by writing "R" in the command line or open R/RStudio**
+
 *The functions for R are also in the script R_script_Practical_Day2.R*
 
-*We will set a working directory first in R as well to tell R where to find or save files.  
+*We will set a working directory first in R as well to tell R where to find or save files.*  
+
 ###### An example in an R session:
 ```  
 setwd("C://Users/name00/Desktop/SMED8020/2021/Day2/")
