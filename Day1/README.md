@@ -12,12 +12,12 @@ RStudio https://www.rstudio.com/products/rstudio/download/
 If you are using windows, please install bash to run the suggested commands in the terminal:
 https://itsfoss.com/install-bash-on-windows/   
 
-You can use Plink from the zip archive in the Day 2 folder or from the originating site for PLINK:
-(PLINK 1.9)[https://www.cog-genomics.org/plink/] 
+You can use Plink from the zip archive herer: https://github.com/hunt-genes/SMED8020/tree/main/Day2 
+or from the originating site for PLINK: (PLINK 1.9) [https://www.cog-genomics.org/plink/] 
 
 ### Specific installations and tests for practicals
 
-Practical 2 - Setup for PLINK QC: 
+#### Practical 2 - Setup for PLINK QC: 
 
 Download the zip archive in https://github.com/hunt-genes/SMED8020/tree/main/Day2
 
@@ -39,7 +39,7 @@ Libraries needed for R are ggplot2 and scales
 install.packages("ggplot2", "scales")
 ```
 
-Practical 5 - Mendelian randomization: https://github.com/hunt-genes/SMED8020/tree/main/SMED8020-2022-master
+#### Practical 5 - Mendelian randomization: https://github.com/hunt-genes/SMED8020/tree/main/SMED8020-2022-master
 
 Test your setup   
 -Download the files for practical 5 from github: https://github.com/hunt-genes/SMED8020/tree/main/SMED8020-2022-master 
