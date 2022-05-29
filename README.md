@@ -19,3 +19,4 @@
 # Required software
 1. [R](https://www.r-project.org/) (**version 4.0.0+**)
 2. [PLINK 1.9](https://www.cog-genomics.org/plink2)
+3. For Windows users: Ubuntu
