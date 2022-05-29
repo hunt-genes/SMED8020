@@ -31,8 +31,6 @@ The suggested structure would be a folder that has Plink, the three data day2 fi
 Note that the Plink.exe file needs to have the same file path as the data
 
 If you are new to linux commands, make yourself familiar with basic commands in sites like: https://www.hostinger.com/tutorials/linux-commands
-![image](https://user-images.githubusercontent.com/23628625/170893953-30a25763-3893-4d6a-9991-6bcc53c9b685.png)
-
 
 ###### In R session:
 Libraries needed for R are ggplot2 and scales   
