@@ -1,6 +1,6 @@
 # DAY 4 - Practical Exercise – Polygenic Risk Scores
 ## Overview
-In this practical, we will generate at polygenic risk score (PRS) for height and see how much variation in height it explains. This practical is a reduced set of analyses provided in the tutorial by Shing Wan Choi and colleagues, which can be found at the following link[PRS Guide](https://choishingwan.github.io/PRS-Tutorial/). Please review the tutorial for more detailed information, and calculation of the PRS using the additional methods that were discussed in the lecture.
+In this practical, we will generate at polygenic risk score (PRS) for height and see how much variation in height it explains. This practical is a reduced set of analyses provided in the tutorial by Shing Wan Choi and colleagues, which can be found at the following link [PRS Guide](https://choishingwan.github.io/PRS-Tutorial/). Please review the tutorial for more detailed information, and calculation of the PRS using the additional methods that were discussed in the lecture.
 
 The practical is separated into four main sections, corresponding to the guide in the Nature Protocols paper discussed in the lecture [PRS Guide paper](https://www.nature.com/articles/s41596-020-0353-1):
 1.	Quality control (QC) of the base data
@@ -43,13 +43,7 @@ The chip-heritability of a GWAS can be estimated using e.g. LD Score Regression 
 Our height GWAS data are simulated to have a chip-heritability much greater than 0.05 and so we can move on to the next QC step. 
 
 ## \# Effect allele
-It is important to know which allele is the effect allele and which is the non-effect allele for PRS association results to be in the correct direction.
-
-!!! Important
-    Some GWAS results files do not make clear which allele is the effect allele and which is the non-effect allele.
-    If the incorrect assumption is made in computing the PRS, then the effect of the PRS in the target data will be in the wrong direction.
-
-    To avoid misleading conclusions the effect allele from the base (GWAS) data must be known.
+It is important to know which allele is the effect allele and which is the non-effect allele for PRS association results to be in the correct direction.    Some GWAS results files do not make clear which allele is the effect allele and which is the non-effect allele. If the incorrect assumption is made in computing the PRS, then the effect of the PRS in the target data will be in the wrong direction. To avoid misleading conclusions the effect allele from the base (GWAS) data must be known.
 
 
 ## \# Genome build
@@ -64,7 +58,6 @@ Therefore, SNPs with low MAF and INFO are typically removed before performing do
 We recommend removing SNPs with MAF < 1% and INFO < 0.8 (with very large base sample sizes these thresholds could be reduced if sensitivity checks indicate reliable results).
 These SNP filters can be achieved using the following code:
 
-=== "Using bash"
     ```bash 
     gunzip -c Height.gwas.txt.gz |\
     awk 'NR==1 || ($11 > 0.01) && ($10 > 0.8) {print}' |\
