@@ -193,7 +193,7 @@ Exit R session and return to the Terminal by writing **q()**.
 
 **(a)  elevated missing data rates or outlying heterozygosity rate**
   
-The first step involves calculating the sample statistics (missing genotype call                                                              rate and heterozygosity) of each sample. The following command calculates the 
+The first step involves calculating the sample statistics (missing genotype call rate and heterozygosity) of each sample. The following command calculates the 
 sample statistic for missing rate:
   
 ###### In terminal:
@@ -232,9 +232,9 @@ Reading the files:
   
 ###### In R session:
 ```
-het <- read.table("C://Users/tno010/Desktop/SMED8020/2021/Day2/output/het.het", header=T)
+het <- read.table("output/het.het", header=T)
 
-mis <- read.table("C://Users/tno010/Desktop/SMED8020/2021/Day2/output/mis.imiss", header=T)
+mis <- read.table("output/mis.imiss", header=T)
 ```
 
 
@@ -328,7 +328,7 @@ test at p-value =0.00000001:*
   
 ###### In Terminal:
  ```
-./plink --bfile day2 --maf 0.35 --geno 0.05 --hwe 0.00000001 --allow-no-sex --make-bed --out C://Users/tno010/Desktop/SMED8020/2021/Day2/output/frequent
+./plink --bfile day2 --maf 0.35 --geno 0.05 --hwe 0.00000001 --allow-no-sex --make-bed --out output/frequent
 ```
 
 
@@ -373,8 +373,7 @@ the mean IBD sharing:
 ##### In R session:
 ```
 #read in day2pruned.genome file
-genome <- read.table("C://Users/tno010/Desktop/SMED8020/2021/Day2/output/pruned.genome", 
-                     header=T, as.is=T)
+genome <- read.table("output/pruned.genome", header=T, as.is=T)
 
 ```
 The pruned.genome file is big as it contains all possible pairs of 
