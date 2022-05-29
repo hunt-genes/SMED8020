@@ -18,12 +18,12 @@ Download PLINK: (PLINK 1.9)[https://www.cog-genomics.org/plink/]
 
 Practical 2 - Setup for PLINK QC: https://github.com/hunt-genes/SMED8020/tree/main/SMED8020-2022-master  
 
-Libraries needed for R   
-ggplot2   
-Scales   
+Libraries needed for R are ggplot2 and scales   
 
-In an R session you can write:   
-`install.packages("ggplot2", "scales")`
+###### In R session:
+```
+install.packages("ggplot2", "scales")
+```
 
 Practical 5 - Mendelian randomization: https://github.com/hunt-genes/SMED8020/tree/main/SMED8020-2022-master
 
