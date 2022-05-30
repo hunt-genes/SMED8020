@@ -23,7 +23,7 @@ Download the zip archive in https://github.com/hunt-genes/SMED8020/tree/main/Day
 
 Store the files on your local computer and direct the terminal to them by writing ```cd filepath```
 This is how you make the terminal know where your files are/what directory to work from
-and you can copy this and paste it into your terminal 
+and you can copy this and paste it into your terminal.
 For example:
 ```cd /mnt/c/Users/name00/Desktop/SMED8020/2021/Day2/```
 
