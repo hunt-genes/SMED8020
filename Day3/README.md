@@ -22,7 +22,7 @@ The phenotype in today's practical is low density lipoprotein (LDL) cholesterol 
 
 ### Task outline  
 
-0. [Install METAL](http://csg.sph.umich.edu/abecasis/Metal/download/) using the pre-compiled binaries for your operating system. See [Practial Day 1](https://github.com/hunt-genes/SMED8020/tree/main/Day1) for details. 
+0. Install METAL
 1. Gather summary statistics from GWAS for low density lipoprotein (LDL) cholesterol in three separate studies (HUNT, Global Lipids Genetics Consortium, and UK Biobank) and check details for the files.
 2. Run a meta-analysis using METAL
 3. Have a coffee or a biobreak or ask questions to the lecturers. Questions for consideration are in ****bold****. 
@@ -44,9 +44,11 @@ When running a meta analysis there are many issues that need to be addressed.
   * population stratification
 
 ### Instructions  
+0. [Install METAL](http://csg.sph.umich.edu/abecasis/Metal/download/) using the pre-compiled binaries for your operating system. See [Practial Day 1](https://github.com/hunt-genes/SMED8020/tree/main/Day1) for details. 
+
 1. Organizing summary statistics  
 
-Usually you would download publically available summary statistics from the internet to your local machine. For convience for this practical, the data can be downloaded from [here](https://ntnu.box.com/s/0veanic525k4m8m45x9rs4onh7snwpfw)
+Usually you would download publically available summary statistics from the internet to your local machine. For convience for this practical, the data can be downloaded from [here](https://ntnu.box.com/s/rvytm8ymd8iple8negy8ix8x5vp7qs9a)
 
 * The original summary statistics from Biobank Japan (BBJ) of LDL cholesterol in N=72,866 can be found [here](https://humandbs.biosciencedbc.jp/files/hum0014/hum0014_README_QTL_GWAS.html)  
 `/mnt/scratch/day4/data/BBJ-LDL-preMeta.txt`  
@@ -68,7 +70,7 @@ The latest human reference genome GRCh38 was released from the Genome Reference 
 The previous human reference genome (GRCh37) was the nineteenth version (hg19).  
 The version before this was NCBI Build 36.1	released March 2006	(hg18). 
 You can see more [here](https://genome.ucsc.edu/FAQ/FAQreleases.html#release1). hg19 is still widely used and people are slowly converting to hg38.  
-****From the summary statistic headers, can you tell  what reference genome versions are used for each study?****  
+****From the summary statistic headers, can you tell what reference genome versions are used for each study?****  
 
 It looks like BBJ and HUNT have SNP coordinates from hg38, but GLGC has summary statistics from hg18 and hg19. 
 We must use [UCSC listOver](https://genome.ucsc.edu/cgi-bin/hgLiftOver) to convert the hg19 coordinates to hg38 before meta-analysis. 
@@ -96,7 +98,7 @@ wc -l HUNT-LDL-preMeta.txt
 wc -l GLGC-LDL-hg38-preMeta.txt
 ```
 
-The HUNT summary statistics are so large because imputation was done with the TOPMed imputation panel,  which allows for higher resolution imputation due to the large amount of sequencing samples which make up the reference panel. 
+The HUNT summary statistics originally had many variants because imputation was done with the TOPMed imputation panel, which allows for higher resolution imputation due to the large amount of sequencing samples which make up the reference panel. We have subsetted this to variants seen in GLGC or BBJ, so the file is more manageable AND because we only will perform meta-analysis on variants tested in 2 or more studies.
 ****What imputation panel was used for GLGC?**** HINT: Check the methods of the [paper](https://www.nature.com/articles/ng.2797).
 
 ****How many genome wide significant results are in each of the input files?****  
@@ -104,7 +106,6 @@ The HUNT summary statistics are so large because imputation was done with the TO
 awk '$12 < 5e-8 {print 0}' HUNT-LDL-preMeta.txt | wc -l
 awk '$11 < 5e-8 {print 0}' BBJ-LDL-preMeta.txt | wc -l
 awk '$10 < 5e-8 {print 0}' GLGC-LDL-hg38-preMeta.txt | wc -l
-
 ```
 
 3. Running METAL   
@@ -147,26 +148,19 @@ There will be a .tbl and .tbl.info file created from the meta-analysis. You can 
 ****Will we use the same genome wide significance threshold as in step 4? Why or why not?****  
 ****How many genome wide significant results are there now?**** HINT: Use code like in #2 but replace `$10` with the column number with the p-value and use the file name for your meta-analysis results.
 
-5. Subset the results to markers in >1 study
+5. Note: We pre-processed the files so you don't have to subset the results to markers in >1 study, but you might need this information in the future if you have not pre-processed your input files.
 
 METAL will perform a meta-analysis even on markers which are only present in one of the sub-studies. We are only interested in markers present in more than one study. 
 The column labelled direction shows '?', '+', or '-' to indicate missingness, positive direction of effect, or negative direction of effect, respectively.  
-One can use an thee `subset_meta_analysis.r` Rscript to exclude markers with two or more '?'.  
+One can use the `subset_meta_analysis.r` Rscript to exclude markers with more than one '?'.  
 Execute the following command to subset the results. This will take < 5 minutes.  
 `Rscript subset_meta_analysis.r --input LDL_METAL_META1.tbl --output LDL_METAL_MultiStudy.txt`
-
-****How many genome wide significant results are there now?**** 
 
 6. Plot the meta-analysis results
 
 To visually inspect your results for significant findings you can make a QQ-plot like Day 2's practical. ****How does the inflation appear to you?****  
 `Rscript QQplot.r --input LDL_METAL_MultiStudy.txt --pvalue P-value --af Freq1 --prefix LDL_METAL_MultiStudy --break.top 120`  
-Download the `*_QQ.png` file.  
-From a terminal logged into `SMED8020-home`:   
-`scp ubuntu@SMED8020-nodeXXX:day4/LDL_METAL_MultiStudy_QQ.png ~/`  
-From a new terminal on your local machine:  
-`scp SMED8020:LDL_METAL_MultiStudy_QQ.png .`  
-The file should exist in whatever the default directory your terminal opens to. You can find this with `pwd`.  
+The file should exist in whatever the default directory your R is writing into. You can find this with `pwd`.  
 
 
 ****What is the lambda value for the smallest minor allele frequency (MAF) bin?****  
