@@ -22,7 +22,7 @@ The phenotype in today's practical is low density lipoprotein (LDL) cholesterol 
 
 ### Task outline  
 
-0. [Install METAL](http://csg.sph.umich.edu/abecasis/Metal/download/) using the pre-compiled binaries for your operating system 
+0. [Install METAL](http://csg.sph.umich.edu/abecasis/Metal/download/) using the pre-compiled binaries for your operating system. See [Practial Day 1](https://github.com/hunt-genes/SMED8020/tree/main/Day1) for details. 
 1. Gather summary statistics from GWAS for low density lipoprotein (LDL) cholesterol in three separate studies (HUNT, Global Lipids Genetics Consortium, and UK Biobank) and check details for the files.
 2. Run a meta-analysis using METAL
 3. Have a coffee or a biobreak or ask questions to the lecturers. Questions for consideration are in ****bold****. 
