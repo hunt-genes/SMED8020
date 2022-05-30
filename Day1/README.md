@@ -48,7 +48,7 @@ Mac: The .tar.gz will likely be automatically unzipped on a Mac into a folder ca
 PC: You may need to use WinZip to unzip the file on a PC.  
 Linux: Via the linux command line you can unzip with `tar -xf <path/to/.tar.gz`.  
 
-We will use `generic_metal/metal` as the command on Day 3. We will download the necessary data on Day 3.
+We will use `generic-metal/metal` as the command on Day 3. We will download the necessary data on Day 3.
 
 #### Practical 5 - Mendelian randomization: https://github.com/hunt-genes/SMED8020/tree/main/SMED8020-2022-master
 
