@@ -51,10 +51,12 @@ You can find useful information regarding these files here:
     
 ###### In terminal:
 
-This is how you make the terminal know where your files are/what directory to work from
-and you can copy this and paste it into your terminal 
+As initially described on Day 1, you need to first make the terminal know where your files are/what directory to work from
+and you can copy this and paste it into your terminal.  
 For example:
 cd /mnt/c/Users/name00/Desktop/SMED8020/2021/Day2/
+
+Then have a look at the top of the files:
 
 ```
 less day2.bim | head
@@ -62,9 +64,10 @@ less day2.fam | head
 less day2.bed | head
 ```
 
-This will display the top of the files in the terminal. If you use ```tail``` instead of ```head```,
+This will display the the first ten lines in the terminal. If you use ```tail``` instead of ```head```,
 you will the bottom of the file. By using ```more``` instead of ```head``` you can scroll down the file by 
-hitting the space-button. If you wish to get out of the file, you press "q". If you try ```less day2.bed | head```, 
+hitting the space-button. If you wish to get out of the file, you press "q". 
+When/If you try ```less day2.bed | head```, 
 you will get the message 
 > "day2.bed" may be a binary file. See it anyway?
 - Just press "n" as it will make no sense for human eyes ;) 
@@ -72,7 +75,7 @@ you will get the message
 *Then try:*
   
 ###### In terminal:
-  ```
+```
 wc -l day2.fam
 ```
 
