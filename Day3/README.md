@@ -43,7 +43,7 @@ When running a meta analysis there are many issues that need to be addressed.
   * flipped markers
   * population stratification
 
-### Instructions  
+## Instructions  
 #### 0. [Install METAL](http://csg.sph.umich.edu/abecasis/Metal/download/) using the pre-compiled binaries for your operating system. See [Practial Day 1](https://github.com/hunt-genes/SMED8020/tree/main/Day1) for details. 
 
 #### 1. Organizing summary statistics  
