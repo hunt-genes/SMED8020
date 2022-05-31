@@ -40,15 +40,30 @@ install.packages("ggplot2", "scales")
 ```
 #### Practical 3 - GWAS Meta-analysis
 
-Download the precompiled binary that matches your operating system from [University of Michigan Center for Statistical Genetics](http://csg.sph.umich.edu/abecasis/metal/download/).
+**Option 1:** Download the precompiled binary that matches your operating system from [University of Michigan Center for Statistical Genetics](http://csg.sph.umich.edu/abecasis/metal/download/).
+Note: This doesn't seem to work on newer Mac OS. 
 
-Store the file on your local computer. 
+Store the exe file on your local computer. 
 
 Mac: The .tar.gz will likely be automatically unzipped on a Mac into a folder called `generic-metal`.   
 PC: You may need to use WinZip to unzip the file on a PC.  
 Linux: Via the linux command line you can unzip with `tar -xf <path/to/.tar.gz`.  
 
-We will use `generic-metal/metal` as the command on Day 3. We will download the necessary data on Day 3.
+
+**Option 2:** Download and build a new version of [METAL from source code hosted on GitHub](https://github.com/statgen/METAL)
+
+You can download the GitHub repo as a zip file or use `git clone https://github.com/statgen/METAL.git` (this requires `git` to be installed).
+
+You also need to install of [CMake](https://cmake.org/install/) with downloads of the pre-compiled binaries for your OS [here](https://cmake.org/download/)
+
+mkdir build && cd build
+cmake -DCMAKE_BUILD_TYPE=Release ..
+make
+make test
+make install
+
+Depending on your working directory will use the path to `generic-metal/metal` as the command on Day 3. We will download the necessary data on Day 3.
+You can make sure it works by running `path/to/metal --help`
 
 #### Practical 5 - Mendelian randomization: https://github.com/hunt-genes/SMED8020/tree/main/SMED8020-2022-master
 
