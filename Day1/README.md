@@ -40,7 +40,7 @@ install.packages("ggplot2", "scales")
 ```
 #### Practical 3 - GWAS Meta-analysis
 
-**Option 1:** Download the precompiled binary that matches your operating system from [University of Michigan Center for Statistical Genetics](http://csg.sph.umich.edu/abecasis/metal/download/).
+**Option 1:** Download the precompiled binary for METAL that matches your operating system from [University of Michigan Center for Statistical Genetics](http://csg.sph.umich.edu/abecasis/metal/download/).
 Note: This doesn't seem to work on newer Mac OS. 
 
 Store the exe file on your local computer. 
@@ -66,6 +66,8 @@ make install
 
 Depending on your working directory will use the path to `generic-metal/metal` as the command on Day 3. We will download the necessary data on Day 3.
 You can make sure it works by running `path/to/metal --help`
+
+Download the data you wil use [here](https://ntnu.box.com/s/rvytm8ymd8iple8negy8ix8x5vp7qs9a). You will need about 1.7 GB free on your machine.
 
 #### Practical 5 - Mendelian randomization: https://github.com/hunt-genes/SMED8020/tree/main/SMED8020-2022-master
 
