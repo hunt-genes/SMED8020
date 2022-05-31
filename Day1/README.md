@@ -56,11 +56,13 @@ You can download the GitHub repo as a zip file or use `git clone https://github.
 
 You also need to install of [CMake](https://cmake.org/install/) with downloads of the pre-compiled binaries for your OS [here](https://cmake.org/download/)
 
+```
 mkdir build && cd build
 cmake -DCMAKE_BUILD_TYPE=Release ..
 make
 make test
 make install
+```
 
 Depending on your working directory will use the path to `generic-metal/metal` as the command on Day 3. We will download the necessary data on Day 3.
 You can make sure it works by running `path/to/metal --help`
