@@ -64,7 +64,7 @@ The columns are CHR     POS38   SNPID   Allele1 Allele2 AC_Allele2      AF_Allel
 
 #### 2. Check your summary statistics to make sure they're ready for meta-analysis.
 
-A. Which genome build is used?
+2.1 Which genome build is used?
 
 The human reference genome has been updated over the years and variants are given different coordinates in different versions. 
 The latest human reference genome GRCh38 was released from the Genome Reference Consortium on 17 December 2013.  
@@ -103,14 +103,14 @@ Look in GLGC.hg38.unmapped. ****Were there some markers that did not get convert
 The code to create the file with compatible header is here:
 `join -1 4 -2 2 <(sort -k 4 GLGC.h38.bed) <(sort -k 2 GLGC-LDL-preMeta.txt) | awk -v OFS='\t' '{$5=toupper($5);$9=toupper($9)}1' | awk '{print $0"\t"substr($2, 4)"\t"$2":"$4":"$9":"$5}'  | sed  '1i\CHRPOS\tchr\tstart\tPOS38\tAllele2\tCHRPOS37\trsid\ta2\tAllele1\tBETA\tSE\tN\tp.value\tAF_Allele2\tCHR\tSNPID' > GLGC-LDL-hg38-preMeta.txt`
 
-B. Check the file formats and headers
+2.2 Check the file formats and headers
 
 What is the header?
 `head -n 1 file`
 
 ****Are your SNPIDs across the files formatted in the same way?****
 
-C. How many variants will we be meta-analyzing?
+2.3 How many variants will we be meta-analyzing?
 ****How many variants are in each of the files?****  
 ```
 wc -l BBJ-LDL-preMeta.txt
@@ -123,7 +123,7 @@ The HUNT summary statistics originally had many variants because imputation was 
 
 ****How many genome wide significant results are in each of the input files?****  
 ```
-awk '$12 < 5e-8 {print 0}' HUNT-LDL-preMeta.txt | wc -l
+awk '$11 < 5e-8 {print 0}' HUNT-LDL-preMeta.txt | wc -l
 awk '$11 < 5e-8 {print 0}' BBJ-LDL-preMeta.txt | wc -l
 awk '$10 < 5e-8 {print 0}' GLGC-LDL-hg38-preMeta.txt | wc -l
 ```
@@ -146,13 +146,15 @@ Input files:
   * A column indicating the standard error of this effect size estimate 
   * The header for each of these columns must be specified so that METAL knows how to interpret the data. 
  
-A meta-analysis script, `LDL_metal.sh` has been created for you. You can run it with the following commands:    
+A shell wrapper script will be used to create the config file needed to run METAL. `LDL_metal.sh` has been created for you. You can run it with the following commands:    
 3.1. Create a config file with the bash script `LDL_METAL.sh` by filling in the appropriate arguments instead of "file1",  "file2",  "file3" and using "LDL_METAL" as your output prefix.
-`bash LDL_METAL.sh  file1 file2 file3 LDL_METAL > LDL_METAL.conf`    
-i.e. `bash LDL_metal.sh HUNT-LDL-preMeta.txt GLGC-LDL-hg38-preMeta.txt BBJ-LDL-preMeta.txt LDL_METAL_META > LDL_METAL.conf`    
-3.2. Run metal with the config file (this will take less than 20 minutes)
+`bash LDL_METAL.sh  file1 file2 file3 LDL_METAL > LDL_METAL.conf`   
+
+e.g. `bash LDL_metal.sh HUNT-LDL-preMeta.txt GLGC-LDL-hg38-preMeta.txt BBJ-LDL-preMeta.txt LDL_METAL_META > LDL_METAL.conf`    
+
+3.2. Run metal with the config file (this should take less than 20 minutes)
 `metal LDL_METAL.conf > LDL_METAL.log`  
-If you would like to time your analysis you can use the time program.  
+Note: If you would like to time your analysis you can use the time program.  
 `/usr/bin/time -o test_time -v metal LDL_METAL.conf`
 
 ****What type of meta-analysis did you run (fixed or random effects? sample size or inverse variance based?) What is the difference?****  
@@ -165,7 +167,7 @@ If you would like to time your analysis you can use the time program.
 
 Some informative outptut was printing to stdout as METAL was running. ****What was the smallest p-value and how many markers was the meta-analysis completed for?****  
 There will be a .tbl and .tbl.info file created from the meta-analysis. You can use `less` to view the files.
-****Will we use the same genome wide significance threshold as in step 4? Why or why not?****  
+****Will we use the same genome wide significance threshold for the meta-analysis as we used for the GWAS? Why or why not?****  
 ****How many genome wide significant results are there now?**** HINT: Use code like in #2 but replace `$10` with the column number with the p-value and use the file name for your meta-analysis results.
 
 5. Note: We pre-processed the files so you don't have to subset the results to markers in >1 study, but you might need this information in the future if you have not pre-processed your input files.
