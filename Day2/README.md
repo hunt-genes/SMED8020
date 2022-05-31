@@ -48,10 +48,12 @@ You can find useful information regarding these files here:
    
 *You can have a look at them in the terminal:*
 *Open Terminal (Mac) or Ubuntu (Windows) or command line of choice*
+
+We will first introduce some basic linux commands that will be nice to know (cd, less, head, tail, more) to navigate in a terminal.
     
 ###### In terminal:
 
-As initially described on Day 1, you need to first make the terminal know where your files are/what directory to work from
+You need to first make the terminal know where your files are/what directory to work from
 and you can copy this and paste it into your terminal.  
 For example:
 cd /mnt/c/Users/name00/Desktop/SMED8020/2021/Day2/
