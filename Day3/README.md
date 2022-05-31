@@ -44,26 +44,27 @@ When running a meta analysis there are many issues that need to be addressed.
   * population stratification
 
 ### Instructions  
-0. [Install METAL](http://csg.sph.umich.edu/abecasis/Metal/download/) using the pre-compiled binaries for your operating system. See [Practial Day 1](https://github.com/hunt-genes/SMED8020/tree/main/Day1) for details. 
+#### 0. [Install METAL](http://csg.sph.umich.edu/abecasis/Metal/download/) using the pre-compiled binaries for your operating system. See [Practial Day 1](https://github.com/hunt-genes/SMED8020/tree/main/Day1) for details. 
 
-1. Organizing summary statistics  
+#### 1. Organizing summary statistics  
 
 Usually you would download publically available summary statistics from the internet to your local machine. For convience for this practical, the data can be downloaded from [here](https://ntnu.box.com/s/rvytm8ymd8iple8negy8ix8x5vp7qs9a)
 
 * The original summary statistics from Biobank Japan (BBJ) of LDL cholesterol in N=72,866 can be found [here](https://humandbs.biosciencedbc.jp/files/hum0014/hum0014_README_QTL_GWAS.html)  
-`/mnt/scratch/day4/data/BBJ-LDL-preMeta.txt`  
+`BBJ-LDL-preMeta.txt`  
 The columns are CHR     POS38   SNPID   Allele1 Allele2 AC_Allele2      AF_Allele2      N       BETA    SE      p.value log10P
 
 * The original summary statistics of joint analysis of metabochip and GWAS data for LDL cholesterol in N=89,138 from the Global Lipids Genetics Consortium (GLGC) can be found [here](http://csg.sph.umich.edu/willer/public/lipids2013/)  
-`/mnt/scratch/day4/data/GLGC-LDL-preMeta.txt`  
+`GLGC-LDL-preMeta.txt`  
 The columns are SNP_hg18        SNP_hg19        rsid    A1      A2      beta    se      N       P-value Freq.A1.1000G.EUR
 
 * The summary statistics of LDL cholesterol from the HUNT study in N=67,429.   
-`/mnt/scratch/day4/data/HUNT-LDL-preMeta.txt`  
-The columns are CHR     POS38   SNPID   Allele1 Allele2 AC_Allele2      AF_Allele2      N       BETA    SE      Tstat   p.value varT    varTstar
-        log10P  AC_Allele1
+`HUNT-LDL-preMeta.txt`  
+The columns are CHR     POS38   SNPID   Allele1 Allele2 AC_Allele2      AF_Allele2      N       BETA    SE  p.value 
 
-2. Check your summary statistics to make sure they're ready for meta-analysis.
+#### 2. Check your summary statistics to make sure they're ready for meta-analysis.
+
+A. Which genome build is used?
 
 The human reference genome has been updated over the years and variants are given different coordinates in different versions. 
 The latest human reference genome GRCh38 was released from the Genome Reference Consortium on 17 December 2013.  
@@ -73,32 +74,51 @@ You can see more [here](https://genome.ucsc.edu/FAQ/FAQreleases.html#release1). 
 ****From the summary statistic headers, can you tell what reference genome versions are used for each study?****  
 
 It looks like BBJ and HUNT have SNP coordinates from hg38, but GLGC has summary statistics from hg18 and hg19. 
-We must use [UCSC listOver](https://genome.ucsc.edu/cgi-bin/hgLiftOver) to convert the hg19 coordinates to hg38 before meta-analysis. 
+We must use [UCSC listOver](https://genome.ucsc.edu/cgi-bin/hgLiftOver) to convert the hg19 coordinates to hg38 before meta-analysis. We can use liftOver on the command line or via the web. To avoid extensive file manipulation on your part, we already used this .bed file to make a new version of the GLGC results: `GLGC-LDL-hg38-preMeta.txt`. This file also has a header that is consistent with the other two files. You will use this in the meta-analysis. The instructions for using liftOver are below.
 
 Create a .bed file file from GLGC-LDL-preMeta.txt using linux tools `awk` and `sed` in the following the command:
 `awk ' NR > 1 {print $2"\t"$3"\t"$4"\t"$5}' GLGC-LDL-preMeta.txt | sed 's/:/\t/g' | awk '{print $1"\t"$2-1"\t"$2"\t"$1":"$2"\t"$4}' > GLCG.hg19.bed`
 
-Use the .bed file you made in liftOver. The liftover command requires 4 parameters in this order: 1) oldFile 2) map.chain 3) newFile 4) unMapped. Execute this command.
-`liftOver GLCG.hg19.bed ~/tools/ucsc/chain/hg19ToHg38.over.chain GLGC.h38.bed GLGC.hg38.unmapped`
+**Web option:**
+Upload the .bed file you made [here](http://genome.ucsc.edu/cgi-bin/hgLiftOver)
+
+**Command line option:**
+[Download liftOver](https://hgdownload.soe.ucsc.edu/admin/exe/)
+You can use `wget` like so: `wget https://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/liftOver`
+Turn on the executable bit `chmod +x ./filePath/utility_name`
+Now `./filePath/utility_name` is executable.
+
+[Download the map.chain](https://hgdownload.soe.ucsc.edu/goldenPath/hg19/liftOver/) for hg19 to hg38  
+
+The liftover command requires 4 parameters in this order: 
+1) oldFile (in .bed format) 
+2) map.chain 
+3) newFile (just the name) 
+4) unMapped
+Execute this command:
+`liftOver GLCG.hg19.bed hg19ToHg38.over.chain GLGC.h38.bed GLGC.hg38.unmapped`
 
 Look in GLGC.hg38.unmapped. ****Were there some markers that did not get converted from hg19 to hg38? Why do you think that is?****  
 
-To avoid extensive file manipulation on your part, we already used this .bed file to make a new version of the GLGC results: `GLGC-LDL-hg38-preMeta.txt`. 
-This file also has a header that is consistent with the other two files. You will use this in the meta-analysis.
-
-The code to create the file is here:
+The code to create the file with compatible header is here:
 `join -1 4 -2 2 <(sort -k 4 GLGC.h38.bed) <(sort -k 2 GLGC-LDL-preMeta.txt) | awk -v OFS='\t' '{$5=toupper($5);$9=toupper($9)}1' | awk '{print $0"\t"substr($2, 4)"\t"$2":"$4":"$9":"$5}'  | sed  '1i\CHRPOS\tchr\tstart\tPOS38\tAllele2\tCHRPOS37\trsid\ta2\tAllele1\tBETA\tSE\tN\tp.value\tAF_Allele2\tCHR\tSNPID' > GLGC-LDL-hg38-preMeta.txt`
+
+B. Check the file formats and headers
+
+What is the header?
+`head -n 1 file`
 
 ****Are your SNPIDs across the files formatted in the same way?****
 
+C. How many variants will we be meta-analyzing?
 ****How many variants are in each of the files?****  
 ```
 wc -l BBJ-LDL-preMeta.txt
 wc -l HUNT-LDL-preMeta.txt
 wc -l GLGC-LDL-hg38-preMeta.txt
 ```
+The HUNT summary statistics originally had many variants because imputation was done with the TOPMed imputation panel, which allows for higher resolution imputation due to the large amount of sequencing samples which make up the reference panel. We have subsetted the HUNT file to include only variants seen in GLGC or BBJ. This makes the file a more manageable size, and we only will perform meta-analysis on variants tested in 2 or more studies.
 
-The HUNT summary statistics originally had many variants because imputation was done with the TOPMed imputation panel, which allows for higher resolution imputation due to the large amount of sequencing samples which make up the reference panel. We have subsetted this to variants seen in GLGC or BBJ, so the file is more manageable AND because we only will perform meta-analysis on variants tested in 2 or more studies.
 ****What imputation panel was used for GLGC?**** HINT: Check the methods of the [paper](https://www.nature.com/articles/ng.2797).
 
 ****How many genome wide significant results are in each of the input files?****  
@@ -108,7 +128,7 @@ awk '$11 < 5e-8 {print 0}' BBJ-LDL-preMeta.txt | wc -l
 awk '$10 < 5e-8 {print 0}' GLGC-LDL-hg38-preMeta.txt | wc -l
 ```
 
-3. Running METAL   
+#### 3. Running METAL   
 
 The [Wiki page for METAL](https://genome.sph.umich.edu/wiki/METAL_Documentation#Brief_Description)  may be useful.
 
@@ -141,7 +161,7 @@ If you would like to time your analysis you can use the time program.
 ****What is the difference between "ANALYZE" and "ANALYZE HETEROGENEITY"?****  
 ****How might you create the config file if your summary statistics files had different header labels?****  
 
-4. View the meta-analysis results
+#### 4. View the meta-analysis results
 
 Some informative outptut was printing to stdout as METAL was running. ****What was the smallest p-value and how many markers was the meta-analysis completed for?****  
 There will be a .tbl and .tbl.info file created from the meta-analysis. You can use `less` to view the files.
@@ -151,15 +171,15 @@ There will be a .tbl and .tbl.info file created from the meta-analysis. You can 
 5. Note: We pre-processed the files so you don't have to subset the results to markers in >1 study, but you might need this information in the future if you have not pre-processed your input files.
 
 METAL will perform a meta-analysis even on markers which are only present in one of the sub-studies. We are only interested in markers present in more than one study. 
-The column labelled direction shows '?', '+', or '-' to indicate missingness, positive direction of effect, or negative direction of effect, respectively.  
+The column labelled "direction" shows '?', '+', or '-' to indicate missingness, positive direction of effect, or negative direction of effect, respectively.  
 One can use the `subset_meta_analysis.r` Rscript to exclude markers with more than one '?'.  
 Execute the following command to subset the results. This will take < 5 minutes.  
 `Rscript subset_meta_analysis.r --input LDL_METAL_META1.tbl --output LDL_METAL_MultiStudy.txt`
 
-6. Plot the meta-analysis results
+#### 6. Plot the meta-analysis results
 
 To visually inspect your results for significant findings you can make a QQ-plot like Day 2's practical. ****How does the inflation appear to you?****  
-`Rscript QQplot.r --input LDL_METAL_MultiStudy.txt --pvalue P-value --af Freq1 --prefix LDL_METAL_MultiStudy --break.top 120`  
+`Rscript QQplot.r --input LDL_METAL_META1.tbl --pvalue P-value --af Freq1 --prefix LDL_METAL_MultiStudy --break.top 120`  
 The file should exist in whatever the default directory your R is writing into. You can find this with `pwd`.  
 
 
