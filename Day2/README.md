@@ -336,9 +336,11 @@ test at p-value =0.00000001:*
 
 
 *How many SNPs are we left with?*
-
+```
 head output/frequent.bim |head
+
 wc -l output/frequent.bim
+```
 
 Reduce the subset of frequent SNPs by pruning so that no pair of SNPs
 (within 50 base-pairs) has an r2 greater that a 0.2:
@@ -567,7 +569,7 @@ results into a file **qc.ind.call.rate.missing**.
 
 ###### In Terminal:
 ```
-./plink --bfile output/qc.ind --test-missing --allow-no-sex  --out qc.ind.call.rate
+./plink --bfile output/qc.ind --test-missing --allow-no-sex  --out output/qc.ind.call.rate
 
 head output/qc.ind.call.rate.missing |head
 wc -l output/qc.ind.call.rate.missing
