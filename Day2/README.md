@@ -481,7 +481,7 @@ This command creates new files
 The new **ind.qc** dataset should contain 1939 individuals that passed 
 the QC.
 
-#####  SNP Filters
+###  SNP Filters
 
 In a similar way to the sample filters above, the first step involves 
 calculating the SNP statistics (missing rate, allele frequency, 
