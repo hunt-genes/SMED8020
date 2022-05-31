@@ -48,7 +48,7 @@ When running a meta analysis there are many issues that need to be addressed.
 
 #### 1. Organizing summary statistics  
 
-Usually you would download publically available summary statistics from the internet to your local machine. For convience for this practical, the data can be downloaded from [here](https://ntnu.box.com/s/rvytm8ymd8iple8negy8ix8x5vp7qs9a)
+Usually you would download publically available summary statistics from the internet to your local machine. For convience for this practical, the data can be downloaded from [here](https://ntnu.box.com/s/rvytm8ymd8iple8negy8ix8x5vp7qs9a). You will need about 1.7 GB.
 
 * The original summary statistics from Biobank Japan (BBJ) of LDL cholesterol in N=72,866 can be found [here](https://humandbs.biosciencedbc.jp/files/hum0014/hum0014_README_QTL_GWAS.html)  
 `BBJ-LDL-preMeta.txt`  
