@@ -9,8 +9,6 @@ The practical is separated into four main sections, corresponding to the guide i
 4.	Visualising the PRS results
 Please refer to the paper as you work through the practical. 
 
-Any command line code will be presented in red text, R code in green text and questions to answer in blue text.
-
 # 1. QC of Base Data
 The first step in Polygenic Risk Score (PRS) analyses is to generate or obtain the base data (GWAS summary statistics). Ideally these will correspond to the most powerful GWAS results available on the phenotype under study. In this example, we will use GWAS summary statistics from simulated height data (these will be provided in the folder with this document).
 
@@ -114,9 +112,6 @@ awk '!( ($4=="A" && $5=="T") || \
 
 ??? note "How many non-ambiguous SNPs were there?"
 
-
-
-
 ## \# Sample overlap and relatedness
 Since the target data were simulated there are no overlapping samples between the base and target data here (see the relevant section of the paper for discussion of the importance of avoiding sample overlap).
 Closely related individuals within and between the base and the target data may lead to overfitted results, limiting the generalizability of the results (see the relevant sections of the paper). Relatedness within the target data is tested in the Target Data section.
@@ -151,7 +146,7 @@ The following `plink` command applies some of these QC metrics to the target dat
 
 
 ```bash
-plink \
+./plink \
     --bfile EUR \
     --maf 0.01 \
     --hwe 1e-6 \
@@ -175,11 +170,7 @@ Each of the parameters corresponds to the following
 | write-snplist | - | Informs `plink` to only generate the QC'ed SNP list to avoid generating the .bed file. |
 | out | EUR.QC | Informs `plink` that all output should have a prefix of `EUR.QC` |
 
-??? note "How many SNPs and samples were filtered?"
-    - `14` samples were removed due to a high rate of genotype missingness
-    - `5,353` SNP were removed due to missing genotype data
-    -  `944` SNPs were removed due to being out of Hardy-Weinberg Equilibrium
-    - `5,061` SNPs were removed due to low minor allele frequency
+??? note "How many SNPs and samples were filtered?" 
 
 !!! note
     Normally, we can generate a new genotype file using the new sample list.
@@ -193,7 +184,7 @@ Very high or low heterozygosity rates in individuals could be due to DNA contami
 First, we perform pruning to remove highly correlated SNPs:
 
 ```bash
-plink \
+./plink \
     --bfile EUR \
     --keep EUR.QC.fam \
     --extract EUR.QC.snplist \
@@ -218,7 +209,7 @@ This will generate two files 1) **EUR.QC.prune.in** and 2) **EUR.QC.prune.out**.
 Heterozygosity rates can then be computed using `plink`:
 
 ```bash
-plink \
+./plink \
     --bfile EUR \
     --extract EUR.QC.prune.in \
     --keep EUR.QC.fam \
@@ -238,7 +229,6 @@ We will remove individuals with F coefficients that are more than 3 standard dev
     q() # exit R
     ```
 ??? note "How many samples were excluded due to high heterozygosity rate?"
-    - `2` samples were excluded
 
 ## \# Ambiguous SNPs
 These were removed during the base data QC.
@@ -259,7 +249,7 @@ Sometimes sample mislabelling can occur, which may lead to invalid results. One 
 Before performing a sex check, pruning should be performed (see [here](target.md#35-standard-gwas-qc)).
 A sex check can then easily be conducted using `plink`
 ```bash
-plink \
+./plink \
     --bfile EUR \
     --extract EUR.QC.prune.in \
     --keep EUR.valid.sample \
@@ -278,7 +268,6 @@ This will generate a file called **EUR.QC.sexcheck** containing the F-statistics
     q() # exit R
     ```
 ??? note "How many samples were excluded due mismatched Sex information?"
-    - `4` samples were excluded
 
 ## \# Sample overlap
 Since the target data were simulated there are no overlapping samples between the base and target data here (see the relevant section of [the paper](https://www.nature.com/articles/s41596-020-0353-1) for discussion of the importance of avoiding sample overlap). 
@@ -290,7 +279,7 @@ Before calculating the relatedness, pruning should be performed (see [here](targ
 Individuals that have a first or second degree relative in the sample ($\hat{\pi} > 0.125$) can be removed with the following command:
 
 ```bash
-plink \
+./plink \
     --bfile EUR \
     --extract EUR.QC.prune.in \
     --keep EUR.QC.valid \
@@ -299,13 +288,12 @@ plink \
 ```
 
 ??? note "How many related samples were excluded?"
-    - `0` samples were excluded
 
 ## Generate final QC'ed target data file
 After performing the full analysis, you can generate a QC'ed data set with the following command:
 
 ```bash
-plink \
+./plink \
     --bfile EUR \
     --make-bed \
     --keep EUR.QC.rel.id \
@@ -329,7 +317,7 @@ Each of the parameters corresponds to the following
 # 3. Calculating and Analysing PRS
 
 ## Background
-On this page, you will compute PRS using the popular genetic analyses tool `plink` - while `plink` is not a dedicated PRS software, you can perform every required steps of the C+T approach with `plink`. 
+You will compute PRS using the popular genetic analyses tool `plink` - while `plink` is not a dedicated PRS software, you can perform every required steps of the C+T approach with `plink`. 
 This multi-step process is a good way to learn the processes involved in computing PRS, which are typically performed automatically by PRS software.
 
 ## Required Data
@@ -361,7 +349,7 @@ One way of approximately capturing the right level of causal signal is to perfor
 Clumping can be performed using the following command in `plink`: 
 
 ```bash
-plink \
+./plink \
     --bfile EUR.QC \
     --clump-p1 1 \
     --clump-r2 0.1 \
@@ -433,7 +421,7 @@ The format of the **range_list** file should be as follows:
 We can then calculate the PRS with the following `plink` command:
 
 ```bash
-plink \
+./plink \
     --bfile EUR.QC \
     --score Height.QC.Transformed 3 4 12 header \
     --q-score-range range_list SNP.pvalue \
@@ -465,12 +453,12 @@ Again, we can calculate the PCs using `plink`:
 
 ```bash
 # First, we need to perform prunning
-plink \
+./plink \
     --bfile EUR.QC \
     --indep-pairwise 200 50 0.25 \
     --out EUR
 # Then we calculate the first 6 PCs
-plink \
+./plink \
     --bfile EUR.QC \
     --extract EUR.prune.in \
     --pca 6 \
@@ -530,7 +518,7 @@ This can be achieved using `R` as follows:
     }
     # Best result is:
     prs.result[which.max(prs.result$R2),]
-    q() # exit R
+    
     	```    
 Which P-value threshold generates the "best-fit" PRS?"
 
