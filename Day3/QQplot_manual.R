@@ -58,7 +58,7 @@ minMAC <- 0
 pvalue <- "PVALUE"
 #  make_option("--log10p", type="logical", default=F,
 #              help="Input p.value column with -log10(p.value) [default=F]"),    
-log10p <- "F"
+log10p <- FALSE
 #  make_option("--maintitle", type="character", default="",
 #              help="Plot title"),
 maintitle <- ""
