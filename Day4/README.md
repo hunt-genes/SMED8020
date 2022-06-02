@@ -121,7 +121,7 @@ The Height.QC.gz base data are now ready for using in downstream analyses.
 # 2. QC of Target Data
 Target data consist of individual-level genotype-phenotype data, usually generated within your lab/department/collaboration. For this tutorial, we have simulated some genotype-phenotype data using the 1000 Genomes Project European samples. You can download the data here
 
-Unzip the data as follow:
+Unzip the data as follow: (Some might have to run apt install unzip before this command, but you will know if you see an error message)
 
 ```bash
 unzip EUR.zip
