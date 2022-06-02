@@ -240,6 +240,12 @@ SNPs that have mismatching alleles reported in the base and target data may be r
 Rscript Ambiguous_SNPs.R
 ```
 
+Note: If using Ubuntu on Windows open R and run the following code:
+
+```R
+source('Ambiguous_SNPs.R')
+```
+
 ## \# Duplicate SNPs
 Make sure to remove any duplicate SNPs in your target data (these target data were simulated and so include no duplicated SNPs).
 
