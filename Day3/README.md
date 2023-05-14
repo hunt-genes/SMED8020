@@ -87,9 +87,13 @@ Upload the .bed file you made [here](http://genome.ucsc.edu/cgi-bin/hgLiftOver)
 [Download liftOver](https://hgdownload.soe.ucsc.edu/admin/exe/)
 You can use `wget` like so: `wget https://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/liftOver`
 Turn on the executable bit `chmod +x ./filePath/utility_name`
-Now `./filePath/utility_name` is executable.
+Now `./filePath/utility_name` is executable.     
+
+`chmod +x ./liftOver`    
 
 [Download the map.chain](https://hgdownload.soe.ucsc.edu/goldenPath/hg19/liftOver/) for hg19 to hg38  
+
+`wget https://hgdownload.soe.ucsc.edu/goldenPath/hg19/liftOver/hg19ToHg38.over.chain.gz`    
 
 The liftover command requires 4 parameters in this order: 
 1) oldFile (in .bed format) 
