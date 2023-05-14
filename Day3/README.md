@@ -154,7 +154,7 @@ A shell wrapper script will be used to create the config file needed to run META
 e.g. `bash LDL_metal.sh HUNT-LDL-preMeta.txt GLGC-LDL-hg38-preMeta.txt BBJ-LDL-preMeta.txt LDL_METAL_META > LDL_METAL.conf`    
 
 3.2. Run metal with the config file (this should take less than 20 minutes)
-`metal LDL_METAL.conf > LDL_METAL.log`  
+`/home/benb/scratch/software/METAL-2020-05-05/build/bin/metal LDL_METAL.conf > LDL_METAL.log`  
 Note: If you would like to time your analysis you can use the time program.  
 `/usr/bin/time -o test_time -v metal LDL_METAL.conf`
 
