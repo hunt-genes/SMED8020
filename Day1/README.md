@@ -3,7 +3,7 @@
 ### Useful linux commands
 
 | Command | Meaning of abbreviation | What it does |
-|:-:|:-:|:-:|:-|
+|:-:|:-:|:-|
 | pwd | print working directory | Prints path to current directory (folder) |
 | . | here | Exchangeable with path printed by 'pwd' |
 | .. | one level up | Gives the path until one level up from the current working directory (outside current folder) |
