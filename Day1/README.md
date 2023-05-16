@@ -1,5 +1,22 @@
 # DAY 1 - Gitlab orientation and laptop setup for practicals
 
+### Useful linux commands
+
+| Command | Meaning of abbreviation | What it does |
+|:-:|:-:|:-:|:-|
+| pwd | print working directory | Prints path to current directory (folder) |
+| . | here | Exchangeable with path printed by 'pwd' |
+| .. | one level up | Gives the path until one level up from the current working directory (outside current folder) |
+| cd <path> | change directory | Moves you to the specified path |
+| TAB button |  complete or list options | Completes path or filename matching what you have started typing, or lists available options if multiple matches |
+| ls | list | Lists files in the current directory |
+| head -n <file> | | Prints first n lines of the specified file. If n is not given, the default n = 10 |
+| tail -n <file> | | Prints last n lines in the specified file. If n is not given, the default n = 10 |
+| less <file> | | Opens file for you to read/scroll (exit by typing 'q')|
+| wc -l <file> | word count | Counts the number of lines (because of -l flag) in the specified file. |
+
+
+
 ### FOCUS and LEARNING GOALS
 > The aim for this session is for you to 1) become familar with gitlab and how to navigate the practicals, 2) 
 > download and install the required programs, and 3) test the scripts used in the practicals.
