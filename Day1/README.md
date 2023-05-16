@@ -7,7 +7,7 @@
 | pwd | print working directory | Prints path to current directory (folder) |
 | . | here | Exchangeable with path printed by 'pwd' |
 | .. | one level up | Gives the path until one level up from the current working directory (outside current folder) |
-| cd <path> | change directory | Moves you to the specified path |
+| cd <path> | change directory | Moves you to the specified path, for example 'cd ..' will change the current directory to one level up |
 | TAB button |  complete or list options | Completes path or filename matching what you have started typing, or lists available options if multiple matches |
 | ls | list | Lists files in the current directory |
 | head -n <file> | | Prints first n lines of the specified file. If n is not given, the default n = 10 |
