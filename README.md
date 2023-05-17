@@ -1,9 +1,9 @@
 
-[Precourse materials]("SMED 8020 - pre-course preparations 2022.pdf")
+[Precourse materials]("SMED 8020 - pre-course preparations 2023.pdf")
 
 # SMED8020 Practicals
 
-[Day 1 - Downloads and setup](Day1)
+[Day 1 - Pen and paper exercises](Day1)
 
 [Day 2 - QC, data preparation and GWAS](Day2)
 
