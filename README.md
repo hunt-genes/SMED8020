@@ -1,5 +1,5 @@
 
-[Precourse materials]("SMED_8020-pre-course_preparations_2023.pdf")
+[Precourse materials](SMED_8020-pre-course_preparations_2023.pdf)
 
 # SMED8020 Practicals
 
