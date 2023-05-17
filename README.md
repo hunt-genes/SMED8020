@@ -38,8 +38,10 @@ All software is installed
 | pwd | Print working directory | Prints path to current directory (folder) |
 | . | Here | Exchangeable with the path printed by ‘pwd’ |
 | .. | One level up | Gives the path until outside the current folder |
-| geno | 0.01 | Excludes SNPs that are missing in a high fraction of subjects. A two-stage filtering process is usually performed (see [Marees et al](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6001694/)).|
-| mind | 0.01 | Excludes individuals who have a high rate of genotype missingness, since this may indicate problems in the DNA sample or processing. (see [Marees et al](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6001694/) for more details).|
-| make-just-fam | - | Informs `plink` to only generate the QC'ed sample name to avoid generating the .bed file.  |
-| write-snplist | - | Informs `plink` to only generate the QC'ed SNP list to avoid generating the .bed file. |
-| out | EUR.QC | Informs `plink` that all output should have a prefix of `EUR.QC` |
+| cd <path> | Change directory | Moves you to the specified path |
+| TAB button | Complete or list options | Completes path/filename that you have started typing, or gives you available options if multiple matches |
+| ls | list | Lists file in the current directory |
+| head <file> | - | Prints first 10 lines of the specified file |
+| tail <file> | - | Prints last 10 lines of the specified file |
+| less <file> | - | Opens file for you to read/scroll. (exit with ‘q’) |
+| wc –l <file> | - | Using the –l flag, it counts lines in the specified file |
