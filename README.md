@@ -16,23 +16,19 @@
 [Day 5 - Mendelian randomization](Day5)
 
 # Required data
-cp -R /mnt/scratch/benb/data/Day2 /mnt/scratch/user/smed8020/Day2     
+`/mnt/scratch/benb/data` 
 
-/mnt/scratch/benb/data/Day2    
-/mnt/scratch/benb/data/Day3    
-/mnt/scratch/benb/data/Day4    
+Copy the data to your directory:    
+```
+cp -R /mnt/scratch/benb/data/Day3/* /mnt/scratch/{user_name}/smed8020/Day3-1-METAL/    
+cp -R /mnt/scratch/benb/data/Day4/* /mnt/scratch/{user_name}/smed8020/Day4/   
+```
 
-[Download here](https://ntnu.box.com/s/d74fob6vo86834tuvtbesrt3hjqih0sh)
+Note: Change user_name
 
 # Required software
-All software is installed    
-
-/mnt/scratch/benb/software/     
-
-1. [R](https://www.r-project.org/) (**version 4.0.0+**)
-2. PLINK 1.9 From zip archive for Practical Day 2 here or directly from: https://www.cog-genomics.org/plink2  
-3. For Windows users: Ubuntu from Microsoft Store on your computer
-4. [METAL](http://csg.sph.umich.edu/abecasis/metal/download/) from University of Michigan Center for Statistical genetics 
+All software is installed in the directory:    
+`/mnt/scratch/software/`      
 
 # Linux cheet sheet
 | Command | Meaning | Description|
