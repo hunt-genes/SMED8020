@@ -18,14 +18,14 @@ cd /mnt/work/workbench/{user_name}/SMED8020/Day4
 ```    
 
 Copy the data files to your Day4 directory:     
-```bash
+```
 cp /mnt/scratch/benb/data/Day4/* .
 ```    
 
 ## Reading the base data file
 **Height.gwas.txt.gz** is compressed. To read its content, you can type:
 
-```bash
+```
 gunzip -c Height.gwas.txt.gz | head
 ```
 
@@ -66,11 +66,12 @@ Therefore, SNPs with low MAF and INFO are typically removed before performing do
 We recommend removing SNPs with MAF < 1% and INFO < 0.8 (with very large base sample sizes these thresholds could be reduced if sensitivity checks indicate reliable results).
 These SNP filters can be achieved using the following code:
 
-    ```bash 
-    gunzip -c Height.gwas.txt.gz |\
-    awk 'NR==1 || ($11 > 0.01) && ($10 > 0.8) {print}' |\
-    gzip  > Height.gz
-    ```
+```
+gunzip -c Height.gwas.txt.gz |\
+awk 'NR==1 || ($11 > 0.01) && ($10 > 0.8) {print}' |\
+gzip  > Height.gz
+```    
+
 The bash code above does the following:
 
 1. Decompresses and reads the **Height.gwas.txt.gz** file
