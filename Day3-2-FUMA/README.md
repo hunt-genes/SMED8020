@@ -1,4 +1,4 @@
-# Day3 - PRACTICAL
+# Day 3 - PRACTICAL
 
 ## Functional Mapping and Annotation of Genome-Wide Association Studies (FUMA) 
 
