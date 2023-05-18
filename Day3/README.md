@@ -45,7 +45,8 @@ When running a meta analysis there are many issues that need to be addressed.
   * population stratification
 
 ## Instructions  
-#### 0. [Install METAL](http://csg.sph.umich.edu/abecasis/Metal/download/) using the pre-compiled binaries for your operating system. See [Practial Day 1](https://github.com/hunt-genes/SMED8020/tree/main/Day1) for details. 
+#### 0. [METAL](http://csg.sph.umich.edu/abecasis/Metal/download/) can be installed using the pre-compiled binaries for your operating system. For today's practical we have alreading installed the correct version here:    
+`/mnt/scratch/software/liftOver`    
 
 #### 1. Organizing summary statistics  
 
@@ -176,10 +177,17 @@ A shell wrapper script will be used to create the config file needed to run META
 
 e.g. `bash LDL_metal.sh HUNT-LDL-preMeta.txt GLGC-LDL-hg38-preMeta.txt BBJ-LDL-preMeta.txt LDL_METAL_META > LDL_METAL.conf`    
 
-3.2. Run metal with the config file (this should take less than 20 minutes)
-`/home/benb/scratch/software/METAL-2020-05-05/build/bin/metal LDL_METAL.conf > LDL_METAL.log`  
+3.2. Run metal with the config file (this should take less than 20 minutes)   
+
+Remember, we have already installed METAL here:    
+`/home/benb/scratch/software/METAL-2020-05-05/build/bin/metal`   
+
+```
+/home/benb/scratch/software/METAL-2020-05-05/build/bin/metal LDL_METAL.conf > LDL_METAL.log
+```     
+
 Note: If you would like to time your analysis you can use the time program.  
-`/usr/bin/time -o test_time -v metal LDL_METAL.conf`
+`/usr/bin/time -o test_time -v /home/benb/scratch/software/METAL-2020-05-05/build/bin/metal LDL_METAL.conf`    
 
 ****What type of meta-analysis did you run (fixed or random effects? sample size or inverse variance based?) What is the difference?****     
 
