@@ -1,5 +1,5 @@
 # Read in the dataset 
-example <- read.table("data.txt", header=T)
+example <- read.table("/mnt/work/workbench/benb/SMED8020/Day5/MR-Prac1/data.txt", header=T)
 attach(example)
 
 # Look at the data 
@@ -47,7 +47,7 @@ summary(lm(SBP~CRP))
 library(AER)
 
 # If AER has not been installed, run the command below first:
-install.packages("AER")
+#install.packages("AER")
 
 # General format for TSLS command: 
 # summary(ivreg(Outcome~Exposure | Instrument))
