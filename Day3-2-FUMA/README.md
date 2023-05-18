@@ -14,10 +14,10 @@ This practical is in two parts:
 
 1) Firstly, we will follow-up a finding manually. Both tutorials can be download (below) and opened in Microsoft Word.    
 
-[Part 1: Functional annotation without FUMA](FUMApractical2023_PART1)
+[Part 1: Functional annotation without FUMA](FUMApractical2023_PART1.docx)
 
 2) Secondly, we will use the FUMA tool.  
 
-[Part 2: Functional annotation without FUMA](FUMApractical2023_PART2)
+[Part 2: Functional annotation without FUMA](FUMApractical2023_PART2.docx)
 
 FUMA GWAS uses information from publicly available annotation and mapping datasets (see https://fuma.ctglab.nl/tutorial#celltype – Data sets)  
