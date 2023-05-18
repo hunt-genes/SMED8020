@@ -8,7 +8,7 @@
 To join the quiz: Go to https://kahoot.it on your phone, enter the code given by the lecturer, enter your preferred (nick) name.
 
 ### Part 2: Pen and paper exercises
-Download Day1_exercises_part2.docx to find exercises on the following topics:
+Download [Day 1 exercises](Day1_exercises_part2.docx) to find exercises on the following topics:
 <br> HWE
 <br> LD
 
