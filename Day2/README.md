@@ -1,5 +1,14 @@
 # DAY 2 - Quality Control and Testing Association for Genome-Wide Association Studies
 
+# NEEDS TO BE UPDATED    
+Link below.      
+$plink.    
+update wd when using workbench.   
+
+Please fill the following form during the exercise today: https://nettskjema.no/a/284234         
+
+Thank you!     
+
 ### FOCUS and LEARNING GOALS
 > The aim for this session is to get familiar with the different data formats and 
 > the quality control needed in preparation for running genetic analysis.
