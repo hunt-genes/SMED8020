@@ -2,8 +2,6 @@
 
 # NEEDS TO BE UPDATED    
 Link below.      
-$plink.    
-update wd when using workbench.   
 
 Please fill the following form during the exercise today: https://nettskjema.no/a/284234         
 
