@@ -13,7 +13,7 @@ Download Day1_exercises_part2.docx to find exercises on the following topics:
 <br> LD
 
 ### Part 3: HUNT-Cloud
-HUNT-Cloud will give us an introduction to the server and services. You should already have access to the smed8020 lab at this stage. If not, this is your last chance to get onboard. Please ask for assitance as sson as possible.  
+HUNT-Cloud will give us an introduction to the server and services. You should already have access to the smed8020 lab at this stage. If not, this is your last chance to get onboard. Please ask for assitance as soon as possible.  
 
 ### Useful linux commands
 
