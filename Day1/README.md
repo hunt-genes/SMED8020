@@ -1,8 +1,7 @@
-# DAY 1 Practical 
-## PART 1 - Genetic variation and population genetics: central terms and concepts
+# DAY 1 Practical - Genetic variation and population genetics: central terms and concepts
 
 ### FOCUS and LEARNING GOALS
-> The aim for this session is for you to 1) become familar with central terms and concepts related to genetic variation and population genetics, 2) use the Hardy-Weinberg Equilibrium law to estimate allele frequencies and genotype distributions, and assess whether an observed biallelic SNP is in Hardy-Weinberg equilibrium or not, 3) estimate haplotype frequencies from allele frequencies under linkage equilibrium, calculate the linkage disequilibrium coefficient, 4) become familiar with the genetic code/codon table
+> The aim for this session is for you to 1) become familar with central terms and concepts related to genetic variation and population genetics, 2) use the Hardy-Weinberg Equilibrium law to estimate allele frequencies and genotype distributions, and assess whether an observed biallelic SNP is in Hardy-Weinberg equilibrium or not, 3) estimate haplotype frequencies from allele frequencies under linkage equilibrium, calculate the linkage disequilibrium coefficient and 4) to get to know the HUNT-Cloud environment. 
 
 ### Part 1: Kahoot! quiz:
 
@@ -12,14 +11,9 @@ To join the quiz: Go to https://kahoot.it on your phone, enter the code given by
 Download Day1_exercises_part2.docx to find exercises on the following topics:
 <br> HWE
 <br> LD
-<br> The genetic code
 
-# DAY 1 - 
-## PART2: Gitlab orientation and setup for practicals
-
-### FOCUS and LEARNING GOALS
-> The aim for this session is for you to 1) become familar with gitlab and how to navigate the practicals, 2) 
-> download and install the required programs, and 3) test the scripts used in the practicals.
+### Part 3: HUNT-Cloud
+HUNT-Cloud will give us an introduction to the server and services. You should already have access to the smed8020 lab at this stage. If not, this is your last chance to get onboard. Please ask for assitance as sson as possible.  
 
 ### Useful linux commands
 
@@ -35,6 +29,12 @@ Download Day1_exercises_part2.docx to find exercises on the following topics:
 | tail -n <file> | | Prints last n lines in the specified file. If n is not given, the default n = 10 |
 | less <file> | | Opens file for you to read/scroll (exit by typing 'q')|
 | wc -l <file> | word count | Counts the number of lines (because of -l flag) in the specified file. |
+
+  
+
+  
+  
+#TO REMOVE (ALL BELOW)  
 
 ### Required downloads   
 
