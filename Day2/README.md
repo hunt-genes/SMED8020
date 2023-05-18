@@ -65,7 +65,11 @@ We will first introduce some basic linux commands that will be nice to know (cd,
 You need to first make the terminal know where your files are/what directory to work from
 and you can copy this and paste it into your terminal.  
 For example:
-cd /mnt/c/Users/name00/Desktop/SMED8020/2021/Day2/
+cd /mnt/work/workbench/user_name     
+
+```git clone https://github.com/hunt-genes/SMED8020.git```    
+
+cd SMED8020/Day2         
 
 We also need to tell the terminal where plink is:    
 ```plink=/mnt/scratch/software/plink/plink_linux_x86_64_20220402/plink```     
