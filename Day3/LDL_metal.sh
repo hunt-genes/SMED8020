@@ -31,6 +31,8 @@ PROCESS ${3}
 
 OUTFILE ${4} .tbl
 MINWEIGHT 10000
+
+# Execute meta-analysis
 ANALYZE 
 
 QUIT"
