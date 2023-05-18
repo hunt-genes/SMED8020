@@ -157,7 +157,7 @@ The following `plink` command applies some of these QC metrics to the target dat
 
 
 ```bash
-./plink \
+plink \
     --bfile EUR \
     --maf 0.01 \
     --hwe 1e-6 \
@@ -195,7 +195,7 @@ Very high or low heterozygosity rates in individuals could be due to DNA contami
 First, we perform pruning to remove highly correlated SNPs:
 
 ```bash
-./plink \
+plink \
     --bfile EUR \
     --keep EUR.QC.fam \
     --extract EUR.QC.snplist \
@@ -220,7 +220,7 @@ This will generate two files 1) **EUR.QC.prune.in** and 2) **EUR.QC.prune.out**.
 Heterozygosity rates can then be computed using `plink`:
 
 ```bash
-./plink \
+plink \
     --bfile EUR \
     --extract EUR.QC.prune.in \
     --keep EUR.QC.fam \
@@ -266,7 +266,7 @@ Sometimes sample mislabelling can occur, which may lead to invalid results. One 
 Before performing a sex check, pruning should be performed (see [here](target.md#35-standard-gwas-qc)).
 A sex check can then easily be conducted using `plink`
 ```bash
-./plink \
+plink \
     --bfile EUR \
     --extract EUR.QC.prune.in \
     --keep EUR.valid.sample \
@@ -296,7 +296,7 @@ Before calculating the relatedness, pruning should be performed (see [here](targ
 Individuals that have a first or second degree relative in the sample ($\hat{\pi} > 0.125$) can be removed with the following command:
 
 ```bash
-./plink \
+plink \
     --bfile EUR \
     --extract EUR.QC.prune.in \
     --keep EUR.QC.valid \
@@ -310,7 +310,7 @@ Individuals that have a first or second degree relative in the sample ($\hat{\pi
 After performing the full analysis, you can generate a QC'ed data set with the following command:
 
 ```bash
-./plink \
+plink \
     --bfile EUR \
     --make-bed \
     --keep EUR.QC.rel.id \
@@ -367,7 +367,7 @@ One way of approximately capturing the right level of causal signal is to perfor
 Clumping can be performed using the following command in `plink`: 
 
 ```bash
-./plink \
+plink \
     --bfile EUR.QC \
     --clump-p1 1 \
     --clump-r2 0.1 \
@@ -439,7 +439,7 @@ The format of the **range_list** file should be as follows:
 We can then calculate the PRS with the following `plink` command:
 
 ```bash
-./plink \
+plink \
     --bfile EUR.QC \
     --score Height.QC.Transformed 3 4 12 header \
     --q-score-range range_list SNP.pvalue \
@@ -471,12 +471,12 @@ Again, we can calculate the PCs using `plink`:
 
 ```bash
 # First, we need to perform prunning
-./plink \
+plink \
     --bfile EUR.QC \
     --indep-pairwise 200 50 0.25 \
     --out EUR
 # Then we calculate the first 6 PCs
-./plink \
+plink \
     --bfile EUR.QC \
     --extract EUR.prune.in \
     --pca 6 \
