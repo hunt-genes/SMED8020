@@ -16,7 +16,12 @@ Go to your Day4 directory:
 ```bash
 cd /mnt/work/workbench/{user_name}/SMED8020/Day4
 ```    
- 
+
+Copy the data files to your Day4 directory:     
+```bash
+cp /mnt/scratch/benb/data/Day4/* .
+```    
+
 ## Reading the base data file
 **Height.gwas.txt.gz** is compressed. To read its content, you can type:
 
