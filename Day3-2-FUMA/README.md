@@ -12,7 +12,7 @@ In order to learn more about which variants are likely to have functional impact
 
 This practical is in two parts:    
 
-1) Firstly, we will follow-up a findings manually.     
+1) Firstly, we will follow-up a finding manually. Both tutorials can be download and opened in Microsoft Word.    
 
 [Part 1: Functional annotation without FUMA](FUMApractical2023_PART1)
 
