@@ -105,8 +105,8 @@ The above command does the following:
 
 ??? note "How many duplicated SNPs are there?"
 
-<details open>
-<summary>Show answer?</summary>
+<details>
+<summary>Show answer</summary>
 <br>
 2
 </details>
