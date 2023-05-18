@@ -1,4 +1,5 @@
 # Install package (if these packages are already installed in your version of R then you can go down to the 'Load package' section below)
+install.packages('stringi')
 install.packages("devtools")
 library(devtools)
 install_github("MRCIEU/TwoSampleMR")
@@ -9,6 +10,9 @@ install.packages("ggplot2")
 library(TwoSampleMR)
 library(plyr)
 library(ggplot2)
+
+# Set working directory
+setwd("/mnt/work/workbench/{user_name}/SMED8020/Day5/MR-Prac2/")
 
 # Load BMI (exposure) data
 bmi_exp_data <- read_exposure_data(filename="BMIestimates-BMI_SNPs.txt", sep="\t", snp_col="SNP", beta_col="b", se_col="se", 
