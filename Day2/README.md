@@ -58,6 +58,9 @@ and you can copy this and paste it into your terminal.
 For example:
 cd /mnt/c/Users/name00/Desktop/SMED8020/2021/Day2/
 
+Then extract the data and scripts:     
+```unzip Plink_Data_Scripts_Day2.zip```    
+
 Then have a look at the top of the files:
 
 ```
