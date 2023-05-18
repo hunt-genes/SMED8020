@@ -8,25 +8,17 @@ The MR practicals are in two parts:
 
 Each folder (MR-Prac*) cotains the following:
 - tutorial (.docx, please download and open in WORD)
-- R script for running the analysis (.R, please download and open in R studio)
-- data files (.txt, please download these, they will be loaded into R using the R script in R Studio)
+- R script for running the analysis (.R, please open in R studio)
+- data files (.txt, they will be loaded into R using the R script in R Studio)
 
-## Before you start:
+## Let's get started. 
 
-You will need to download and install the following in order:
-1) R version 4.0.0
-https://cran.uib.no/
-2) RStudio
-https://www.rstudio.com/products/rstudio/download/
-3) Download the practical
-https://gitlab.com/huntgenes/SMED8020/tree/master/Day5
+Download [Prac 1](MR-Prac1/Mendelian_Randomization_Practical_1_-_Single_Sample_-QUESTIONS.docx)   
+   
+Open R Studio in workbench and open the R script for prac 1   
+   
+Read the questions in the Word document and execute the code in R Studio   
+   
+Write your answers in the Word document   
 
-Please follow the instructions below to download the practical.
-Clever clogs can use the 'git clone' command from the command line 
-
-![Inline image](Screen_Shot_2019-05-22_at_08.33.56.png)
-
-Please ask the tutors for help if you have trouble installing R, RStudio or downloading the practical 
-
-
-
+Do the same for [Prac 2](MR-Prac2/Mendelian_Randomization_Practical_2_-_MR_base_-_QUESTIONS.docx)   
