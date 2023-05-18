@@ -92,6 +92,10 @@ Create a .bed file file from GLGC-LDL-preMeta.txt using linux tools `awk` and `s
 Upload the .bed file you made [here](http://genome.ucsc.edu/cgi-bin/hgLiftOver)    
 
 **Command line option:**      
+We have installed lifOver here:     
+`/mnt/scratch/software/liftOver`   
+
+But if you would like to install it yourself do the following:    
 [Download liftOver](https://hgdownload.soe.ucsc.edu/admin/exe/)     
 You can use `wget` like so:     
 `wget https://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/liftOver`     
@@ -112,7 +116,7 @@ The liftover command requires 4 parameters in this order:
 3) newFile (just the name) 
 4) unMapped
 Execute this command:     
-`liftOver GLCG.hg19.bed hg19ToHg38.over.chain GLGC.h38.bed GLGC.hg38.unmapped`
+`/mnt/scratch/software/liftOver GLCG.hg19.bed hg19ToHg38.over.chain GLGC.h38.bed GLGC.hg38.unmapped`
 
 Look in GLGC.hg38.unmapped. ****Were there some markers that did not get converted from hg19 to hg38? Why do you think that is?****       
 
@@ -173,11 +177,16 @@ e.g. `bash LDL_metal.sh HUNT-LDL-preMeta.txt GLGC-LDL-hg38-preMeta.txt BBJ-LDL-p
 Note: If you would like to time your analysis you can use the time program.  
 `/usr/bin/time -o test_time -v metal LDL_METAL.conf`
 
-****What type of meta-analysis did you run (fixed or random effects? sample size or inverse variance based?) What is the difference?****  
-****Did you use genomic control? In what situations is it useful to use genomic control****  
-****What does it mean to set the minimum weight to 10,000?****   
-****What is the difference between "ANALYZE" and "ANALYZE HETEROGENEITY"?****  
-****How might you create the config file if your summary statistics files had different header labels?****  
+****What type of meta-analysis did you run (fixed or random effects? sample size or inverse variance based?) What is the difference?****     
+
+****Did you use genomic control? In what situations is it useful to use genomic control****       
+
+****What does it mean to set the minimum weight to 10,000?****        
+
+****What is the difference between "ANALYZE" and "ANALYZE HETEROGENEITY"?****       
+
+****How might you create the config file if your summary statistics files had different header labels?****       
+
 
 #### 4. View the meta-analysis results
 
