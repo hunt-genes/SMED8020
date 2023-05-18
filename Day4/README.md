@@ -537,8 +537,8 @@ This can be achieved using `R` as follows:
     # Best result is:
     prs.result[which.max(prs.result$R2),]
     
-    ```    
-    
+```      
+
 Which P-value threshold generates the "best-fit" PRS?"
 
 
@@ -608,4 +608,5 @@ The PRS results corresponding to a range of P-value thresholds obtained by appli
     # write the plot to file
     dev.off()
     q() # exit R
-    ```
+```        
+    
