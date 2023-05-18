@@ -3,6 +3,13 @@ echo "#THIS SCRIPT EXECUTES AN ANALYSIS OF THREE STUDIES
 
 #LOAD THE THREE INPUT FILES
 
+# Meta-analysis weighted by standard error does not work well
+# when different studies used very different transformations.
+# In this case, some attempt was made to use similar trait
+# transformation and you can request a standard error based
+# analysis by uncommenting the following line:
+SCHEME   STDERR
+
 # UNCOMMENT THE NEXT LINE TO ENABLE GenomicControl CORRECTION
 # GENOMICCONTROL ON
 
@@ -24,7 +31,6 @@ PROCESS ${3}
 
 OUTFILE ${4} .tbl
 MINWEIGHT 10000
-SCHEME STDERR
 ANALYZE 
 
 QUIT"
