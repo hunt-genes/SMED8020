@@ -105,6 +105,11 @@ The above command does the following:
 
 ??? note "How many duplicated SNPs are there?"
 
+<details open>
+<summary>Show answer?</summary>
+<br>
+2
+</details>
 
 ## \# Ambiguous SNPs
 If the base and target data were generated using different genotyping chips and the chromosome strand (+/-) that was used for either is unknown, then it is not possible to pair-up the alleles of ambiguous SNPs (i.e. those with complementary alleles, either C/G or A/T SNPs) across the data sets, because it will be unknown whether the base and target data are referring to the same allele or not. While allele frequencies could be used to infer which alleles are on the same strand, the accuracy of this could be low for SNPs with MAF close to 50% or when the base and target data are from different populations. Therefore, we recommend removing all ambiguous SNPs to avoid introducing this potential source of systematic error.
