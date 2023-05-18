@@ -72,8 +72,8 @@ For example:
 ```cd SMED8020/Day2```             
 
 We also need to tell the terminal where plink is:    
-
-```cp /mnt/scratch/software/plink/plink_linux_x86_64_20220402/plink .local/bin/
+```   
+cp /mnt/scratch/software/plink/plink_linux_x86_64_20220402/plink .local/bin/
 echo "export PATH=.local/bin/:$PATH" >> .profile
 ```     
 
