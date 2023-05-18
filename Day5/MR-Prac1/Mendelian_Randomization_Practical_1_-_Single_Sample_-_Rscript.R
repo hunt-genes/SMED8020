@@ -1,5 +1,8 @@
+# Set working directory
+setwd("/mnt/work/workbench/{user_name}/SMED8020/Day5/MR-Prac1/")
+
 # Read in the dataset 
-example <- read.table("/mnt/work/workbench/benb/SMED8020/Day5/MR-Prac1/data.txt", header=T)
+example <- read.table("data.txt", header=T)
 attach(example)
 
 # Look at the data 
