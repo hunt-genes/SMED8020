@@ -359,7 +359,8 @@ We can obtain the transformed summary statistics with `R`:
     dat$BETA <- log(dat$OR)
     write.table(dat, "Height.QC.Transformed", quote=F, row.names=F)
     q() # exit R
-    ````
+````    
+
 ## Clumping
 Linkage disequilibrium, which corresponds to the correlation between the genotypes of genetic variants across the genome, makes identifying the contribution from causal independent genetic variants extremely challenging. 
 One way of approximately capturing the right level of causal signal is to perform clumping, which removes SNPs in ways that only weakly correlated SNPs are retained but preferentially retaining the SNPs most associated with the phenotype under study. 
