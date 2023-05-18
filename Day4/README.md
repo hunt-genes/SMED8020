@@ -12,9 +12,9 @@ Please refer to the paper as you work through the practical.
 # 1. QC of Base Data
 The first step in Polygenic Risk Score (PRS) analyses is to generate or obtain the base data (GWAS summary statistics). Ideally these will correspond to the most powerful GWAS results available on the phenotype under study. In this example, we will use GWAS summary statistics from simulated height data (these will be provided in the folder with this document).
 
-Go to the Day4 directory:     
+Go to your Day4 directory:     
 ```bash
-cd /mnt/work/workbench/benb/SMED8020/Day4
+cd /mnt/work/workbench/{user_name}/SMED8020/Day4
 ```    
  
 ## Reading the base data file
