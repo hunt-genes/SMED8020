@@ -1,6 +1,4 @@
-# Day 3 - PRACTICAL
-
-## Functional Mapping and Annotation of Genome-Wide Association Studies (FUMA) 
+# Day 3 - Functional Mapping and Annotation of Genome-Wide Association Studies (FUMA) 
 
 ### FOCUS and LEARNING GOALS
 > The aim for this session is to get familiar with platforms to annotate,  
