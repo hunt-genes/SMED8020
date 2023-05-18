@@ -492,7 +492,7 @@ The P-value threshold that provides the "best-fit" PRS under the C+T method is u
 To approximate the "best-fit" PRS, we can perform a regression between PRS calculated at a range of P-value thresholds and then select the PRS that explains the highest phenotypic variance (please see Section 4.6 of our paper on overfitting issues). 
 This can be achieved using `R` as follows:
 
-    ```R 
+```R 
     p.threshold <- c(0.001,0.05,0.1,0.2,0.3,0.4,0.5)
     # Read in the phenotype file 
     phenotype <- read.table("EUR.height", header=T)
@@ -537,7 +537,8 @@ This can be achieved using `R` as follows:
     # Best result is:
     prs.result[which.max(prs.result$R2),]
     
-    	```    
+    ```    
+    
 Which P-value threshold generates the "best-fit" PRS?"
 
 
