@@ -15,7 +15,7 @@ Each folder (MR-Prac*) cotains the following:
 
 Download [Prac 1](MR-Prac1/Mendelian_Randomization_Practical_1_-_Single_Sample_-QUESTIONS.docx)   
    
-Open R Studio in workbench and open the R script for prac 1   
+Open R Studio in workbench and open the R script for Prac 1   
    
 Read the questions in the Word document and execute the code in R Studio   
    
