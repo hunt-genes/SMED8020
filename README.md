@@ -9,7 +9,7 @@
 
 [Day 3 - PART 1: GWAS meta-analysis](Day3-1-METAL)
 
-[Day 3 - PART 2: FUMA](Day3-1-FUMA)
+[Day 3 - PART 2: FUMA](Day3-2-FUMA)
 
 [Day 4 - PRS calculation and analysis](Day4)
 
