@@ -79,7 +79,8 @@ The human reference genome has been updated over the years and variants are give
 The latest human reference genome GRCh38 was released from the Genome Reference Consortium on 17 December 2013.  
 The previous human reference genome (GRCh37) was the nineteenth version (hg19).  
 The version before this was NCBI Build 36.1	released March 2006	(hg18). 
-You can see more [here](https://genome.ucsc.edu/FAQ/FAQreleases.html#release1). hg19 is still widely used and people are slowly converting to hg38.  
+You can see more [here](https://genome.ucsc.edu/FAQ/FAQreleases.html#release1). hg19 is still widely used and people are slowly converting to hg38.       
+
 ****From the summary statistic headers, can you tell what reference genome versions are used for each study?****  
 
 It looks like BBJ and HUNT have SNP coordinates from hg38, but GLGC has summary statistics from hg18 and hg19. 
@@ -126,7 +127,7 @@ The code to create the file with compatible header is here:
 2.2 Check the file formats and headers     
 
 What is the header?     
-`head -n 1 file`
+```head -n 1 file```
 
 ****Are your SNPIDs across the files formatted in the same way?****     
 
@@ -136,12 +137,14 @@ What is the header?
 wc -l BBJ-LDL-preMeta.txt
 wc -l HUNT-LDL-preMeta.txt
 wc -l GLGC-LDL-hg38-preMeta.txt
-```
+```   
+
 The HUNT summary statistics originally had many variants because imputation was done with the TOPMed imputation panel, which allows for higher resolution imputation due to the large amount of sequencing samples which make up the reference panel. We have subsetted the HUNT file to include only variants seen in GLGC or BBJ. This makes the file a more manageable size, and we only will perform meta-analysis on variants tested in 2 or more studies.
 
-****What imputation panel was used for GLGC?**** HINT: Check the methods of the [paper](https://www.nature.com/articles/ng.2797).
+****What imputation panel was used for GLGC?**** HINT: Check the methods of the [paper](https://www.nature.com/articles/ng.2797).    
 
-****How many genome wide significant results are in each of the input files?****  
+****How many genome wide significant results are in each of the input files?****    
+
 ```
 awk '$11 < 5e-8 {print 0}' HUNT-LDL-preMeta.txt | wc -l
 awk '$11 < 5e-8 {print 0}' BBJ-LDL-preMeta.txt | wc -l
@@ -164,11 +167,12 @@ Input files:
 * If you are carrying out a meta-analysis based on standard errors, you will need: 
   * A column indicating the estimated effect size for each marker 
   * A column indicating the standard error of this effect size estimate 
-  * The header for each of these columns must be specified so that METAL knows how to interpret the data. 
+  * The header for each of these columns must be specified so that METAL knows how to interpret the data.     
  
-A shell wrapper script will be used to create the config file needed to run METAL. `LDL_metal.sh` has been created for you. You can run it with the following commands:    
-3.1. Create a config file with the bash script `LDL_METAL.sh` by filling in the appropriate arguments instead of "file1",  "file2",  "file3" and using "LDL_METAL" as your output prefix.
-`bash LDL_METAL.sh  file1 file2 file3 LDL_METAL > LDL_METAL.conf`   
+A shell wrapper script will be used to create the config file needed to run METAL. `LDL_metal.sh` has been created for you. You can run it with the following commands:     
+3.1. Create a config file with the bash script `LDL_METAL.sh` by filling in the appropriate arguments instead of "file1",  "file2",  "file3" and using "LDL_METAL" as your output prefix.     
+
+```bash LDL_METAL.sh  file1 file2 file3 LDL_METAL > LDL_METAL.conf```      
 
 e.g. `bash LDL_metal.sh HUNT-LDL-preMeta.txt GLGC-LDL-hg38-preMeta.txt BBJ-LDL-preMeta.txt LDL_METAL_META > LDL_METAL.conf`    
 
