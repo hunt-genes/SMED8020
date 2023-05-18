@@ -85,21 +85,24 @@ You can see more [here](https://genome.ucsc.edu/FAQ/FAQreleases.html#release1). 
 It looks like BBJ and HUNT have SNP coordinates from hg38, but GLGC has summary statistics from hg18 and hg19. 
 We must use [UCSC listOver](https://genome.ucsc.edu/cgi-bin/hgLiftOver) to convert the hg19 coordinates to hg38 before meta-analysis. We can use liftOver on the command line or via the web. To avoid extensive file manipulation on your part, we already used this .bed file to make a new version of the GLGC results: `GLGC-LDL-hg38-preMeta.txt`. This file also has a header that is consistent with the other two files. You will use this in the meta-analysis. The instructions for using liftOver are below.
 
-Create a .bed file file from GLGC-LDL-preMeta.txt using linux tools `awk` and `sed` in the following the command:
+Create a .bed file file from GLGC-LDL-preMeta.txt using linux tools `awk` and `sed` in the following the command:     
 `awk ' NR > 1 {print $2"\t"$3"\t"$4"\t"$5}' GLGC-LDL-preMeta.txt | sed 's/:/\t/g' | awk '{print $1"\t"$2-1"\t"$2"\t"$1":"$2"\t"$4}' > GLCG.hg19.bed`
 
-**Web option:**
-Upload the .bed file you made [here](http://genome.ucsc.edu/cgi-bin/hgLiftOver)
+**Web option:**     
+Upload the .bed file you made [here](http://genome.ucsc.edu/cgi-bin/hgLiftOver)    
 
-**Command line option:**
-[Download liftOver](https://hgdownload.soe.ucsc.edu/admin/exe/)
-You can use `wget` like so: `wget https://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/liftOver`
-Turn on the executable bit `chmod +x ./filePath/utility_name`
+**Command line option:**      
+[Download liftOver](https://hgdownload.soe.ucsc.edu/admin/exe/)     
+You can use `wget` like so:     
+`wget https://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/liftOver`     
+
+Turn on the executable bit `chmod +x ./filePath/utility_name`     
+
 Now `./filePath/utility_name` is executable.     
 
 `chmod +x ./liftOver`    
 
-[Download the map.chain](https://hgdownload.soe.ucsc.edu/goldenPath/hg19/liftOver/) for hg19 to hg38  
+[Download the map.chain](https://hgdownload.soe.ucsc.edu/goldenPath/hg19/liftOver/) for hg19 to hg38       
 
 `wget https://hgdownload.soe.ucsc.edu/goldenPath/hg19/liftOver/hg19ToHg38.over.chain.gz`    
 
@@ -108,23 +111,23 @@ The liftover command requires 4 parameters in this order:
 2) map.chain 
 3) newFile (just the name) 
 4) unMapped
-Execute this command:
+Execute this command:     
 `liftOver GLCG.hg19.bed hg19ToHg38.over.chain GLGC.h38.bed GLGC.hg38.unmapped`
 
-Look in GLGC.hg38.unmapped. ****Were there some markers that did not get converted from hg19 to hg38? Why do you think that is?****  
+Look in GLGC.hg38.unmapped. ****Were there some markers that did not get converted from hg19 to hg38? Why do you think that is?****       
 
-The code to create the file with compatible header is here:
-`join -1 4 -2 2 <(sort -k 4 GLGC.h38.bed) <(sort -k 2 GLGC-LDL-preMeta.txt) | awk -v OFS='\t' '{$5=toupper($5);$9=toupper($9)}1' | awk '{print $0"\t"substr($2, 4)"\t"$2":"$4":"$9":"$5}'  | sed  '1i\CHRPOS\tchr\tstart\tPOS38\tAllele2\tCHRPOS37\trsid\ta2\tAllele1\tBETA\tSE\tN\tp.value\tAF_Allele2\tCHR\tSNPID' > GLGC-LDL-hg38-preMeta.txt`
+The code to create the file with compatible header is here:     
+`join -1 4 -2 2 <(sort -k 4 GLGC.h38.bed) <(sort -k 2 GLGC-LDL-preMeta.txt) | awk -v OFS='\t' '{$5=toupper($5);$9=toupper($9)}1' | awk '{print $0"\t"substr($2, 4)"\t"$2":"$4":"$9":"$5}'  | sed  '1i\CHRPOS\tchr\tstart\tPOS38\tAllele2\tCHRPOS37\trsid\ta2\tAllele1\tBETA\tSE\tN\tp.value\tAF_Allele2\tCHR\tSNPID' > GLGC-LDL-hg38-preMeta.txt`     
 
-2.2 Check the file formats and headers
+2.2 Check the file formats and headers     
 
-What is the header?
+What is the header?     
 `head -n 1 file`
 
-****Are your SNPIDs across the files formatted in the same way?****
+****Are your SNPIDs across the files formatted in the same way?****     
 
-2.3 How many variants will we be meta-analyzing?
-****How many variants are in each of the files?****  
+2.3 How many variants will we be meta-analyzing?     
+****How many variants are in each of the files?****       
 ```
 wc -l BBJ-LDL-preMeta.txt
 wc -l HUNT-LDL-preMeta.txt
