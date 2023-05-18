@@ -65,7 +65,7 @@ We will first introduce some basic linux commands that will be nice to know (cd,
 You need to first make the terminal know where your files are/what directory to work from
 and you can copy this and paste it into your terminal.  
 For example:
-cd /mnt/work/workbench/user_name     
+cd /mnt/work/workbench/user_name    
 
 ```git clone https://github.com/hunt-genes/SMED8020.git```    
 
@@ -157,7 +157,7 @@ Every subsequent PLINK command will make these two other files together with the
 
 ###### An example in an R session:
 ```  
-setwd("C://Users/name00/Desktop/SMED8020/2021/Day2/")
+setwd("/mnt/work/workbench/user_name/SMED8020/Day2/")
 ```
 
 *The results*:, **results.assoc.logistic**, *can be read into R using the following command:*
