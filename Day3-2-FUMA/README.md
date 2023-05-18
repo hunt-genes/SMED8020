@@ -12,11 +12,11 @@ In order to learn more about which variants are likely to have functional impact
 
 This practical is in two parts:    
 
-Firstly, we will follow-up the a findings manually.     
+1) Firstly, we will follow-up a findings manually.     
 
 [Part 1: Functional annotation without FUMA](FUMApractical2023_PART1)
 
-Secondly, we will use the FUMA tool.  
+2) Secondly, we will use the FUMA tool.  
 
 [Part 2: Functional annotation without FUMA](FUMApractical2023_PART2)
 
