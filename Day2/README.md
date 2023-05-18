@@ -72,7 +72,10 @@ For example:
 ```cd SMED8020/Day2```             
 
 We also need to tell the terminal where plink is:    
-```plink=/mnt/scratch/software/plink/plink_linux_x86_64_20220402/plink```     
+
+```cp /mnt/scratch/software/plink/plink_linux_x86_64_20220402/plink .local/bin/
+echo "export PATH=.local/bin/:$PATH" >> .profile
+```     
 
 Then extract the data and scripts:     
 ```unzip Plink_Data_Scripts_Day2.zip```    
