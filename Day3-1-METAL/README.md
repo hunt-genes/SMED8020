@@ -1,10 +1,10 @@
 # DAY 3 - Meta-analysis for quantitative traits using METAL
 
 # TO-DO
-CHECK Rscipt works from workbench terminal
-ADD ANSWERS
-ADD Forest plot scripts
-ADD METAL Documentation
+CHECK Rscipt works from workbench terminal.    
+ADD ANSWERS.   
+ADD Forest plot scripts.  
+ADD METAL Documentation.   
 
 Please fill the following form during the exercise today: https://nettskjema.no/a/344366    
 Thank you!
