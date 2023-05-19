@@ -252,7 +252,8 @@ We will remove individuals with F coefficients that are more than 3 standard dev
     valid <- subset(dat, F <= m+3*s & F >= m-3*s) # Get any samples with F coefficient within 3 SD of the population mean
     write.table(valid[,c(1,2)], "EUR.valid.sample", quote=F, row.names=F) # print FID and IID for valid samples
     q() # exit R
-    ```
+```
+
 **??? note "How many samples were excluded due to high heterozygosity rate?"**
 
 ## \# Ambiguous SNPs
@@ -295,7 +296,8 @@ This will generate a file called **EUR.QC.sexcheck** containing the F-statistics
     valid <- subset(dat, STATUS=="OK" & FID %in% valid$FID)
     write.table(valid[,c("FID", "IID")], "EUR.QC.valid", row.names=F, col.names=F, sep="\t", quote=F) 
     q() # exit R
-    ```
+```
+
 **??? note "How many samples were excluded due mismatched Sex information?"**
 
 ## \# Sample overlap
