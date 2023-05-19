@@ -298,7 +298,6 @@ This will generate a file called **EUR.QC.sexcheck** containing the F-statistics
     dat <- read.table("EUR.QC.sexcheck", header=T)
     valid <- subset(dat, STATUS=="OK" & FID %in% valid$FID)
     write.table(valid[,c("FID", "IID")], "EUR.QC.valid", row.names=F, col.names=F, sep="\t", quote=F) 
-    q() # exit R
 ```
 
 **??? note "How many samples were excluded due mismatched Sex information?"**
@@ -378,7 +377,6 @@ We can obtain the transformed summary statistics with `R`:
     dat <- read.table(gzfile("Height.QC.gz"), header=T)
     dat$BETA <- log(dat$OR)
     write.table(dat, "Height.QC.Transformed", quote=F, row.names=F)
-    q() # exit R
 ````    
 
 ## Clumping
@@ -635,7 +633,6 @@ The PRS results corresponding to a range of P-value thresholds obtained by appli
             line=2, cex=1.5, font=2, adj=0)
     # write the plot to file
     dev.off()
-    q() # exit R
 ```        
    
 ###### Final note:
