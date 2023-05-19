@@ -69,10 +69,10 @@ The data can copied for the directory `/mnt/scratch/benb/data/Day3/`
 Alternative: Downloaded from [here](https://ntnu.box.com/s/rvytm8ymd8iple8negy8ix8x5vp7qs9a). You will need about 1.7 GB.
 
 Move to the Day3 directory:      
-`cd /mnt/work/workbench/user_name/SMED8020/Day3`     
+`cd /mnt/work/workbench/user_name/SMED8020/Day3-1-METAL`     
 
 Copy the data files to your Day3 directory:      
-`cp /mnt/scratch/benb/data/Day3/* /mnt/work/workbench/user_name/SMED8020/Day3`     
+`cp /mnt/scratch/benb/data/Day3/* /mnt/work/workbench/user_name/SMED8020/Day3-1-METAL`     
 
 * The original summary statistics from Biobank Japan (BBJ) of LDL cholesterol in N=72,866 can be found [here](https://humandbs.biosciencedbc.jp/files/hum0014/hum0014_README_QTL_GWAS.html)  
 `BBJ-LDL-preMeta.txt`  
