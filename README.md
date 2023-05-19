@@ -30,16 +30,23 @@ git clone https://github.com/hunt-genes/SMED8020.git
 Copy the data to your directory:    
 ```
 #Note: Change user_name
-cp -R /mnt/scratch/benb/data/Day3/* /mnt/scratch/{user_name}/smed8020/Day3-1-METAL/     
+cp -R /mnt/scratch/benb/data/Day3/* /mnt/work/workbench/{user_name}/SMED8020/Day3-1-METAL/     
 ```
 ```
 #Note: Change user_name    
-cp -R /mnt/scratch/benb/data/Day4/* /mnt/scratch/{user_name}/smed8020/Day4/   
+cp -R /mnt/scratch/benb/data/Day4/* /mnt/work/workbench/{user_name}/SMED8020/Day4/   
 ```
 
 # Required software
 All software is installed in the directory:    
-`/mnt/scratch/software/`      
+`/mnt/scratch/software/`
+
+We need to tell the terminal where plink is:    
+```   
+cp /mnt/scratch/software/plink/plink_linux_x86_64_20220402/plink .local/bin/
+echo "export PATH=.local/bin/:$PATH" >> .profile
+```  
+
 
 # Linux cheet sheet
 | Command | Meaning | Description|
