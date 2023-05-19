@@ -735,3 +735,10 @@ identified by typing in R:
 ```
 assoc.qc[-log10(assoc.qc$P)>4,]
 ```
+
+###### Final note:
+
+Remember to fill the following form during the exercise today: 
+  [https://nettskjema.no/a/344365](https://nettskjema.no/a/344365)
+
+Thank you!
