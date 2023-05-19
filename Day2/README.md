@@ -1,9 +1,6 @@
-# DAY 2 - Quality Control and Testing Association for Genome-Wide Association Studies
+# DAY 2 - Quality Control and Testing Association for Genome-Wide Association Studies   
 
-# NEEDS TO BE UPDATED    
-Link below.      
-
-Please fill the following form during the exercise today: https://nettskjema.no/a/284234         
+Please fill the following form during the exercise today: https://nettskjema.no/a/344365     
 
 Thank you!     
 
@@ -21,6 +18,9 @@ Running a GWAS will often be the second step after 1) quality control (QC) of ge
 * [Yik Y. Teoa, Common statistical issues in genome‐wide association studies: a review on power, data quality control, genotype calling and population structure, Current Opinionin Lipidology 2008, 19:133–143](https://www.biorxiv.org/content/10.1101/583278v1)
 * [Anderson et.al. Data quality control in genetic case‐control association studies. Nat Protoc. 2010 Sep; 5 (9): 1564‐73.](https://pubmed.ncbi.nlm.nih.gov/21085122/)
 
+We will use Plink to run a GWAS in this practical:    
+
+We have already downloaded it on your PC today but you can also find it here if you need it one day.   
 **PLINK:** [https://www.cog-genomics.org/plink/](https://www.cog-genomics.org/plink/)
 
 PLINK is an open source and free toolset developed for the analysis of whole genome data.
@@ -59,7 +59,6 @@ You can find useful information regarding these files here:
 We will first introduce some basic linux commands that will be nice to know (cd, less, head, tail, more) to navigate in a terminal.
     
 ###### In terminal:
-
 You need to first make the terminal know where your files are/what directory to work from
 and you can copy this and paste it into your terminal.  
 For example:
