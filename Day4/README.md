@@ -2,8 +2,7 @@
 
 
 Please fill the following form during the exercise today: 
-  [https://nettskjema.no/a/284236](https://nettskjema.no/a/284236)
-
+   [https://nettskjema.no/a/344367](https://nettskjema.no/a/344367)    
 Thank you!
 
 
@@ -637,7 +636,7 @@ The PRS results corresponding to a range of P-value thresholds obtained by appli
 ###### Final note:
 
 Remember to fill the following form during the exercise today: 
-  [https://nettskjema.no/a/284236](https://nettskjema.no/a/284236)
+   [https://nettskjema.no/a/344367](https://nettskjema.no/a/344367)    
 
 Thank you!
 
