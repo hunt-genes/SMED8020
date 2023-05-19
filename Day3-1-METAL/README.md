@@ -251,10 +251,12 @@ In terminal:
 ```
 #output file
 less LDL_METAL_META1.tbl
-
+```   
+```
 #info about the output file format
 less LDL_METAL_META1.tbl.info
-
+```   
+```
 #where we saved the stdout when we ran METAL
 less LDL_METAL.log
 ```   
@@ -262,7 +264,7 @@ less LDL_METAL.log
 ****Do you think we will we use the same genome-wide significance threshold (5xE-8) for the meta-analysis as we used for the GWAS? Why or why not?****  
 
 ****How many genome wide significant results are there now?****    
-HINT: Use code like in *2.3* but replace `$10` with the column number that has the p-value and use the file name for your meta-analysis results.
+HINT: Use code like in *2.3* but replace `$8` with the column number that has the p-value and use the file name for your meta-analysis results.
 
 ## 5. Subset to markers in more than 1 study
 Note: We pre-processed the files so you don't have to subset the results to markers in >1 study, but you might need this information in the future if you have not pre-processed your input files.
