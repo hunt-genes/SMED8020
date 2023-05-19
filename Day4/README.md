@@ -246,6 +246,11 @@ We will remove individuals with F coefficients that are more than 3 standard dev
 
 ###### In RStudio session:
 ```R
+    setwd("/mnt/work/workbench/{user_name}/SMED8020/Day4")
+```
+
+```R
+    setwd("/mnt/work/workbench/{user_name}/SMED8020/Day4")
     dat <- read.table("EUR.QC.het", header=T) # Read in the EUR.het file, specify it has header
     m <- mean(dat$F) # Calculate the mean  
     s <- sd(dat$F) # Calculate the SD
