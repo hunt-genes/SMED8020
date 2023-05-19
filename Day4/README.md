@@ -499,6 +499,9 @@ plink \
     --bfile EUR.QC \
     --indep-pairwise 200 50 0.25 \
     --out EUR
+```
+
+```bash
 # Then we calculate the first 6 PCs
 plink \
     --bfile EUR.QC \
