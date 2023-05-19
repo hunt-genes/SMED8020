@@ -16,15 +16,26 @@
 [Day 5 - Mendelian randomization](Day5)
 
 # Required data
-`/mnt/scratch/benb/data` 
+Go to your home directory
+```   
+#Note: Change user_name
+cd /mnt/work/workbench/{user_name}   
+```
+
+Clone the repository
+```
+git clone https://github.com/hunt-genes/SMED8020.git
+```
 
 Copy the data to your directory:    
 ```
-cp -R /mnt/scratch/benb/data/Day3/* /mnt/scratch/{user_name}/smed8020/Day3-1-METAL/    
+#Note: Change user_name
+cp -R /mnt/scratch/benb/data/Day3/* /mnt/scratch/{user_name}/smed8020/Day3-1-METAL/     
+```
+```
+#Note: Change user_name    
 cp -R /mnt/scratch/benb/data/Day4/* /mnt/scratch/{user_name}/smed8020/Day4/   
 ```
-
-Note: Change user_name
 
 # Required software
 All software is installed in the directory:    
