@@ -41,12 +41,23 @@ cp -R /mnt/scratch/benb/data/Day4/* /mnt/work/workbench/{user_name}/SMED8020/Day
 All software is installed in the directory:    
 `/mnt/scratch/software/`
 
+###### In terminal:
 We need to tell the terminal where plink is:    
 ```   
 cp /mnt/scratch/software/plink/plink_linux_x86_64_20220402/plink .local/bin/
 echo "export PATH=.local/bin/:$PATH" >> .profile
 ```  
 
+###### In R session:
+```   
+install.packages("AER")
+install.packages('stringi')
+install.packages("devtools")
+library(devtools)
+install_github("MRCIEU/TwoSampleMR")
+install.packages("plyr")
+install.packages("ggplot2")
+```  
 
 # Linux cheet sheet
 | Command | Meaning | Description|
