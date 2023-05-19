@@ -48,7 +48,7 @@ cp /mnt/scratch/software/plink/plink_linux_x86_64_20220402/plink .local/bin/
 echo "export PATH=.local/bin/:$PATH" >> .profile
 ```  
 
-###### In R session:
+###### In RStudio Server session:
 ```   
 install.packages("AER")
 install.packages('stringi')
