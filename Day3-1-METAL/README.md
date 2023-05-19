@@ -101,8 +101,9 @@ You can see more [here](https://genome.ucsc.edu/FAQ/FAQreleases.html#release1). 
 It looks like BBJ and HUNT have SNP coordinates from hg38, but GLGC has summary statistics from hg18 and hg19. 
 We must use [UCSC listOver](https://genome.ucsc.edu/cgi-bin/hgLiftOver) to convert the hg19 coordinates to hg38 before meta-analysis. We can use liftOver on the command line or via the web. To avoid extensive file manipulation on your part, we already used this .bed file to make a new version of the GLGC results: `GLGC-LDL-hg38-preMeta.txt`. This file also has a header that is consistent with the other two files. You will use this in the meta-analysis. The instructions for using liftOver are below in case you need them in the future.    
 
-Create a .bed file file from GLGC-LDL-preMeta.txt using Linux tools `awk` and `sed`. A [BED file](https://genome.ucsc.edu/FAQ/FAQformat.html#format1) is not to be confused with the binary PLINK format .bed, but is a frequently used standard format for genetic data which is required to have chromosome, position start, and position end columns.
-In the terminal (ONLY FOR YOUR REFERENCE):
+Create a .bed file file from GLGC-LDL-preMeta.txt using Linux tools `awk` and `sed`. A [BED file](https://genome.ucsc.edu/FAQ/FAQformat.html#format1) is not to be confused with the binary PLINK format .bed, but is a frequently used standard format for genetic data which is required to have chromosome, position start, and position end columns.   
+
+**In the terminal (ONLY FOR YOUR REFERENCE):**
 ```
 awk 'NR > 1 {print $2"\t"$3"\t"$4"\t"$5}' GLGC-LDL-preMeta.txt | sed 's/:/\t/g' | awk '{print $1"\t"$2-1"\t"$2"\t"$1":"$2"\t"$4"\t"$5}' > GLCG.hg19.bed
 ```   
