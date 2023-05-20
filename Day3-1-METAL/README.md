@@ -58,7 +58,7 @@ When running a meta analysis there are many issues that need to be addressed.
 #### 0. We have [installed METAL](http://csg.sph.umich.edu/abecasis/Metal/download/) using the pre-compiled binaries for you. An updated version of METAL that should work on machines requiring 64-bit is available [here](https://github.com/statgen/METAL/blob/master/README.md).    
 
 For today's practical we have alreading installed the correct version here:    
-`/mnt/scratch/software/liftOver`    
+`/mnt/scratch/software/METAL-2020-05-05/build/bin/metal`    
 
 #### 1. Organizing summary statistics  
 
@@ -139,7 +139,10 @@ Look in GLGC.hg38.unmapped. ****Were there some markers that did not get convert
 Use R or another tool to merge GLGC.hg38.bed and GLGC-LDL-preMeta.txt (the hg19 position should be shared between them).    
 
 Example code to create a file with compatible header is here:     
-`join -1 4 -2 2 <(sort -k 4 GLGC.h38.bed) <(sort -k 2 GLGC-LDL-preMeta.txt) | awk -v OFS='\t' '{$5=toupper($5);$9=toupper($9)}1' | awk '{print $0"\t"substr($2, 4)"\t"$2":"$4":"$9":"$5}'  | sed  '1i\CHRPOS\tchr\tstart\tPOS38\tAllele2\tCHRPOS37\trsid\ta2\tAllele1\tBETA\tSE\tN\tp.value\tAF_Allele2\tCHR\tSNPID' > GLGC-LDL-hg38-preMeta.txt`     
+`join -1 4 -2 2 <(sort -k 4 GLGC.h38.bed) <(sort -k 2 GLGC-LDL-preMeta.txt) | awk -v OFS='\t' '{$5=toupper($5);$6=toupper($6)}1' | awk '{print $0"\t"substr($2, 4)"\t"$4":"$5":"$6}' | awk '{print $0"\t"$16":"$17}'| awk -v OFS='\t' '{print $16, $4, $18, $5, $6, $15, $13, $11, $12, $14}'| sed  '1i\CHR\tPOS38\tSNPID\tAllele1\tAllele2\tAF_Allele2\tN\tBETA\tSE\tp.value' > GLGC-LDL-hg38-preMeta-v2.txt`   
+
+We noted that `join` failed in workbench, so we have created and subset the GLGC file so it is quicker to run in the meta-analysis, so use the following file forward:
+`GLGC-LDL-hg38-preMeta-U.txt`    
 
 ### 2.2 Check the file formats and headers (START CODING HERE)   
 
@@ -149,16 +152,16 @@ In terminal:
 
 ```
 #Use head to check the headers
-head -n 1 BBJ-LDL-preMeta.txt
+head -n 1 BBJ-LDL-preMeta-U.txt
 head -n 1 HUNT-LDL-preMeta.txt
-head -n 1 GLGC-LDL-hg38-preMeta.txt
+head -n 1 GLGC-LDL-hg38-preMeta-U.txt
 ```
 
 ****Are your SNPIDs across the files formatted in the same way?****     
 ```
 #Use head to check SNPID formatting
-head -n 2 BBJ-LDL-preMeta.txt | cut -f 3 
-head -n 2 GLGC-LDL-hg38-preMeta.txt | cut -f 3
+head -n 2 BBJ-LDL-preMeta-U.txt | cut -f 3 
+head -n 2 GLGC-LDL-hg38-preMeta-U.txt | cut -f 3
 head -n 2 HUNT-LDL-preMeta.txt | cut -f 3 
 ```
 Yes, we need the SNPID to be consistent across files. The header could be called something different, but the software will match the markers across studies based on the column. 
@@ -167,9 +170,9 @@ Yes, we need the SNPID to be consistent across files. The header could be called
 ****How many variants are in each of the files?****       
 ```
 #use the wc function to count the line numbers in the files
-wc -l BBJ-LDL-preMeta.txt
+wc -l BBJ-LDL-preMeta-U.txt
 wc -l HUNT-LDL-preMeta.txt
-wc -l GLGC-LDL-hg38-preMeta.txt
+wc -l GLGC-LDL-hg38-preMeta-U.txt
 ```
 
 The HUNT summary statistics originally had millions of variants because imputation was done with the TOPMed imputation panel, which allows for higher resolution imputation due to the large amount of sequencing samples which make up the reference panel. We have subsetted the input files to only include variants seen in all 3 studies. We only want to perform meta-analysis on variants tested in 2 or more studies.    
@@ -182,8 +185,8 @@ In terminal:
 ```
 #use awk to identify the rows that have a p-value < 5E-8
 awk '$11 < 5e-8 {print 0}' HUNT-LDL-preMeta.txt | wc -l
-awk '$11 < 5e-8 {print 0}' BBJ-LDL-preMeta.txt | wc -l
-awk '$10 < 5e-8 {print 0}' GLGC-LDL-hg38-preMeta.txt | wc -l
+awk '$11 < 5e-8 {print 0}' BBJ-LDL-preMeta-U.txt | wc -l
+awk '$10 < 5e-8 {print 0}' GLGC-LDL-hg38-preMeta-U.txt | wc -l
 ```   
 
 #### 3. Running METAL   
@@ -209,7 +212,7 @@ A shell wrapper script will be used to create the config file needed to run META
 
 In terminal:
 ```
-bash LDL_metal.sh HUNT-LDL-preMeta.txt GLGC-LDL-hg38-preMeta.txt BBJ-LDL-preMeta.txt LDL_METAL_META > LDL_METAL.conf
+bash LDL_metal.sh HUNT-LDL-preMeta.txt GLGC-LDL-hg38-preMeta-U.txt BBJ-LDL-preMeta-U.txt LDL_METAL_META > LDL_METAL.conf
 ```   
 
 ### 3.2. Run metal 
