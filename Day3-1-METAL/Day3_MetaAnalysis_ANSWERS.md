@@ -1,0 +1,343 @@
+# DAY 3 - Meta-analysis for quantitative traits using METAL 
+
+Please fill the following form during the exercise today: https://nettskjema.no/a/344366    
+Thank you!
+
+
+## FOCUS and LEARNING GOALS
+
+>  The aim for this session is to get familiar with running a genome wide association study meta-analysis which  enables researchers to  gather data from many studies and analyse them together. 
+
+There are several motivations for meta-analysis. One is the ability to increase power to detect small effect sizes or rare variant effects by increasing the study sample size. Many methods for meta analysis rely on using summary statistics therefore rendering the need to share individual level data unnecessary. This makes it easier to share data for meta analysis as the summary statistics are not deemed sensitive information and are typically made publicly available when papers are published in peer-reviewed journals. Finally, meta-analysis across genetic ancestries is the most statistically robust approach rather than pooling all ancestries together in one GWAS as it results in little or no loss of efficiency (as compared to analysis of combined data-sets) and reduces population stratification.
+Some [slides](SMED8020_2022_MetaAnalysis.pdf) with extra informaiton may be helpful.  
+
+**Suggested reading:**
+
+* [Willer, C. J., Li, Y. & Abecasis, G. R. METAL: fast and efficient meta-analysis of genomewide association scans. Bioinformatics 26, 2190–2191 (2010).](https://academic.oup.com/bioinformatics/article/26/17/2190/198154)  
+* [Nielsen, J. et al. Loss-of-function genomic variants with impact on liver-related blood traits highlight potential therapeutic targets for cardiovascular disease. Biorxiv. (2019) ](https://www.biorxiv.org/content/10.1101/597377v1)  
+* [Evangelos Evangelou & John P. A. Ioannidis. Meta-analysis methods for genome-wide association studies and beyond. Nature Reviews Genetics. 2013](https://www.nature.com/articles/nrg3472)
+
+[METAL](http://csg.sph.umich.edu/abecasis/metal/) was developed at the University of Michigan as a tool for meta-analysis of  genome-wide association analysis. For running METAL you can use either test statistics and standard error or p-values. For more info on METAL see the web-links in this document and the suggested readings paper. 
+
+## TASK: Running a trans-ethnic meta-analysis using METAL  
+
+Today you will run a meta-analysis to combine three studies using METAL. METAL has been pre-installed on our lab. Because of time restraints we have made a small data-set that will run within reasonable time. The data will not generate significant results. A separate set of files will therefore be used for plotting results. 
+    
+The phenotype in today's practical is low density lipoprotein (LDL) cholesterol and we will be using data from three large studies: HUNT, Biobank Japan and Global Lipids Genetics Consortium (GLGC).  
+
+### Task outline  
+
+0. Install METAL
+1. Gather summary statistics from GWAS for low density lipoprotein (LDL) cholesterol in three separate studies (HUNT, Global Lipids Genetics Consortium, and UK Biobank) and check details for the files.
+2. Run a meta-analysis using METAL
+3. Have a coffee or a biobreak or ask questions to the lecturers. Questions for consideration are in ****bold****. 
+4. View meta-analysis results
+
+### Important points to consider  
+
+When running a meta analysis there are many issues that need to be addressed.
+* the availability of summary statistics
+* phenotype related questions such as:
+  * what phenotypes are available?
+  * what are the phenotypes based on (self-reported, Electronic Health Records, physician curated)?
+  * how are the phenotypes constructed?
+  * are they comparable to your defined phenotype?
+* genotype related questions such as: 
+  * differences in genotyping and imputation, some markers will be study specific
+  * genome build
+  * flipped markers
+  * population stratification
+
+## Instructions  
+#### 0. We have [installed METAL](http://csg.sph.umich.edu/abecasis/Metal/download/) using the pre-compiled binaries for you. An updated version of METAL that should work on machines requiring 64-bit is available [here](https://github.com/statgen/METAL/blob/master/README.md).    
+
+For today's practical we have alreading installed the correct version here:    
+`/mnt/scratch/software/METAL-2020-05-05/build/bin/metal`    
+
+#### 1. Organizing summary statistics  
+
+Usually you would download publically available summary statistics from the internet to your local machine. For convience for this practical, we have already downloadeded summary statistics from 3 studies, BBJ, HUNT, and GLGC.
+
+The data can copied for the directory `/mnt/scratch/benb/data/Day3/`
+
+Alternative: Downloaded from [here](https://ntnu.box.com/s/rvytm8ymd8iple8negy8ix8x5vp7qs9a). You will need about 1.7 GB.
+
+Move to the Day3 directory:      
+`cd /mnt/work/workbench/user_name/SMED8020/Day3-1-METAL`     
+
+Copy the data files to your Day3 directory:      
+`cp /mnt/scratch/benb/data/Day3/* /mnt/work/workbench/user_name/SMED8020/Day3-1-METAL`     
+
+* The original summary statistics from Biobank Japan (BBJ) of LDL cholesterol in N=72,866 can be found [here](https://humandbs.biosciencedbc.jp/files/hum0014/hum0014_README_QTL_GWAS.html)  
+`BBJ-LDL-preMeta.txt`  
+The columns are CHR     POS38   SNPID   Allele1 Allele2 AC_Allele2      AF_Allele2      N       BETA    SE      p.value log10P
+
+* The original summary statistics of joint analysis of metabochip and GWAS data for LDL cholesterol in N=89,138 from the Global Lipids Genetics Consortium (GLGC) can be found [here](http://csg.sph.umich.edu/willer/public/lipids2013/)  
+`GLGC-LDL-preMeta.txt`  
+The columns are SNP_hg18        SNP_hg19        rsid    A1      A2      beta    se      N       P-value Freq.A1.1000G.EUR
+
+* The summary statistics of LDL cholesterol from the HUNT study in N=67,429.   
+`HUNT-LDL-preMeta.txt`  
+The columns are CHR     POS38   SNPID   Allele1 Allele2 AC_Allele2      AF_Allele2      N       BETA    SE  p.value 
+
+#### 2. Check your summary statistics to make sure they're ready for meta-analysis.
+
+2.1 Which genome build is used?
+
+The human reference genome has been updated over the years and variants are given different coordinates in different versions. 
+The latest human reference genome GRCh38 was released from the Genome Reference Consortium on 17 December 2013.  
+The previous human reference genome (GRCh37) was the nineteenth version (hg19).  
+The version before this was NCBI Build 36.1	released March 2006	(hg18). 
+You can see more [here](https://genome.ucsc.edu/FAQ/FAQreleases.html#release1). hg19 is still widely used and people are slowly converting to hg38.       
+
+****From the summary statistic headers, can you tell what reference genome versions are used for each study?****  
+
+It looks like BBJ and HUNT have SNP coordinates from hg38, but GLGC has summary statistics from hg18 and hg19. 
+We must use [UCSC listOver](https://genome.ucsc.edu/cgi-bin/hgLiftOver) to convert the hg19 coordinates to hg38 before meta-analysis. We can use liftOver on the command line or via the web. To avoid extensive file manipulation on your part, we already used this .bed file to make a new version of the GLGC results: `GLGC-LDL-hg38-preMeta.txt`. This file also has a header that is consistent with the other two files. You will use this in the meta-analysis. The instructions for using liftOver are below in case you need them in the future.    
+
+Create a .bed file file from GLGC-LDL-preMeta.txt using Linux tools `awk` and `sed`. A [BED file](https://genome.ucsc.edu/FAQ/FAQformat.html#format1) is not to be confused with the binary PLINK format .bed, but is a frequently used standard format for genetic data which is required to have chromosome, position start, and position end columns.   
+
+**In the terminal (ONLY FOR YOUR REFERENCE):**
+```
+awk 'NR > 1 {print $2"\t"$3"\t"$4"\t"$5}' GLGC-LDL-preMeta.txt | sed 's/:/\t/g' | awk '{print $1"\t"$2-1"\t"$2"\t"$1":"$2"\t"$4"\t"$5}' > GLCG.hg19.bed
+```   
+
+**Web option (ONLY FOR YOUR REFERENCE):**
+Upload the `GLGC.hg.bed` file you made [here](http://genome.ucsc.edu/cgi-bin/hgLiftOver) if it's less than 500 mb. Select the genome you're coming from and the genome you're lifting over to.     
+
+**Command line option (ONLY FOR YOUR REFERENCE):**
+[Download liftOver](https://hgdownload.soe.ucsc.edu/admin/exe/). 
+You can use `wget` like so: `wget https://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/liftOver`  
+Turn on the executable bit `chmod +x ./filePath/utility_name`. 
+Now `./filePath/utility_name` is executable.  
+
+`chmod +x ./liftOver`      
+
+We have installed lifOver here:     
+`/mnt/scratch/software/liftOver`   
+
+[Download the map.chain](https://hgdownload.soe.ucsc.edu/goldenPath/hg19/liftOver/) for hg19 to hg38       
+
+`wget https://hgdownload.soe.ucsc.edu/goldenPath/hg19/liftOver/hg19ToHg38.over.chain.gz`    
+
+The liftover command requires 4 parameters in this order: 
+1) oldFile (in .bed format) 
+2) map.chain 
+3) newFile (just the name) 
+4) unMapped
+Execute this command:     
+`/mnt/scratch/software/liftOver GLCG.hg19.bed hg19ToHg38.over.chain GLGC.h38.bed GLGC.hg38.unmapped`
+
+Look in GLGC.hg38.unmapped. ****Were there some markers that did not get converted from hg19 to hg38? Why do you think that is?****       
+
+All of the regions were not converted because they were "Deleted in new". This means that there was no region in hg19 that aligned well to your region in hg18. 
+
+Other error messages that can arise:
+-"Partially deleted in new" means that there was a piece of an alignment that matched your hg18 region, but not enough to convert the region to hg19. 
+-"Split in new", which means that your hg18 region was split up into different parts of hg19.
+
+Use R or another tool to merge GLGC.hg38.bed and GLGC-LDL-preMeta.txt (the hg19 position should be shared between them).    
+
+Example code to create a file with compatible header is here:     
+`join -1 4 -2 2 <(sort -k 4 GLGC.h38.bed) <(sort -k 2 GLGC-LDL-preMeta.txt) | awk -v OFS='\t' '{$5=toupper($5);$6=toupper($6)}1' | awk '{print $0"\t"substr($2, 4)"\t"$4":"$5":"$6}' | awk '{print $0"\t"$16":"$17}'| awk -v OFS='\t' '{print $16, $4, $18, $5, $6, $15, $13, $11, $12, $14}'| sed  '1i\CHR\tPOS38\tSNPID\tAllele1\tAllele2\tAF_Allele2\tN\tBETA\tSE\tp.value' > GLGC-LDL-hg38-preMeta-v2.txt`   
+
+We noted that `join` failed in workbench, so we have created and subset the GLGC file so it is quicker to run in the meta-analysis, so use the following file forward:
+`GLGC-LDL-hg38-preMeta-U.txt`    
+
+### 2.2 Check the file formats and headers (START CODING HERE)   
+
+****What is the header of each file? What does the `-n 1` parameter do in `head`?****
+In terminal:    
+```head -n 1 file```
+
+```
+#Use head to check the headers
+head -n 1 BBJ-LDL-preMeta-U.txt
+head -n 1 HUNT-LDL-preMeta.txt
+head -n 1 GLGC-LDL-hg38-preMeta-U.txt
+```
+
+****Are your SNPIDs across the files formatted in the same way?****     
+```
+#Use head to check SNPID formatting
+head -n 2 BBJ-LDL-preMeta-U.txt | cut -f 3 
+head -n 2 GLGC-LDL-hg38-preMeta-U.txt | cut -f 3
+head -n 2 HUNT-LDL-preMeta.txt | cut -f 3 
+```
+Yes, we need the SNPID to be consistent across files. The header could be called something different, but the software will match the markers across studies based on the column. 
+
+Yes. You can check this using the grep command by checking at least one SNPID in each set of results
+`grep 'chr18:4440419:G:T' BBJ-LDL-preMeta-U.txt`
+chr18:4440419:G:T #BBJ-LDL-preMeta-U.txt
+chr18:4440419:G:T #GLGC-LDL-hg38-preMeta.txt
+chr18:4440419:G:T #HUNT-LDL-preMeta.txt
+
+2.3 How many variants will we be meta-analyzing?     
+****How many variants are in each of the files?****       
+```
+#use the wc function to count the line numbers in the files
+wc -l BBJ-LDL-preMeta-U.txt
+wc -l HUNT-LDL-preMeta.txt
+wc -l GLGC-LDL-hg38-preMeta-U.txt
+```
+6108162 BBJ-LDL-preMeta.txt    
+25879010 HUNT-LDL-preMeta.txt    
+2436641 GLGC-LDL-hg38-preMeta.txt    
+
+The HUNT summary statistics originally had millions of variants because imputation was done with the TOPMed imputation panel, which allows for higher resolution imputation due to the large amount of sequencing samples which make up the reference panel. We have subsetted the input files to only include variants seen in all 3 studies. We only want to perform meta-analysis on variants tested in 2 or more studies.    
+
+****What imputation panel was used for GLGC?**** HINT: Check the methods of the [paper](https://www.nature.com/articles/ng.2797).    
+
+GWAS data were imputed to the International HapMap project (https://www.nature.com/articles/nature09270?page=55#Sec2).
+
+****How many genome wide significant results are in each of the input files?****    
+
+In terminal:
+```
+#use awk to identify the rows that have a p-value < 5E-8
+awk '$11 < 5e-8 {print 0}' HUNT-LDL-preMeta.txt | wc -l
+awk '$11 < 5e-8 {print 0}' BBJ-LDL-preMeta-U.txt | wc -l
+awk '$10 < 5e-8 {print 0}' GLGC-LDL-hg38-preMeta-U.txt | wc -l
+```   
+1350
+957
+2397
+
+#### 3. Running METAL   
+
+The [Wiki page for METAL](https://genome.sph.umich.edu/wiki/METAL_Documentation#Brief_Description)  may be useful.
+
+Input files: 
+* A text file for each study with results, summarized as a table. NB column separators must be specified. 
+* A column with marker name, which should be consistent across studies 
+* A column indicating the tested allele 
+* A column indicating the other allele 
+* If you are carrying out a sample size weighted analysis (based on p-values), you will also need: 
+  * A column indicating the direction of effect for the tested allele 
+  * A column indicating the corresponding p-value 
+  * An optional column indicating the sample size (if the sample size varies by marker) 
+* If you are carrying out a meta-analysis based on standard errors, you will need: 
+  * A column indicating the estimated effect size for each marker 
+  * A column indicating the standard error of this effect size estimate 
+  * The header for each of these columns must be specified so that METAL knows how to interpret the data.     
+ 
+### 3.1. Create config file
+A shell wrapper script will be used to create the config file needed to run METAL. This script, `LDL_metal.sh`, has been created for you. Create a config file with the bash script `LDL_METAL.sh` by filling in the appropriate arguments instead of "file1",  "file2",  "file3" and using "LDL_METAL" as your output prefix.
+
+In terminal:
+```
+bash LDL_metal.sh HUNT-LDL-preMeta.txt GLGC-LDL-hg38-preMeta-U.txt BBJ-LDL-preMeta-U.txt LDL_METAL_META > LDL_METAL.conf
+```   
+
+### 3.2. Run metal 
+We will run METAL with the config file we just made. This should take less than 20 minutes.
+
+Remember, we have already installed METAL here:    
+`/home/benb/scratch/software/METAL-2020-05-05/build/bin/metal`   
+
+In terminal:
+```
+#Run METAL using the config file
+/home/benb/scratch/software/METAL-2020-05-05/build/bin/metal LDL_METAL.conf > LDL_METAL.log
+```     
+
+Note: If you would like to time your analysis you can use the time program.  
+`/usr/bin/time -o test_time -v /home/benb/scratch/software/METAL-2020-05-05/build/bin/metal LDL_METAL.conf`    
+
+While the meta-analysis runs, consider the following questions:     
+****What type of meta-analysis did you run (fixed or random effects? sample size or inverse variance based?) What is the difference?****     
+
+Fixed effects using p-value and sample size. By default, METAL combines p-values across studies taking into account a study specific weight (typically, the sample size) and direction of effect. This behavior can be requested explicitly with the `SCHEME SAMPLESIZE` command.    
+    
+An alternative can be requested with the `SCHEME STDERR` command and weights effect size estimates using the inverse of the corresponding standard errors. To enable this option, you will also need to specify which of your input columns contains standard error information using the `STDERRLABEL` command (or `STDERR` for short). While standard error based weights are more common in the biostatistical literature, if you decide to use this approach, it is very important to ensure that effect size estimates (beta coefficients) and standard errors use the same units in all studies (i.e. make sure that the exact same trait was examined in each study and that the same transformations were applied). Inconsistent use of measurement units across studies is the most common cause of discrepancies between these two analysis strategies.
+
+The difference between the fixed effects and random effects models is that fixed effects meta-analysis assumes that the genetic effects are the same across the different studies. Fixed effects models provide narrower confidence intervals and significantly lower P-values for the variants than random effects models.   
+ 
+The random effects model assumes that the mean effect (of each SNP) in each study is different, with those means usually assumed to be chosen from a Gaussian distribution. The variance of that Gaussian distribution, and thus the amount of between-study heterogeneity, is estimated by the model. 
+
+****Did you use genomic control? In what situations is it useful to use genomic control****       
+
+****What does it mean to set the minimum weight to 10,000?****        
+
+****What is the difference between "ANALYZE" and "ANALYZE HETEROGENEITY"?****       
+
+****How might you create the config file if your summary statistics files had different header labels?****       
+
+
+#### 4. View the meta-analysis results
+
+Some informative output was printing to "standard output" as METAL was running. We saved it in a file named `LDL_METAL.log`. Check out the information there. Just so you know, "standard output" is called stdout, and in the terminal, stdout defaults to the user's screen.    
+
+****What was the smallest p-value and how many markers was the meta-analysis completed for?****     
+
+There will be a .tbl and .tbl.info file created from the meta-analysis. You can use `less` to view the files.
+
+In terminal:
+```
+#output file
+less LDL_METAL_META1.tbl
+```   
+```
+#info about the output file format
+less LDL_METAL_META1.tbl.info
+```   
+```
+#where we saved the stdout when we ran METAL
+less LDL_METAL.log
+```   
+
+****Do you think we will we use the same genome-wide significance threshold (5xE-8) for the meta-analysis as we used for the GWAS? Why or why not?****  
+
+****How many genome wide significant results are there now?****    
+HINT: Use code like in *2.3* but replace `$8` with the column number that has the p-value and use the file name for your meta-analysis results.
+
+## 5. Subset to markers in more than 1 study
+Note: We pre-processed the files so you don't have to subset the results to markers in >1 study, but you might need this information in the future if you have not pre-processed your input files.
+
+METAL will perform a meta-analysis even on markers which are only present in one of the sub-studies. We are only interested in markers present in more than one study. 
+The column labelled "direction" shows '?', '+', or '-' to indicate missingness, positive direction of effect, or negative direction of effect, respectively.  
+One can use the `subset_meta_analysis.r` Rscript to exclude markers with more than one '?'. This is R code like we use in RStudio, but it's packaged in a script so we can call it from the command line and pass it parameters, like the input file.
+
+In terminal (ONLY FOR YOUR REFERENCE):
+```
+#subset the results to variants with more than 1 study, may take 5 minutes
+Rscript subset_meta_analysis.r --input LDL_METAL_META1.tbl --output LDL_METAL_MultiStudy.txt
+#if this doesn't work in the terminal, open subset_metal_analysis_manual.r. Add in the file names and parameters to run it.
+```
+
+#### 6. Plot the meta-analysis results
+To visually inspect your results for significant findings you can make a QQ-plot. We have a script `QQplot.R` which creates an image file with the plot and a text file with lambda values. You don't need RStudio for this.
+
+In terminal:
+```
+#make a QQplot using an Rscript
+Rscript QQplot.r --input LDL_METAL_META1.tbl --pvalue P-value --af Freq1 --prefix LDL_METAL_MultiStudy --break.top 120
+#if this doesn't work, open QQplot_manual.r in RStudio. Add in the file names and parameters to run it.
+```
+The image file should exist in whatever the default directory your R is writing into, which should be your current working directory. You can find this with `pwd`. Open the file to inspect the QQ-plot.
+
+****How does the inflation appear to you?****  
+
+****What is the lambda value for the smallest minor allele frequency (MAF) bin?****  
+In terminal:
+```
+#use cat to view the file of lambda values
+cat *_lambda.txt
+```
+
+#### 6.2 Forest plot
+Another useful comparison of input studies and the meta-analysis is a Forest plot. 
+You can read more about R code to make this plot [here](https://cran.r-project.org/web/packages/forestplot/vignettes/forestplot.html).
+
+We will make a Forest plot for a lead SNP in APOE.
+
+In RStudio:
+Open the ForestPlot.R script. 
+Run the code line by line to generate a forest plot. 
+
+#### 6.3 Open Targets
+Check out the APOE region on the [Open Targets platform](https://genetics.opentargets.org/variant/19_44886339_G_A). This platform integrates a lot of data for interrogating genetic variants as drug targets.
+
+I would also recommend [this example](https://www.mv.helsinki.fi/home/mjxpirin/GWAS_course/material/GWAS9.html) of a meta-analysis by Matti Pirinen at the University of Helsinki using R.
+
+You can review [answers](answers.md) to the questions in this practical.
