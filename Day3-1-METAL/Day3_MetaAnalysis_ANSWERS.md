@@ -247,9 +247,11 @@ Note: If you would like to time your analysis you can use the time program.
 While the meta-analysis runs, consider the following questions:     
 ****What type of meta-analysis did you run (fixed or random effects? sample size or inverse variance based?) What is the difference?****     
 
-Fixed effects using p-value and sample size. By default, METAL combines p-values across studies taking into account a study specific weight (typically, the sample size) and direction of effect. This behavior can be requested explicitly with the `SCHEME SAMPLESIZE` command.    
+Fixed effects using inverse variance based weights.   
     
-An alternative can be requested with the `SCHEME STDERR` command and weights effect size estimates using the inverse of the corresponding standard errors. To enable this option, you will also need to specify which of your input columns contains standard error information using the `STDERRLABEL` command (or `STDERR` for short). While standard error based weights are more common in the biostatistical literature, if you decide to use this approach, it is very important to ensure that effect size estimates (beta coefficients) and standard errors use the same units in all studies (i.e. make sure that the exact same trait was examined in each study and that the same transformations were applied). Inconsistent use of measurement units across studies is the most common cause of discrepancies between these two analysis strategies.
+We ran the `SCHEME STDERR` command which weights the effect size estimates using the inverse of the corresponding standard errors. To enable this option, we specifed which of the input columns contained standard error information using the `STDERRLABEL` command (or `STDERR` for short). While standard error based weights are more common in the biostatistical literature, if you decide to use this approach, it is very important to ensure that effect size estimates (beta coefficients) and standard errors use the same units in all studies (i.e. make sure that the exact same trait was examined in each study and that the same transformations were applied). Inconsistent use of measurement units across studies is the most common cause of discrepancies between these two analysis strategies.
+
+The default - METAL combines p-values across studies taking into account a study specific weight (typically, the sample size) and direction of effect. This behavior can be requested explicitly with the `SCHEME SAMPLESIZE` command. 
 
 The difference between the fixed effects and random effects models is that fixed effects meta-analysis assumes that the genetic effects are the same across the different studies. Fixed effects models provide narrower confidence intervals and significantly lower P-values for the variants than random effects models.   
  
@@ -257,11 +259,28 @@ The random effects model assumes that the mean effect (of each SNP) in each stud
 
 ****Did you use genomic control? In what situations is it useful to use genomic control****       
 
+No. METAL has the ability to apply a genomic control correction to all input files. METAL will estimate the inflation of the test statistic by comparing the median test statistic to that expected by chance, and then apply the genomic control correction to the p-values (for SAMPLESIZE weighted meta-analysis) or the standard error (for STDERR weighted meta-analysis). This should only be applied to files with whole genome data (i.e. should not be used for settings where results are only available for a candidate locus or a small number of SNPs selected for follow-up of GWAS results). Genomic control settings can be customized for each input file. We recommend applying genomic control correction to all input files that include genomewide data and, in addition, to the meta-analysis results. To apply genomic control to the meta-analysis results, just perform an initial meta-analysis and then load the initial set of results into METAL to get final, genomic control adjusted results.   
+
 ****What does it mean to set the minimum weight to 10,000?****        
+METAL does not require that all input files report a result for every marker. Any available data is used. To restrict the output to only markers that have at least a specific number of individuals analysed (or weight), use a command like the following:   
+`MINWEIGHT 10000`   
+This will restrict the output to show only Markers with a total sample size of at least 10,000 individuals.   
 
 ****What is the difference between "ANALYZE" and "ANALYZE HETEROGENEITY"?****       
+The METAL `ANALYZE HETEROGENEITY` requires a second pass of analysis to decide whether observed effect sizes (or test statistics) are homogeneous across samples.    
 
 ****How might you create the config file if your summary statistics files had different header labels?****       
+The header for each of these columns must be specified so that METAL knows how to interpret the data. An example is given below:   
+
+```
+# === DESCRIBE AND PROCESS THE FOURTH INPUT FILE ===
+MARKER MARKERNAME
+ALLELE EFFECTALLELE NON_EFFECT_ALLELE
+EFFECT EFFECT1
+PVALUE PVALUE
+WEIGHT NONMISS
+PROCESS newfile4.txt
+``` 
 
 
 #### 4. View the meta-analysis results
@@ -285,11 +304,20 @@ less LDL_METAL_META1.tbl.info
 #where we saved the stdout when we ran METAL
 less LDL_METAL.log
 ```   
+# Smallest p-value is 1.24e-652 at marker 'chr19:45412079:T:C'  
 
 ****Do you think we will we use the same genome-wide significance threshold (5xE-8) for the meta-analysis as we used for the GWAS? Why or why not?****  
+We will use the same genome wide significance threshold as the number of independent markers across the genome has not changed.   
 
 ****How many genome wide significant results are there now?****    
 HINT: Use code like in *2.3* but replace `$8` with the column number that has the p-value and use the file name for your meta-analysis results.
+
+
+```
+awk '$8 < 5e-8 {print 0}' LDL_METAL_META1.tbl | wc -l   
+#8232
+```
+
 
 ## 5. Subset to markers in more than 1 study
 Note: We pre-processed the files so you don't have to subset the results to markers in >1 study, but you might need this information in the future if you have not pre-processed your input files.
@@ -324,6 +352,15 @@ In terminal:
 #use cat to view the file of lambda values
 cat *_lambda.txt
 ```
+
+```
+lambda	frequency_bin
+1.07868731589382	(0.05,0.5]
+1.07819408540481	(0.005,0.05]
+1.10356456823141	(0.001,0.005]
+0.977786746548998	[0,0.001]
+```
+
 
 #### 6.2 Forest plot
 Another useful comparison of input studies and the meta-analysis is a Forest plot. 
