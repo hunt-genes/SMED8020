@@ -153,7 +153,7 @@ In terminal:
 ```
 #Use head to check the headers
 head -n 1 BBJ-LDL-preMeta-U.txt
-head -n 1 HUNT-LDL-preMeta.txt
+head -n 1 HUNT-LDL-preMeta-U.txt
 head -n 1 GLGC-LDL-hg38-preMeta-U.txt
 ```
 
@@ -171,8 +171,13 @@ Yes, we need the SNPID to be consistent across files. The header could be called
 ```
 #use the wc function to count the line numbers in the files
 wc -l BBJ-LDL-preMeta-U.txt
-wc -l HUNT-LDL-preMeta.txt
+wc -l HUNT-LDL-preMeta-U.txt
 wc -l GLGC-LDL-hg38-preMeta-U.txt
+
+#check the original files before formatting and subsetting 
+wc -l BBJ-LDL-preMeta.txt
+wc -l HUNT-LDL-preMeta.txt
+wc -l GLGC-LDL-hg38-preMeta.txt
 ```
 
 The HUNT summary statistics originally had millions of variants because imputation was done with the TOPMed imputation panel, which allows for higher resolution imputation due to the large amount of sequencing samples which make up the reference panel. We have subsetted the input files to only include variants seen in all 3 studies. We only want to perform meta-analysis on variants tested in 2 or more studies.    
@@ -184,7 +189,7 @@ The HUNT summary statistics originally had millions of variants because imputati
 In terminal:
 ```
 #use awk to identify the rows that have a p-value < 5E-8
-awk '$11 < 5e-8 {print 0}' HUNT-LDL-preMeta.txt | wc -l
+awk '$11 < 5e-8 {print 0}' HUNT-LDL-preMeta-U.txt | wc -l
 awk '$11 < 5e-8 {print 0}' BBJ-LDL-preMeta-U.txt | wc -l
 awk '$10 < 5e-8 {print 0}' GLGC-LDL-hg38-preMeta-U.txt | wc -l
 ```   
@@ -212,7 +217,7 @@ A shell wrapper script will be used to create the config file needed to run META
 
 In terminal:
 ```
-bash LDL_metal.sh HUNT-LDL-preMeta.txt GLGC-LDL-hg38-preMeta-U.txt BBJ-LDL-preMeta-U.txt LDL_METAL_META > LDL_METAL.conf
+bash LDL_metal.sh HUNT-LDL-preMeta-U.txt GLGC-LDL-hg38-preMeta-U.txt BBJ-LDL-preMeta-U.txt LDL_METAL_META > LDL_METAL.conf
 ```   
 
 ### 3.2. Run metal 
