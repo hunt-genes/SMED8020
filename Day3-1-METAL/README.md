@@ -144,7 +144,7 @@ Example code to create a file with compatible header is here:
 We noted that `join` fails in workbench and this needs to be run directly in the terminal, so we have created and subset the GLGC file so it is quicker to run in the meta-analysis, so use the following file forward:
 `GLGC-LDL-hg38-preMeta-U.txt`
 
-To simply the practical we have done this for all files:    
+To simplify the practical we have done this for all files:    
 ```
 BBJ-LDL-preMeta-U.txt
 HUNT-LDL-preMeta-U.txt
@@ -169,7 +169,7 @@ head -n 1 GLGC-LDL-hg38-preMeta-U.txt
 #Use head to check SNPID formatting
 head -n 2 BBJ-LDL-preMeta-U.txt | cut -f 3 
 head -n 2 GLGC-LDL-hg38-preMeta-U.txt | cut -f 3
-head -n 2 HUNT-LDL-preMeta.txt | cut -f 3 
+head -n 2 HUNT-LDL-preMeta-U.txt | cut -f 3 
 ```
 Yes, we need the SNPID to be consistent across files. The header could be called something different, but the software will match the markers across studies based on the column. 
 
@@ -261,7 +261,16 @@ While the meta-analysis runs, consider the following questions:
 ****What is the difference between "ANALYZE" and "ANALYZE HETEROGENEITY"?****       
 
 ****How might you create the config file if your summary statistics files had different header labels?****       
+Example of a 4th study that you might want to include (newfile4.txt):
+The columns are CHR     POS38   MARKERNAME   NON_EFFECT_ALLELE EFFECTALLELE AC_EFFECTALLELE      AF_EFFECTALLELE      NONMISS       BETA    SE  PVALUE 
 
+
+MARKER MARKERNAME
+ALLELE EFFECTALLELE NON_EFFECT_ALLELE
+EFFECT EFFECT1
+PVALUE PVALUE
+WEIGHT NONMISS
+PROCESS newfile4.txt
 
 #### 4. View the meta-analysis results
 
