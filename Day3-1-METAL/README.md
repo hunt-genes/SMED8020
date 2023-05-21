@@ -1,9 +1,7 @@
 # DAY 3 - Meta-analysis for quantitative traits using METAL
 
-# TO-DO
-CHECK Rscipt works from workbench terminal.    
-ADD ANSWERS.   
-ADD Forest plot scripts.  
+# TO-DO   
+ADD ANSWERS.    
 ADD METAL Documentation.   
 
 Please fill the following form during the exercise today: https://nettskjema.no/a/344366    
@@ -141,8 +139,15 @@ Use R or another tool to merge GLGC.hg38.bed and GLGC-LDL-preMeta.txt (the hg19 
 Example code to create a file with compatible header is here:     
 `join -1 4 -2 2 <(sort -k 4 GLGC.h38.bed) <(sort -k 2 GLGC-LDL-preMeta.txt) | awk -v OFS='\t' '{$5=toupper($5);$6=toupper($6)}1' | awk '{print $0"\t"substr($2, 4)"\t"$4":"$5":"$6}' | awk '{print $0"\t"$16":"$17}'| awk -v OFS='\t' '{print $16, $4, $18, $5, $6, $15, $13, $11, $12, $14}'| sed  '1i\CHR\tPOS38\tSNPID\tAllele1\tAllele2\tAF_Allele2\tN\tBETA\tSE\tp.value' > GLGC-LDL-hg38-preMeta-v2.txt`   
 
-We noted that `join` failed in workbench, so we have created and subset the GLGC file so it is quicker to run in the meta-analysis, so use the following file forward:
-`GLGC-LDL-hg38-preMeta-U.txt`    
+We noted that `join` fails in workbench and this needs to be run directly in the terminal, so we have created and subset the GLGC file so it is quicker to run in the meta-analysis, so use the following file forward:
+`GLGC-LDL-hg38-preMeta-U.txt`
+
+To simply the practical we have done this for all files:    
+```
+BBJ-LDL-preMeta-U.txt
+HUNT-LDL-preMeta-U.txt
+GLGC-LDL-hg38-preMeta-U.txt
+```
 
 ### 2.2 Check the file formats and headers (START CODING HERE)   
 
