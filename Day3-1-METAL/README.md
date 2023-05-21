@@ -1,7 +1,6 @@
 # DAY 3 - Meta-analysis for quantitative traits using METAL
 
 # TO-DO     
-ADD METAL Documentation.  
 GLGC AF FLIPPING.    
 ADD CODE EXPLAINER/TABLE
 
