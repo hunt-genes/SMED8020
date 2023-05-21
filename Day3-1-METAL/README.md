@@ -262,15 +262,8 @@ While the meta-analysis runs, consider the following questions:
 
 ****How might you create the config file if your summary statistics files had different header labels?****       
 Example of a 4th study that you might want to include (newfile4.txt):
-The columns are CHR     POS38   MARKERNAME   NON_EFFECT_ALLELE EFFECTALLELE AC_EFFECTALLELE      AF_EFFECTALLELE      NONMISS       BETA    SE  PVALUE 
-
-
-MARKER MARKERNAME
-ALLELE EFFECTALLELE NON_EFFECT_ALLELE
-EFFECT EFFECT1
-PVALUE PVALUE
-WEIGHT NONMISS
-PROCESS newfile4.txt
+The columns are: CHR     POS38   MARKERNAME   NON_EFFECT_ALLELE EFFECTALLELE      AF_EFFECTALLELE      NONMISS       EFFECT    SE  PVALUE 
+And here is the first line of the file: 18      32811534        18:32811534:C:G C       G       0.45      87041   -0.0015 0.0075  0.7029
 
 #### 4. View the meta-analysis results
 
