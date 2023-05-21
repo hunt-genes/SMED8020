@@ -323,4 +323,4 @@ Check out the APOE region on the [Open Targets platform](https://genetics.openta
 
 I would also recommend [this example](https://www.mv.helsinki.fi/home/mjxpirin/GWAS_course/material/GWAS9.html) of a meta-analysis by Matti Pirinen at the University of Helsinki using R.
 
-You can review [answers](answers.md) to the questions in this practical.
+You can review [answers](Day3_MetaAnalysis_ANSWERS.md) to the questions in this practical.
