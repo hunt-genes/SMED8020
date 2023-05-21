@@ -4,6 +4,10 @@
 
 It looks like BBJ and HUNT have SNP coordinates from hg38, but GLGC has summary statistics from hg18 and hg19.    
 
+BBJ: hg38 "POS38"
+HUNT: hg38 "POS38"
+GLGC: hg18 "SNP_hg18" and hg19 "SNP_hg19"
+
 ****Were there some markers that did not get converted from hg19 to hg38? Why do you think that is?****       
 
 Use less to view GLGC.hg38.unmapped:
@@ -106,9 +110,9 @@ awk '$10 < 5e-8 {print 0}' GLGC-LDL-hg38-preMeta-U.txt | wc -l
 
 Fixed effects using inverse variance based weights.   
     
-We ran the `SCHEME STDERR` command which weights the effect size estimates using the inverse of the corresponding standard errors. To enable this option, we specifed which of the input columns contained standard error information using the `STDERRLABEL` command (or `STDERR` for short). While standard error based weights are more common in the biostatistical literature, if you decide to use this approach, it is very important to ensure that effect size estimates (beta coefficients) and standard errors use the same units in all studies (i.e. make sure that the exact same trait was examined in each study and that the same transformations were applied). Inconsistent use of measurement units across studies is the most common cause of discrepancies between these two analysis strategies.
+METAL only runs fixed-effects meta-analysis. We ran the `SCHEME STDERR` command which weights the effect size estimates using the inverse of the corresponding standard errors. To enable this option, we specifed which of the input columns contained standard error information using the `STDERRLABEL` command (or `STDERR` for short). While standard error based weights are more common in the biostatistical literature, if you decide to use this approach, it is very important to ensure that effect size estimates (beta coefficients) and standard errors use the same units in all studies (i.e. make sure that the exact same trait was examined in each study and that the same transformations were applied). Inconsistent use of measurement units across studies is the most common cause of discrepancies between these two analysis strategies.
 
-The default - METAL combines p-values across studies taking into account a study specific weight (typically, the sample size) and direction of effect. This behavior can be requested explicitly with the `SCHEME SAMPLESIZE` command. 
+The default - METAL combines p-values across studies taking into account a study specific weight (typically, the sample size) and direction of effect. This behavior can be requested explicitly with the `SCHEME SAMPLESIZE` command. From the equations in [Willer et al](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2922887/), we can see the difference between these two strategies. Sample size based uses the N, p-value, and direction of effect. Inverse variance based uses the estimated effect size and standard error.
 
 The difference between the fixed effects and random effects models is that fixed effects meta-analysis assumes that the genetic effects are the same across the different studies. Fixed effects models provide narrower confidence intervals and significantly lower P-values for the variants than random effects models.   
  
@@ -118,15 +122,22 @@ The random effects model assumes that the mean effect (of each SNP) in each stud
 
 No. METAL has the ability to apply a genomic control correction to all input files. METAL will estimate the inflation of the test statistic by comparing the median test statistic to that expected by chance, and then apply the genomic control correction to the p-values (for SAMPLESIZE weighted meta-analysis) or the standard error (for STDERR weighted meta-analysis). This should only be applied to files with whole genome data (i.e. should not be used for settings where results are only available for a candidate locus or a small number of SNPs selected for follow-up of GWAS results). Genomic control settings can be customized for each input file. We recommend applying genomic control correction to all input files that include genomewide data and, in addition, to the meta-analysis results. To apply genomic control to the meta-analysis results, just perform an initial meta-analysis and then load the initial set of results into METAL to get final, genomic control adjusted results.   
 
+In LDL_metal.sh we have `GENOMICCONTROL ON` commented out. When we have a `#` at the front of the line in a script, we that means it will not be read by the computer. This means we did not use genomic control. We can also tell this in the .log file.
+
 ****What does it mean to set the minimum weight to 10,000?****        
+From the [documentation](https://genome.sph.umich.edu/wiki/METAL_Documentation) we read:
+"To restrict the output to only markers that have at least a specific number of individuals analysed (or weight)"
+
 METAL does not require that all input files report a result for every marker. Any available data is used. To restrict the output to only markers that have at least a specific number of individuals analysed (or weight), use a command like the following:   
 `MINWEIGHT 10000`   
 This will restrict the output to show only Markers with a total sample size of at least 10,000 individuals.   
 
 ****What is the difference between "ANALYZE" and "ANALYZE HETEROGENEITY"?****       
-The METAL `ANALYZE HETEROGENEITY` requires a second pass of analysis to decide whether observed effect sizes (or test statistics) are homogeneous across samples.    
+The METAL `ANALYZE HETEROGENEITY` requires a second pass of analysis to decide whether observed effect sizes (or test statistics) are homogeneous across samples. This is done with Cochran's Q test. When this is used, additional columns are created with the test statistics.     
 
 ****How might you create the config file if your summary statistics files had different header labels?****       
+In `LDL_metal.sh`, we process each file after describing the column names once, because the column names (e.g. SNPID, Allele2, Allele1, BETA) are consistent across files. If they were not consitent, we would need to define the file-specific column names with MARKER ALLELE EFFECT etc. one by one and call PROCESS FILENAME directly after those specifications. 
+
 The header for each of these columns must be specified so that METAL knows how to interpret the data. An example is given below:   
 
 ```
@@ -155,7 +166,11 @@ Completed meta-analysis for 2007881 markers!
 Smallest p-value is 6.40e-1688 at marker '19:44908822:C:T'    
 
 ****Do you think we will we use the same genome-wide significance threshold (5xE-8) for the meta-analysis as we used for the GWAS? Why or why not?****  
-We will use the same genome wide significance threshold as the number of independent markers across the genome has not changed.   
+We will use the same genome wide significance threshold as the number of independent markers across the genome has not changed. The threshold 5E-8 is a Bonferroni correction for 1 million independent tests due to the linkage structure of the genome. Even though we have multiple studies, we can still use the assumption that we are testing 1 million independent SNPs for association.
+
+There's actually been some interesting work discussing if we should make this threshold more stringent in the future, since we now look at many millions of variants and multiple traits.
+[Fadista et al, 2016](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4970684/)
+[Annis et al, 2021](https://europepmc.org/article/ppr/ppr401443). 
 
 ****How many genome wide significant results are there now?****    
 HINT: Use code like in *2.3* but replace `$8` with the column number that has the p-value and use the file name for your meta-analysis results.
