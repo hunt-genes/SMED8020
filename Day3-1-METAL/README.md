@@ -2,7 +2,9 @@
 
 # TO-DO   
 ADD ANSWERS.    
-ADD METAL Documentation.   
+ADD METAL Documentation.  
+GLGC AF FLIPPING.    
+ADD CODE EXPLAINER/TABLE
 
 Please fill the following form during the exercise today: https://nettskjema.no/a/344366    
 Thank you!
@@ -185,7 +187,7 @@ wc -l HUNT-LDL-preMeta.txt
 wc -l GLGC-LDL-hg38-preMeta.txt
 ```
 
-The HUNT summary statistics originally had millions of variants because imputation was done with the TOPMed imputation panel, which allows for higher resolution imputation due to the large amount of sequencing samples which make up the reference panel. We have subsetted the input files to only include variants seen in all 3 studies. We only want to perform meta-analysis on variants tested in 2 or more studies.    
+The HUNT and BBJ summary statistics originally had millions of variants because imputation was done with the TOPMed imputation panel, which allows for higher resolution imputation due to the large amount of sequencing samples which make up the reference panel. We have subsetted the input files to only include variants seen in all 3 studies. We only want to perform meta-analysis on variants tested in 2 or more studies.    
 
 ****What imputation panel was used for GLGC?**** HINT: Check the methods of the [paper](https://www.nature.com/articles/ng.2797).    
 
@@ -225,6 +227,14 @@ In terminal:
 bash LDL_metal.sh HUNT-LDL-preMeta-U.txt GLGC-LDL-hg38-preMeta-U.txt BBJ-LDL-preMeta-U.txt LDL_METAL_META > LDL_METAL.conf
 ```   
 
+In terminal:
+```
+# You can view the config file with less
+less LDL_METAL.conf
+
+#press "q" to exit
+```   
+
 ### 3.2. Run metal 
 We will run METAL with the config file we just made. This should take less than 20 minutes.
 
@@ -240,7 +250,8 @@ In terminal:
 Note: If you would like to time your analysis you can use the time program.  
 `/usr/bin/time -o test_time -v /home/benb/scratch/software/METAL-2020-05-05/build/bin/metal LDL_METAL.conf`    
 
-While the meta-analysis runs, consider the following questions:     
+While the meta-analysis runs, consider the following questions:  
+
 ****What type of meta-analysis did you run (fixed or random effects? sample size or inverse variance based?) What is the difference?****     
 
 ****Did you use genomic control? In what situations is it useful to use genomic control****       
