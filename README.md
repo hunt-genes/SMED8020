@@ -72,3 +72,6 @@ install.packages("ggplot2")
 | tail <file> | - | Prints last 10 lines of the specified file |
 | less <file> | - | Opens file for you to read/scroll. (exit with ‘q’) |
 | wc –l <file> | - | Using the –l flag, it counts lines in the specified file |
+  
+## Lecture notes
+https://ntnu.box.com/s/b8ayvovfccwejemcsaqpdvf6o3j02a0m
