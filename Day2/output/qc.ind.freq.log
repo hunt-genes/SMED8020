@@ -1,0 +1,24 @@
+PLINK v1.90b6.17 64-bit (28 Apr 2020)
+Options in effect:
+  --allow-no-sex
+  --bfile output/qc.ind
+  --freq
+  --out output/qc.ind.freq
+
+Hostname: mh-hf-p2565
+Working directory: /mnt/c/Users/tno010/Desktop/SMED8020/2021/Day2
+Start time: Tue May 31 12:27:27 2022
+
+Random number seed: 1653992847
+8062 MB RAM detected; reserving 4031 MB for main workspace.
+5245 variants loaded from .bim file.
+1939 people (0 males, 0 females, 1939 ambiguous) loaded from .fam.
+Ambiguous sex IDs written to output/qc.ind.freq.nosex .
+1939 phenotype values loaded from .fam.
+Using 1 thread (no multithreaded calculations invoked).
+Before main variant filters, 1939 founders and 0 nonfounders present.
+Calculating allele frequencies... done.
+Total genotyping rate is 0.999715.
+--freq: Allele frequencies (founders only) written to output/qc.ind.freq.frq .
+
+End time: Tue May 31 12:27:27 2022

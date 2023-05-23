@@ -1,0 +1,29 @@
+PLINK v1.90b6.17 64-bit (28 Apr 2020)
+Options in effect:
+  --allow-no-sex
+  --bfile output/frequent
+  --indep-pairwise 50 5 0.2
+  --out output/prunedsnplist
+
+Hostname: mh-hf-p2565
+Working directory: /mnt/c/Users/tno010/Desktop/SMED8020/2021/Day2
+Start time: Tue May 31 12:19:07 2022
+
+Random number seed: 1653992347
+8062 MB RAM detected; reserving 4031 MB for main workspace.
+1232 variants loaded from .bim file.
+2002 people (0 males, 0 females, 2002 ambiguous) loaded from .fam.
+Ambiguous sex IDs written to output/prunedsnplist.nosex .
+2002 phenotype values loaded from .fam.
+Using 1 thread (no multithreaded calculations invoked).
+Before main variant filters, 2002 founders and 0 nonfounders present.
+Calculating allele frequencies... done.
+Total genotyping rate is 0.999234.
+1232 variants and 2002 people pass filters and QC.
+Among remaining phenotypes, 1001 are cases and 1001 are controls.
+Pruned 792 variants from chromosome 22, leaving 440.
+Pruning complete.  792 of 1232 variants removed.
+Marker lists written to output/prunedsnplist.prune.in and
+output/prunedsnplist.prune.out .
+
+End time: Tue May 31 12:19:07 2022
