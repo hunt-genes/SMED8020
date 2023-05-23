@@ -43,7 +43,12 @@ All software is installed in the directory:
 
 ###### In terminal:
 We need to tell the terminal where plink is:    
-```   
+``` 
+#Note: Change user_name
+cd /mnt/work/workbench/{user_name}   
+```  
+
+```  
 cp /mnt/scratch/software/plink/plink_linux_x86_64_20220402/plink .local/bin/
 echo "export PATH=.local/bin/:$PATH" >> .profile
 ```  
