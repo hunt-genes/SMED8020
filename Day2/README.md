@@ -70,7 +70,7 @@ You can find useful information regarding these files here:
 You need to first make the terminal know where your files are/what directory to work from
 and you can copy this and paste it into your terminal.  
 For example:
-```cd /mnt/work/workbench/user_name/SMED8020/Day2```       
+```cd /mnt/work/SMED8020/Day2```       
 
 *You can have a look at the files in the terminal by entering:*
 
