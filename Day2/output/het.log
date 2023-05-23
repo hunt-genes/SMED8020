@@ -1,0 +1,26 @@
+PLINK v1.90b6.17 64-bit (28 Apr 2020)
+Options in effect:
+  --allow-no-sex
+  --bfile day2
+  --het
+  --out output/het
+
+Hostname: mh-hf-p2565
+Working directory: /mnt/c/Users/tno010/Desktop/SMED8020/2021/Day2
+Start time: Tue May 31 12:17:58 2022
+
+Random number seed: 1653992278
+8062 MB RAM detected; reserving 4031 MB for main workspace.
+5245 variants loaded from .bim file.
+2002 people (0 males, 0 females, 2002 ambiguous) loaded from .fam.
+Ambiguous sex IDs written to output/het.nosex .
+2002 phenotype values loaded from .fam.
+Using 1 thread (no multithreaded calculations invoked).
+Before main variant filters, 2002 founders and 0 nonfounders present.
+Calculating allele frequencies... done.
+Total genotyping rate is 0.99905.
+5245 variants and 2002 people pass filters and QC.
+Among remaining phenotypes, 1001 are cases and 1001 are controls.
+--het: 5245 variants scanned, report written to output/het.het .
+
+End time: Tue May 31 12:17:58 2022

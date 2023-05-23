@@ -1,0 +1,24 @@
+PLINK v1.90b6.17 64-bit (28 Apr 2020)
+Options in effect:
+  --allow-no-sex
+  --bfile output/qc.ind
+  --exclude fail_diffmiss_qc.txt
+  --geno 0.04
+  --hwe 1e-6
+  --maf 0.01
+  --make-bed
+  --out output/day1.qc
+
+Hostname: mh-hf-p2565
+Working directory: /mnt/c/Users/tno010/Desktop/SMED8020/Day1
+Start time: Tue Jun  2 14:27:48 2020
+
+Random number seed: 1591100868
+8062 MB RAM detected; reserving 4031 MB for main workspace.
+5245 variants loaded from .bim file.
+1939 people (0 males, 0 females, 1939 ambiguous) loaded from .fam.
+Ambiguous sex IDs written to output/day1.qc.nosex .
+1939 phenotype values loaded from .fam.
+Error: Failed to open fail_diffmiss_qc.txt.
+
+End time: Tue Jun  2 14:27:48 2020
