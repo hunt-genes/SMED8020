@@ -49,6 +49,11 @@ Install PLINK1.9 as described in the HUNT Cloud documentation:
 ```
 sudo apt install plink1.9
 ```
+#### Alternative
+```
+cp /mnt/scratch/software/plink/plink_linux_x86_64_20220402/plink .local/bin/
+echo "export PATH=.local/bin/:$PATH" >> .profile
+```
 
 There are three main files to use in this practical. 
 These instructions are based on using the SMED8020 lab in HUNT Cloud and should be cloned into e.g. /mnt/work/workbench/username/
