@@ -1,9 +1,5 @@
 # DAY 3 - Meta-analysis for quantitative traits using METAL
 
-# TO-DO     
-GLGC AF FLIPPING.    
-ADD CODE EXPLAINER/TABLE
-
 Please fill the following form during the exercise today: https://nettskjema.no/a/344366    
 Thank you!
 
