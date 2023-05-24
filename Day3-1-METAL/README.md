@@ -192,7 +192,9 @@ Yes, we need the SNPID to be consistent across files. The header could be called
 wc -l BBJ-LDL-preMeta-U.txt
 wc -l HUNT-LDL-preMeta-U.txt
 wc -l GLGC-LDL-hg38-preMeta-U.txt
+```
 
+```
 #check the original files before formatting and subsetting 
 wc -l BBJ-LDL-preMeta.txt
 wc -l HUNT-LDL-preMeta.txt
