@@ -54,6 +54,24 @@ When running a meta analysis there are many issues that need to be addressed.
 For today's practical we have alreading installed the correct version here:    
 `/mnt/scratch/software/METAL-2020-05-05/build/bin/metal`    
 
+# Required data
+Go to your home directory
+```   
+#Note: Change user_name
+cd /mnt/work/workbench/{user_name}   
+```
+
+Clone the repository
+```
+git clone https://github.com/hunt-genes/SMED8020.git
+```
+
+Copy the data to your directory:    
+```
+#Note: Change user_name
+cp -R /mnt/scratch/benb/data/Day3/* /mnt/work/workbench/{user_name}/SMED8020/Day3-1-METAL/     
+```
+
 #### 1. Organizing summary statistics  
 
 Usually you would download publically available summary statistics from the internet to your local machine. For convience for this practical, we have already downloadeded summary statistics from 3 studies, BBJ, HUNT, and GLGC.
