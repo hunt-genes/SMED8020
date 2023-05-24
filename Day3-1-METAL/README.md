@@ -256,7 +256,7 @@ Remember, we have already installed METAL here:
 In terminal:
 ```
 #Run METAL using the config file
-/home/benb/scratch/software/METAL-2020-05-05/build/bin/metal LDL_METAL.conf > LDL_METAL.log
+/mnt/scratch/software/METAL-2020-05-05/build/bin/metal LDL_METAL.conf > LDL_METAL.log
 ```     
 
 Note: If you would like to time your analysis you can use the time program.  
