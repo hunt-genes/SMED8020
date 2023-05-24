@@ -251,7 +251,7 @@ less LDL_METAL.conf
 We will run METAL with the config file we just made. This should take less than 20 minutes.
 
 Remember, we have already installed METAL here:    
-`/home/benb/scratch/software/METAL-2020-05-05/build/bin/metal`   
+`/mnt/scratch/software/METAL-2020-05-05/build/bin/metal`   
 
 In terminal:
 ```
