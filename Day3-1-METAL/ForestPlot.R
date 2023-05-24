@@ -2,6 +2,11 @@ library(ggplot2)
 library(dplyr)
 library(data.table)
 library(tidyverse)
+
+#set your working directory
+setwd("/mnt/work/workbench/{user_name}/SMED8020/Day3-1-METAL")
+# Note change your user_name
+
 #read in data frames
 hunt<-fread(file="HUNT-LDL-preMeta-U.txt")
 bbj<-fread(file="BBJ-LDL-preMeta-U.txt")
