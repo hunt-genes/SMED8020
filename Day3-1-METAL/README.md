@@ -334,6 +334,7 @@ In terminal:
 install.packages("plotrix")
 install.packages("data.table")
 install.packages("RColorBrewer")
+#Type q() and press "n" to exit
 ```
 
 In terminal:
