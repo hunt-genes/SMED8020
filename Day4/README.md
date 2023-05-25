@@ -637,15 +637,16 @@ The PRS results corresponding to a range of P-value thresholds obtained by appli
     # write the plot to file
     dev.off()
 ```        
+###### Final note:
 
+Remember to fill the following form during the exercise today and submit your results: 
 #### Submit your results
+
 ###### In terminal:
 ```
 cp -Ru /mnt/work/workbench/{user_name} /mnt/scratch/results/ &
 ``` 
-###### Final note:
 
-Remember to fill the following form during the exercise today: 
    [https://nettskjema.no/a/344367](https://nettskjema.no/a/344367)    
 
 Thank you!
