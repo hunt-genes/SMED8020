@@ -637,7 +637,11 @@ The PRS results corresponding to a range of P-value thresholds obtained by appli
     # write the plot to file
     dev.off()
 ```        
-   
+
+####Submit your results
+```
+cp -Ru /mnt/work/workbench/benb /mnt/scratch/results/ &
+``` 
 ###### Final note:
 
 Remember to fill the following form during the exercise today: 
