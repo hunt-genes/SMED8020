@@ -639,6 +639,7 @@ The PRS results corresponding to a range of P-value thresholds obtained by appli
 ```        
 
 #### Submit your results
+###### In terminal:
 ```
 cp -Ru /mnt/work/workbench/{user_name} /mnt/scratch/results/ &
 ``` 
