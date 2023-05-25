@@ -640,7 +640,7 @@ The PRS results corresponding to a range of P-value thresholds obtained by appli
 
 ####Submit your results
 ```
-cp -Ru /mnt/work/workbench/benb /mnt/scratch/results/ &
+cp -Ru /mnt/work/workbench/{user_name} /mnt/scratch/results/ &
 ``` 
 ###### Final note:
 
