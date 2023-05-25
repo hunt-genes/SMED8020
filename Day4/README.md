@@ -26,7 +26,7 @@ cd /mnt/work/workbench/{user_name}/SMED8020/Day4
 
 Copy the data files to your Day4 directory:     
 ```
-cp /mnt/scratch/benb/data/Day4/* .
+cp /mnt/scratch/benb/data/Day4/* /mnt/work/workbench/{user_name}/SMED8020/Day4/
 ```    
 
 ## Reading the base data file
