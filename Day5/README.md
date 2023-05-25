@@ -27,5 +27,11 @@ Do the same for [Prac 2](MR-Prac2/Mendelian_Randomization_Practical_2_-_MR_base_
 ## Remember to do the quiz when you are finished:
 https://nettskjema.no/a/344369     
 
+#### Submit your results
+###### In terminal:
+```
+cp -Ru /mnt/work/workbench/{user_name} /mnt/scratch/results/ &
+``` 
+
 Thank you!
 Please ask the tutors for help if you have any trouble.
