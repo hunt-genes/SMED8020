@@ -638,7 +638,7 @@ The PRS results corresponding to a range of P-value thresholds obtained by appli
     dev.off()
 ```        
 
-####Submit your results
+#### Submit your results
 ```
 cp -Ru /mnt/work/workbench/{user_name} /mnt/scratch/results/ &
 ``` 
