@@ -30,7 +30,7 @@ https://nettskjema.no/a/344369
 #### Submit your results
 ###### In terminal:
 ```
-cp -Ru /mnt/work/workbench/{user_name} /mnt/scratch/results/ &
+cp -Rup /mnt/work/workbench/{user_name} /mnt/scratch/results/ &
 ``` 
 
 Thank you!
