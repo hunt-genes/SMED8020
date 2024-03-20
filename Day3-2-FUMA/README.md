@@ -18,6 +18,6 @@ This practical is in two parts:
 
 2) Secondly, we will use the FUMA tool.  
 
-[Part 2: Functional annotation without FUMA](FUMApractical2023_PART2.docx)
+[Part 2: Functional annotation with FUMA](FUMApractical2023_PART2.docx)
 
 FUMA GWAS uses information from publicly available annotation and mapping datasets (see https://fuma.ctglab.nl/tutorial#celltype – Data sets)  
