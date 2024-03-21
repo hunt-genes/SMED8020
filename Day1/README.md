@@ -12,8 +12,6 @@ Download [Day 1 exercises](SMED8020_Day1_questions.docx) to find exercises on th
 <br> HWE
 <br> LD
 
-[Answers](SMED8020_Day1_questions_and_answers.docx)    
-
 ### Part 3: HUNT-Cloud
 HUNT-Cloud will give us an introduction to the server and services. You should already have access to the smed8020 lab at this stage. If not, this is your last chance to get onboard. Please ask for assitance as soon as possible.  
 
