@@ -114,7 +114,7 @@ The following command performs **association analysis in PLINK** using logistic 
 
 ###### In terminal:
 ```
-plink --bfile day2 \
+plink1.9 --bfile day2 \
 --allow-no-sex \
 --logistic beta --ci 0.95 \
 --out output/results
@@ -218,7 +218,7 @@ sample statistic for missing rate:
 
 ###### In terminal:
 ```
-plink --bfile day2 \
+plink1.9 --bfile day2 \
 --missing \
 --allow-no-sex \
 --out output/mis
@@ -235,7 +235,7 @@ The *fourth* column [N_MISS], in the file mis.imiss gives the number of missing 
 
 ###### In terminal:
 ```
-plink --bfile day2 \
+plink1.9 --bfile day2 \
 --het \
 --allow-no-sex \
 --out output/het
@@ -254,7 +254,7 @@ The results can be visualized from within an R session by plotting a graph
 where the observed heterozygosity rate per individual is plotted on the x-axis 
 and the proportion of missing SNPs per individuals is plotted on the y-axis:
 
-### Evaluating QC results - missingness and heterozygosity - from Plink in R 
+### Evaluating QC results - missingness and heterozygosity - from plink1.9 in R 
 
 Reading the files:
 
@@ -357,7 +357,7 @@ test at p-value =0.00000001:*
 
 ###### In Terminal:
 ```
-plink --bfile day2 \
+plink1.9 --bfile day2 \
 --maf 0.35 \
 --geno 0.05 \
 --hwe 0.00000001 \
@@ -374,7 +374,7 @@ Reduce the subset of frequent SNPs by pruning so that no pair of SNPs
 
 ###### In Terminal:
 ```
-plink --bfile output/frequent \
+plink1.9 --bfile output/frequent \
 --indep-pairwise 50 5 0.2  \
 --allow-no-sex \
 --out output/prunedsnplist
@@ -385,7 +385,7 @@ of frequent SNPs:
 
 ###### In Terminal:
 ```
-plink --bfile output/frequent \
+plink1.9 --bfile output/frequent \
 --extract output/prunedsnplist.prune.in \
 --genome \
 --allow-no-sex \
@@ -497,7 +497,7 @@ dataset:
 
 ###### In Terminal:
 ```
-plink --bfile day2 \
+plink1.9 --bfile day2 \
 --remove output/fail_qc.txt \
 --allow-no-sex \
 --make-bed \
@@ -529,7 +529,7 @@ The following PLINK command computes the missing data rate:
 
 ###### In Terminal:
 ```
-plink --bfile output/qc.ind \
+plink1.9 --bfile output/qc.ind \
 --missing \
 --allow-no-sex \
 --out output/qc.ind.mis
@@ -579,7 +579,7 @@ PLINK and visualising in R:
 
 ###### In terminal:
 ```
-plink --bfile output/qc.ind --freq  \
+plink1.9 --bfile output/qc.ind --freq  \
 --allow-no-sex \
 --out output/qc.ind.freq
 ```
@@ -609,7 +609,7 @@ results into a file **qc.ind.call.rate.missing**.
 
 ###### In Terminal:
 ```
-plink --bfile output/qc.ind \
+plink1.9 --bfile output/qc.ind \
 --test-missing --allow-no-sex  \
 --out output/qc.ind.call.rate
 
@@ -641,7 +641,7 @@ at p-value <0.000001 (in controls):
 ###### In Terminal:
 
 ```
-plink --bfile output/qc.ind  \
+plink1.9 --bfile output/qc.ind  \
 --exclude output/fail_diffmiss_qc.txt  \
 --maf 0.01 --hwe 1e-6  --geno 0.04  \
 --make-bed --allow-no-sex \
@@ -659,7 +659,7 @@ to see if it has made any difference to the results using PLINK:
 ###### In Terminal:
 
 ```
-plink --bfile output/practical2.qc \
+plink1.9 --bfile output/practical2.qc \
 --allow-no-sex \
 --logistic beta \
 --ci 0.95 \
