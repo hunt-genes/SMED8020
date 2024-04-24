@@ -318,6 +318,18 @@ The column labelled "direction" shows '?', '+', or '-' to indicate missingness, 
 One can use the `subset_meta_analysis.r` Rscript to exclude markers with more than one '?'. This is R code like we use in RStudio, but it's packaged in a script so we can call it from the command line and pass it parameters, like the input file.
 
 In terminal (ONLY FOR YOUR REFERENCE):
+
+First install the R packages we need:
+In terminal:
+```
+#Type R  and press enter to open R
+install.packages("data.table")
+install.packages('stringr')
+install.packages("optparse")
+#Type q() and press "n" to exit
+```
+
+
 ```
 #subset the results to variants with more than 1 study, may take 5 minutes
 Rscript subset_meta_analysis.r --input LDL_METAL_META1.tbl --output LDL_METAL_MultiStudy.txt
