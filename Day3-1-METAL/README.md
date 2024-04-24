@@ -69,7 +69,7 @@ git clone https://github.com/hunt-genes/SMED8020.git
 Copy the data to your directory:    
 ```
 #Note: Change user_name
-cp -R /mnt/scratch/benb/data/Day3/* /mnt/work/workbench/{user_name}/SMED8020/Day3-1-METAL/     
+cp /mnt/scratch/benb/data/Day3-2023/* /mnt/work/workbench/{user_name}/SMED8020/Day3-1-METAL/     
 ```
 
 #### 1. Organizing summary statistics  
