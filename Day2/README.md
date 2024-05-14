@@ -156,6 +156,11 @@ Every subesequent PLINK command will make these two other files togehter with th
 A suggested R script is added to this folder and could be opened to run directly from that. Some modifications of file paths are needed for this command to read the file in its location:
 
 ```
+# Frist set your working directory
+setwd("/mnt/work/workbench/username/SMED8020/Day2")    
+```  
+
+```
 assoc <- read.table("output/results.assoc.logistic", header=T, as.is=T)
 ```
 Where the function **read.table** is used. Try **?read.table** to get information on the arguments used. When an arguments is set to T, it means it is TRUE and is active. F denotes FALSE, and R ignores this argument.   See the table above for more useful functions in R. 
