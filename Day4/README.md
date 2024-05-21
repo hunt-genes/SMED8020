@@ -1,7 +1,7 @@
 # DAY 4 - Practical Exercise – Polygenic Risk Scores
 
 
-Please fill the following form during the exercise today: 
+Please fill in the following form during the exercise today: 
    [https://nettskjema.no/a/344367](https://nettskjema.no/a/344367)    
 Thank you!
 
