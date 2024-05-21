@@ -37,8 +37,8 @@ project. The data-set consist of 1001 cases and 1001 controls and only chr 22.
 * re-run the association analysis using PLINK
 * plot and view your results and evaluate differences in R
 
-###### Please respond to the small questionnaire for today: 
-[https://nettskjema.no/a/344365#/page/1](https://nettskjema.no/a/344365#/page/1)
+###### Please submit the handin for today: 
+https://nettskjema.no/a/431139
 
 
 #### TASK outline:
