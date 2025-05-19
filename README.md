@@ -30,11 +30,11 @@ git clone https://github.com/hunt-genes/SMED8020.git
 Copy the data to your directory:    
 ```
 #Note: Change user_name
-cp -R /mnt/scratch/benb/data/Day3/* /mnt/work/workbench/{user_name}/SMED8020/Day3-1-METAL/     
+cp -R /mnt/scratch/data/Day3/* /mnt/work/workbench/{user_name}/SMED8020/Day3-1-METAL/     
 ```
 ```
 #Note: Change user_name    
-cp -R /mnt/scratch/benb/data/Day4/* /mnt/work/workbench/{user_name}/SMED8020/Day4/   
+cp -R /mnt/scratch/data/Day4/* /mnt/work/workbench/{user_name}/SMED8020/Day4/   
 ```
 
 # Required software
