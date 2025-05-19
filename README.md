@@ -17,9 +17,10 @@
 
 # Required data
 Go to your home directory
-```   
+
 #Note: Change user_name
-cd /mnt/work/workbench/{user_name}   
+```   
+cd /mnt/work/workbench/{user_name}
 ```
 
 Clone the repository
