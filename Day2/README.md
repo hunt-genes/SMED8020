@@ -79,7 +79,11 @@ Hint: you can copy the code from this text and paste code into the terminal by u
 ###### In terminal:
 ```
 less day2.bim | head
+```
+```
 less day2.fam | head
+```
+```
 less day2.bed | head
 ```
 
