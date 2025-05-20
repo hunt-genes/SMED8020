@@ -416,9 +416,7 @@ the mean IBD sharing:
 ###### In R session:
 ```
 #read in day2pruned.genome file
-genome <- read.table("output/pruned.genome", 
-header=T, as.is=T)
-
+genome <- read.table("output/pruned.genome", header=T, as.is=T)
 ```
 The pruned.genome file is big as it contains all possible pairs of 
 individuals (2,003,001 in our case). Therefore, we look only at the 
