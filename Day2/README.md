@@ -159,9 +159,9 @@ Every subesequent PLINK command will make these two other files togehter with th
 ###### In R session:
 A suggested R script is added to this folder and could be opened to run directly from that. Some modifications of file paths are needed for this command to read the file in its location:
 
+# Frist set your working directory       
 ```
-# Frist set your working directory
-setwd("/mnt/work/workbench/username/SMED8020/Day2")    
+setwd("/mnt/work/workbench/username/SMED8020/Day2")
 ```  
 
 ```
