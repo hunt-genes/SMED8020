@@ -18,9 +18,9 @@
 # Required data
 Go to your home directory
 
-#Note: Change user_name
+#Note: $USER is a variable that is equal to your username
 ```   
-cd /mnt/work/workbench/{user_name}
+cd /mnt/work/workbench/$USER
 ```
 
 Clone the repository
@@ -30,14 +30,14 @@ git clone https://github.com/hunt-genes/SMED8020.git
 
 Copy the data to your directory:    
 
-#Note: Change user_name
+#Note: $USER is a variable that is equal to your username
 ```
-cp -R /mnt/scratch/data/Day3/* /mnt/work/workbench/{user_name}/SMED8020/Day3-1-METAL/
+cp -R /mnt/scratch/data/Day3/* /mnt/work/workbench/$USER/SMED8020/Day3-1-METAL/
 ```
 
-#Note: Change user_name   
+#Note: $USER is a variable that is equal to your username 
 ```
-cp -R /mnt/scratch/data/Day4/* /mnt/work/workbench/{user_name}/SMED8020/Day4/
+cp -R /mnt/scratch/data/Day4/* /mnt/work/workbench/$USER/SMED8020/Day4/
 ```
 
 # Required software
@@ -47,13 +47,12 @@ All software is installed in the directory:
 ###### In terminal:
 We need to tell the terminal where plink is:    
 ``` 
-#Note: Change user_name
-cd /mnt/work/workbench/{user_name}   
+#Note: $USER is a variable that is equal to your username
+cd /mnt/work/workbench/$USER
 ```  
 
 ```  
-cp /mnt/scratch/software/plink/plink_linux_x86_64_20220402/plink .local/bin/
-echo "export PATH=.local/bin/:$PATH" >> .profile
+cp -v /mnt/scratch/software/plink/plink /mnt/work/workbench/$USER/.local/bin/plink
 ```  
 
 ###### In RStudio Server session:
