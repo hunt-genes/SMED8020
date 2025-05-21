@@ -59,9 +59,15 @@ cp -v /mnt/scratch/software/plink/plink /mnt/work/workbench/$USER/.local/bin/pli
 ###### In terminal:
 ```
 conda install -n r-base -c conda-forge r-aer r-stringi r-devtools r-plyr r-ggplot2
+conda activate r-base
+R
+install.packages("remotes")
+remotes::install_github("MRCIEU/TwoSampleMR")
 ```
 ###### As an alternative install.pakages in R from the terminal
 ```
+conda activate r-base
+R
 install.packages("AER")
 install.packages('stringi')
 install.packages("devtools")
