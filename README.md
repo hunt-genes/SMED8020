@@ -56,15 +56,20 @@ mkdir -pv /mnt/work/workbench/$USER/.local/bin
 cp -v /mnt/scratch/software/plink/plink /mnt/work/workbench/$USER/.local/bin/plink
 ```  
 
-###### In RStudio Server session:
-```   
+###### In terminal:
+```
+conda install -n r-base -c conda-forge r-aer r-stringi r-devtools r-plyr r-ggplot2
+```
+###### As an alternative install.pakages in R from the terminal
+```
 install.packages("AER")
 install.packages('stringi')
 install.packages("devtools")
-library(devtools)
-install_github("MRCIEU/TwoSampleMR")
 install.packages("plyr")
 install.packages("ggplot2")
+
+install.packages("remotes")
+remotes::install_github("MRCIEU/TwoSampleMR")
 ```  
 
 # Linux cheet sheet
