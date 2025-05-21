@@ -277,7 +277,7 @@ Make sure to remove any duplicate SNPs in your target data (these target data we
 ## \# Sex chromosomes 
 Sometimes sample mislabelling can occur, which may lead to invalid results. One indication of a mislabelled sample is a difference between reported sex and that indicated by the sex chromosomes. While this may be due to a difference in sex and gender identity, it could also reflect mislabeling of samples or misreporting and, thus, individuals in which there is a mismatch between biological and reported sex are typically removed. A sex check can be performed in PLINK, in which individuals are called as females if their X chromosome homozygosity estimate (F statistic) is < 0.2 and as males if the estimate is > 0.8.
 
-Before performing a sex check, pruning should be performed (see [here](target.md#35-standard-gwas-qc)).
+Before performing a sex check, pruning should be performed (see above).       
 A sex check can then easily be conducted using `plink`
 
 ###### In terminal:
