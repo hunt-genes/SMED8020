@@ -1,6 +1,8 @@
 
 [Precourse materials](SMED_8020-pre-course_preparations_2023.pdf)
 
+[Intro to R and Unix](https://github.com/hunt-genes/SMED8020/tree/main/R_Unix_Intro)
+
 # SMED8020 Practicals
 
 [Day 1 - Pen and paper exercises](Day1)
