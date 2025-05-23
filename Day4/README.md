@@ -700,7 +700,7 @@ Remember to fill the following form during the exercise today and submit your re
 cp -Ru /mnt/work/workbench/{user_name} /mnt/scratch/results/ &
 ``` 
 
-   [https://nettskjema.no/a/344367](https://nettskjema.no/a/344367)    
+   [https://nettskjema.no/a/527813](https://nettskjema.no/a/527813)    
 
 Thank you!
 
