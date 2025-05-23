@@ -28,7 +28,7 @@ Do the same for [Prac 2](MR-Prac2/Mendelian_Randomization_Practical_2_-_MR_base_
 
 
 ## Remember to do the quiz and submit your results when you are finished:
-https://nettskjema.no/a/431142
+https://nettskjema.no/a/527814
 
 
 #### Submit your results
