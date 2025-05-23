@@ -16,7 +16,7 @@ Download [Day 1 exercises](SMED8020_Day1_questions.docx) to find exercises on th
 HUNT-Cloud will give us an introduction to the server and services. You should already have access to the smed8020 lab at this stage. If not, this is your last chance to get onboard. Please ask for assitance as soon as possible.  
 
 ### Part 4: Complete the handin for today    
-https://nettskjema.no/a/431138     
+https://nettskjema.no/a/527770   
      
 ### Useful linux commands
 
