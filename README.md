@@ -1,5 +1,5 @@
 
-[Precourse materials](SMED_8020-pre-course_preparations_2023.pdf)
+[Precourse materials](SMED 8020 - pre-course preparations 2025.pdf)
 
 [Intro to R and Unix](https://github.com/hunt-genes/SMED8020/tree/main/R_Unix_Intro)
 
