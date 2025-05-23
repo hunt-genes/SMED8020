@@ -1,6 +1,6 @@
 # DAY 3 - Meta-analysis for quantitative traits using METAL
 
-Please fill the following form during the exercise today: https://nettskjema.no/a/431140  
+Please fill the following form during the exercise today: https://nettskjema.no/a/527809
 Thank you!
 
 
