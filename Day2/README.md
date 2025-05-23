@@ -38,7 +38,7 @@ project. The data-set consist of 1001 cases and 1001 controls and only chr 22.
 * plot and view your results and evaluate differences in R
 
 ###### Please submit the handin for today: 
-https://nettskjema.no/a/431139
+https://nettskjema.no/a/527808
 
 
 #### TASK outline:
