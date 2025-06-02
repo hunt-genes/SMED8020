@@ -29,7 +29,6 @@ The phenotype in today´s practical is dummy phenotype created for this practica
 project. The data-set consist of 1001 cases and 1001 controls and only chr 22.
 
 #### TASK outline:
-* install PLINK
 * identify your files
 * run association analysis using PLINK
 * plot and view your results in R 
