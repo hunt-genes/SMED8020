@@ -55,6 +55,8 @@ cd /mnt/work/workbench/$USER
 
 ```
 mkdir -pv /mnt/work/workbench/$USER/.local/bin
+```
+```
 cp -v /mnt/scratch/software/plink/plink /mnt/work/workbench/$USER/.local/bin/plink
 ```  
 
