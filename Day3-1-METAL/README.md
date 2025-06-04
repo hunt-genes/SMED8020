@@ -19,7 +19,7 @@ Some [slides](SMED8020_2022_MetaAnalysis.pdf) with extra informaiton may be help
 
 [METAL](http://csg.sph.umich.edu/abecasis/metal/) was developed at the University of Michigan as a tool for meta-analysis of  genome-wide association analysis. For running METAL you can use either test statistics and standard error or p-values. For more info on METAL see the web-links in this document and the suggested readings paper. 
 
-## TASK: Running a trans-ethnic meta-analysis using METAL  
+## TASK: Running a multi-ancestry meta-analysis using METAL  
 
 Today you will run a meta-analysis to combine three studies using METAL. METAL has been pre-installed on our lab. Because of time restraints we have made a small data-set that will run within reasonable time. The data will not generate significant results. A separate set of files will therefore be used for plotting results. 
     
@@ -49,53 +49,30 @@ When running a meta analysis there are many issues that need to be addressed.
   * population stratification
 
 ## Instructions  
-#### 0. We have [installed METAL](http://csg.sph.umich.edu/abecasis/Metal/download/) using the pre-compiled binaries for you. An updated version of METAL that should work on machines requiring 64-bit is available [here](https://github.com/statgen/METAL/blob/master/README.md).    
 
+#### 0. Install METAL
+   
 For today's practical we have alreading installed the correct version here:    
 `/mnt/scratch/software/METAL-2020-05-05/build/bin/metal`    
 
+#### 1. Gather summary statistics  
+
+Usually you would download publically available summary statistics from the internet to your local machine. For convience for this practical, we have already downloaded summary statistics from 3 studies, BBJ, HUNT, and GLGC.
+
 # Required data
-Go to your home directory
-```   
-#Note: Change user_name
-cd /mnt/work/workbench/{user_name}   
-```
 
-Clone the repository
-```
-git clone https://github.com/hunt-genes/SMED8020.git
-```
-
-Copy the data to your directory:    
-```
-#Note: Change user_name
-cp /mnt/scratch/benb/data/Day3-2023/* /mnt/work/workbench/{user_name}/SMED8020/Day3-1-METAL/     
-```
-
-#### 1. Organizing summary statistics  
-
-Usually you would download publically available summary statistics from the internet to your local machine. For convience for this practical, we have already downloadeded summary statistics from 3 studies, BBJ, HUNT, and GLGC.
-
-The data can copied for the directory `/mnt/scratch/benb/data/Day3/`
-
-Alternative: Downloaded from [here](https://ntnu.box.com/s/rvytm8ymd8iple8negy8ix8x5vp7qs9a). You will need about 1.7 GB.
-
-Move to the Day3 directory:      
-`cd /mnt/work/workbench/user_name/SMED8020/Day3-1-METAL`     
-
-Copy the data files to your Day3 directory:      
-`cp /mnt/scratch/benb/data/Day3/* /mnt/work/workbench/user_name/SMED8020/Day3-1-METAL`     
+You already copied the required data (See the main [README](https://github.com/hunt-genes/SMED8020/blob/main/README.md) for reference)
 
 * The original summary statistics from Biobank Japan (BBJ) of LDL cholesterol in N=72,866 can be found [here](https://humandbs.biosciencedbc.jp/files/hum0014/hum0014_README_QTL_GWAS.html)  
-`BBJ-LDL-preMeta.txt`  
+```head BBJ-LDL-preMeta.txt```
 The columns are CHR     POS38   SNPID   Allele1 Allele2 AC_Allele2      AF_Allele2      N       BETA    SE      p.value log10P
 
 * The original summary statistics of joint analysis of metabochip and GWAS data for LDL cholesterol in N=89,138 from the Global Lipids Genetics Consortium (GLGC) can be found [here](http://csg.sph.umich.edu/willer/public/lipids2013/)  
-`GLGC-LDL-preMeta.txt`  
+```head GLGC-LDL-preMeta.txt``` 
 The columns are SNP_hg18        SNP_hg19        rsid    A1      A2      beta    se      N       P-value Freq.A1.1000G.EUR
 
 * The summary statistics of LDL cholesterol from the HUNT study in N=67,429.   
-`HUNT-LDL-preMeta.txt`  
+```head HUNT-LDL-preMeta.txt``` 
 The columns are CHR     POS38   SNPID   Allele1 Allele2 AC_Allele2      AF_Allele2      N       BETA    SE  p.value 
 
 #### 2. Check your summary statistics to make sure they're ready for meta-analysis.
