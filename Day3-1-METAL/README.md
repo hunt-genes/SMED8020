@@ -112,10 +112,10 @@ head GLGC-LDL-hg38-preMeta.txt
 Look in `GLGC.hg38.unmapped`. ****Were there some markers that did not get converted from hg19 to hg38? Why do you think that is?****       
 
 You would then use R or another tool to merge GLGC.hg38.bed and GLGC-LDL-preMeta.txt (the hg19 position should be shared between them).  To simplify the practical we have done this for all files:    
-```
-BBJ-LDL-preMeta-U.txt
-HUNT-LDL-preMeta-U.txt
-GLGC-LDL-hg38-preMeta-U.txt
+
+* BBJ-LDL-preMeta-U.txt
+* HUNT-LDL-preMeta-U.txt
+* GLGC-LDL-hg38-preMeta-U.txt
 ```
 
 ### 2.2 Check the file formats and headers   
