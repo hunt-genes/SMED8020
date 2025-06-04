@@ -89,7 +89,7 @@ wc -l GLGC-LDL-hg38-preMeta-U.txt
 
 ****What imputation panel was used for GLGC?**** HINT: Check the methods of the [paper](https://www.nature.com/articles/ng.2797).    
 
-GWAS data were imputed to the International HapMap project (https://www.nature.com/articles/nature09270?page=55#Sec2).
+This was a meta-analysis of many studies that likely used mostly genotyping data. There isn't information about imputation for the main study. In the methods they say that for the cis eQTL analysis, genotyping data were imputed to the International HapMap project (https://www.nature.com/articles/nature09270?page=55#Sec2). In the [updated GLGC meta-analysis](https://pubmed.ncbi.nlm.nih.gov/34887591/), they describe in the methods what they've asked the cohorts to do in terms of imputaiton. This is an example of a more modern meta-analysis.
 
 ****How many genome wide significant results are in each of the input files?****    
 
