@@ -116,7 +116,7 @@ You would then use R or another tool to merge GLGC.hg38.bed and GLGC-LDL-preMeta
 * BBJ-LDL-preMeta-U.txt
 * HUNT-LDL-preMeta-U.txt
 * GLGC-LDL-hg38-preMeta-U.txt
-```
+  
 
 ### 2.2 Check the file formats and headers   
 
