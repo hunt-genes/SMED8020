@@ -48,6 +48,8 @@ When running a meta analysis there are many issues that need to be addressed.
   * flipped markers
   * population stratification
 
+This practical makes use of many Unix/Linux commands in the terminal like `head`, `awk`, `cut`. You can read about these [here].
+
 ## Instructions  
 
 #### 0. Install METAL
@@ -64,20 +66,26 @@ Usually you would download publically available summary statistics from the inte
 You already copied the required data (See the main [README](https://github.com/hunt-genes/SMED8020/blob/main/README.md) for reference)
 
 * The original summary statistics from Biobank Japan (BBJ) of LDL cholesterol in N=72,866 can be found [here](https://humandbs.biosciencedbc.jp/files/hum0014/hum0014_README_QTL_GWAS.html)  
-```head BBJ-LDL-preMeta.txt```
+```
+head BBJ-LDL-preMeta.txt
+```
 The columns are CHR     POS38   SNPID   Allele1 Allele2 AC_Allele2      AF_Allele2      N       BETA    SE      p.value log10P
 
 * The original summary statistics of joint analysis of metabochip and GWAS data for LDL cholesterol in N=89,138 from the Global Lipids Genetics Consortium (GLGC) can be found [here](http://csg.sph.umich.edu/willer/public/lipids2013/)  
-```head GLGC-LDL-preMeta.txt``` 
+```
+head GLGC-LDL-preMeta.txt
+``` 
 The columns are SNP_hg18        SNP_hg19        rsid    A1      A2      beta    se      N       P-value Freq.A1.1000G.EUR
 
 * The summary statistics of LDL cholesterol from the HUNT study in N=67,429.   
-```head HUNT-LDL-preMeta.txt``` 
+```
+head HUNT-LDL-preMeta.txt
+``` 
 The columns are CHR     POS38   SNPID   Allele1 Allele2 AC_Allele2      AF_Allele2      N       BETA    SE  p.value 
 
 #### 2. Check your summary statistics to make sure they're ready for meta-analysis.
 
-2.1 Which genome build is used?
+### 2.1 Which genome build is used?
 
 The human reference genome has been updated over the years and variants are given different coordinates in different versions. 
 The latest human reference genome GRCh38 was released from the Genome Reference Consortium on 17 December 2013.  
@@ -88,64 +96,25 @@ You can see more [here](https://genome.ucsc.edu/FAQ/FAQreleases.html#release1). 
 ****From the summary statistic headers, can you tell what reference genome versions are used for each study?****  
 
 It looks like BBJ and HUNT have SNP coordinates from hg38, but GLGC has summary statistics from hg18 and hg19. 
-We must use [UCSC listOver](https://genome.ucsc.edu/cgi-bin/hgLiftOver) to convert the hg19 coordinates to hg38 before meta-analysis. We can use liftOver on the command line or via the web. To avoid extensive file manipulation on your part, we already used this .bed file to make a new version of the GLGC results: `GLGC-LDL-hg38-preMeta.txt`. This file also has a header that is consistent with the other two files. You will use this in the meta-analysis. The instructions for using liftOver are below in case you need them in the future.    
+We can use [UCSC listOver](https://genome.ucsc.edu/cgi-bin/hgLiftOver) to convert the hg19 coordinates to hg38 before meta-analysis. We can use liftOver on the command line or via the web. To avoid extensive file manipulation on your part, we already used this .bed file to make a new version of the GLGC results: `GLGC-LDL-hg38-preMeta.txt`. This file also has a header that is consistent with the other two files. 
 
-Create a .bed file file from GLGC-LDL-preMeta.txt using Linux tools `awk` and `sed`. A [BED file](https://genome.ucsc.edu/FAQ/FAQformat.html#format1) is not to be confused with the binary PLINK format .bed, but is a frequently used standard format for genetic data which is required to have chromosome, position start, and position end columns.   
-
-**In the terminal (ONLY FOR YOUR REFERENCE):**
 ```
-awk 'NR > 1 {print $2"\t"$3"\t"$4"\t"$5}' GLGC-LDL-preMeta.txt | sed 's/:/\t/g' | awk '{print $1"\t"$2-1"\t"$2"\t"$1":"$2"\t"$4"\t"$5}' > GLCG.hg19.bed
-```   
+head GLGC-LDL-hg38-preMeta.txt
+```
 
-**Web option (ONLY FOR YOUR REFERENCE):**
-Upload the `GLGC.hg.bed` file you made [here](http://genome.ucsc.edu/cgi-bin/hgLiftOver) if it's less than 500 mb. Select the genome you're coming from and the genome you're lifting over to.     
+Look in `GLGC.hg38.unmapped`. ****Were there some markers that did not get converted from hg19 to hg38? Why do you think that is?****       
 
-**Command line option (ONLY FOR YOUR REFERENCE):**
-[Download liftOver](https://hgdownload.soe.ucsc.edu/admin/exe/). 
-You can use `wget` like so: `wget https://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/liftOver`  
-Turn on the executable bit `chmod +x ./filePath/utility_name`. 
-Now `./filePath/utility_name` is executable.  
-
-`chmod +x ./liftOver`      
-
-We have installed lifOver here:     
-`/mnt/scratch/software/liftOver`   
-
-[Download the map.chain](https://hgdownload.soe.ucsc.edu/goldenPath/hg19/liftOver/) for hg19 to hg38       
-
-`wget https://hgdownload.soe.ucsc.edu/goldenPath/hg19/liftOver/hg19ToHg38.over.chain.gz`    
-
-The liftover command requires 4 parameters in this order: 
-1) oldFile (in .bed format) 
-2) map.chain 
-3) newFile (just the name) 
-4) unMapped
-Execute this command:     
-`/mnt/scratch/software/liftOver GLCG.hg19.bed hg19ToHg38.over.chain GLGC.h38.bed GLGC.hg38.unmapped`
-
-Look in GLGC.hg38.unmapped. ****Were there some markers that did not get converted from hg19 to hg38? Why do you think that is?****       
-
-Use R or another tool to merge GLGC.hg38.bed and GLGC-LDL-preMeta.txt (the hg19 position should be shared between them).    
-
-Example code to create a file with compatible header is here:     
-`join -1 4 -2 2 <(sort -k 4 GLGC.h38.bed) <(sort -k 2 GLGC-LDL-preMeta.txt) | awk -v OFS='\t' '{$5=toupper($5);$6=toupper($6)}1' | awk '{print $0"\t"substr($2, 4)"\t"$4":"$5":"$6}' | awk '{print $0"\t"$16":"$17}'| awk -v OFS='\t' '{print $16, $4, $18, $5, $6, $15, $13, $11, $12, $14}'| sed  '1i\CHR\tPOS38\tSNPID\tAllele1\tAllele2\tAF_Allele2\tN\tBETA\tSE\tp.value' > GLGC-LDL-hg38-preMeta-v2.txt`   
-
-We noted that `join` fails in workbench and this needs to be run directly in the terminal, so we have created and subset the GLGC file so it is quicker to run in the meta-analysis, so use the following file forward:
-`GLGC-LDL-hg38-preMeta-U.txt`
-
-To simplify the practical we have done this for all files:    
+You would then use R or another tool to merge GLGC.hg38.bed and GLGC-LDL-preMeta.txt (the hg19 position should be shared between them).  To simplify the practical we have done this for all files:    
 ```
 BBJ-LDL-preMeta-U.txt
 HUNT-LDL-preMeta-U.txt
 GLGC-LDL-hg38-preMeta-U.txt
 ```
 
-### 2.2 Check the file formats and headers (START CODING HERE)   
+### 2.2 Check the file formats and headers   
 
 ****What is the header of each file? What does the `-n 1` parameter do in `head`?****
-In terminal:    
-```head -n 1 file```
-
+In terminal, use the `head` command with the flag `-n 1` to check the headers of the files:    
 ```
 #Use head to check the headers
 head -n 1 BBJ-LDL-preMeta-U.txt
@@ -162,8 +131,10 @@ head -n 2 HUNT-LDL-preMeta-U.txt | cut -f 3
 ```
 Yes, we need the SNPID to be consistent across files. The header could be called something different, but the software will match the markers across studies based on the column. 
 
-2.3 How many variants will we be meta-analyzing?     
-****How many variants are in each of the files?****       
+### 2.3 How many variants will we be meta-analyzing?     
+****How many variants are in each of the files?****  
+
+In terminal:
 ```
 #use the wc function to count the line numbers in the files
 wc -l BBJ-LDL-preMeta-U.txt
