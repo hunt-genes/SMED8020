@@ -4,9 +4,9 @@
 
 It looks like BBJ and HUNT have SNP coordinates from hg38, but GLGC has summary statistics from hg18 and hg19.    
 
-BBJ: hg38 "POS38"
-HUNT: hg38 "POS38"
-GLGC: hg18 "SNP_hg18" and hg19 "SNP_hg19"
+BBJ: hg38 "POS38"  
+HUNT: hg38 "POS38"  
+GLGC: hg18 "SNP_hg18" and hg19 "SNP_hg19"  
 
 ****Were there some markers that did not get converted from hg19 to hg38? Why do you think that is?****       
 
@@ -59,9 +59,9 @@ Yes, we need the SNPID to be consistent across files. The header could be called
 
 Yes. You can check this using the grep command by checking at least one SNPID in each set of results
 `grep 'chr18:4440419:G:T' BBJ-LDL-preMeta-U.txt`
-chr18:4440419:G:T #BBJ-LDL-preMeta-U.txt
-chr18:4440419:G:T #GLGC-LDL-hg38-preMeta.txt
-chr18:4440419:G:T #HUNT-LDL-preMeta.txt
+chr18:4440419:G:T #BBJ-LDL-preMeta-U.txt  
+chr18:4440419:G:T #GLGC-LDL-hg38-preMeta.txt  
+chr18:4440419:G:T #HUNT-LDL-preMeta.txt  
 
 2.3 How many variants will we be meta-analyzing?     
 ****How many variants are in each of the files?****       
@@ -71,9 +71,9 @@ wc -l BBJ-LDL-preMeta.txt
 wc -l HUNT-LDL-preMeta.txt
 wc -l GLGC-LDL-hg38-preMeta.txt
 ```
-6108162 BBJ-LDL-preMeta.txt
-5788779 HUNT-LDL-preMeta.txt
-2436641 GLGC-LDL-hg38-preMeta.txt      
+6108162 BBJ-LDL-preMeta.txt  
+5788779 HUNT-LDL-preMeta.txt  
+2436641 GLGC-LDL-hg38-preMeta.txt        
 
 The HUNT summary statistics originally had millions of variants because imputation was done with the TOPMed imputation panel, which allows for higher resolution imputation due to the large amount of sequencing samples which make up the reference panel. We have subsetted the input files to only include variants seen in all 3 studies. We only want to perform meta-analysis on variants tested in 2 or more studies.    
 
@@ -83,9 +83,9 @@ wc -l BBJ-LDL-preMeta-U.txt
 wc -l HUNT-LDL-preMeta-U.txt
 wc -l GLGC-LDL-hg38-preMeta-U.txt
 ```
-2007882 BBJ-LDL-preMeta-U.txt   
-2007882 HUNT-LDL-preMeta-U.txt   
-2007882 GLGC-LDL-hg38-preMeta-U.txt   
+2007882 BBJ-LDL-preMeta-U.txt    
+2007882 HUNT-LDL-preMeta-U.txt    
+2007882 GLGC-LDL-hg38-preMeta-U.txt    
 
 ****What imputation panel was used for GLGC?**** HINT: Check the methods of the [paper](https://www.nature.com/articles/ng.2797).    
 
