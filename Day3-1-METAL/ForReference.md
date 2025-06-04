@@ -2,12 +2,15 @@ Meta-analysis steps in detail for your ference.
 
 #### 0. We have [installed METAL](http://csg.sph.umich.edu/abecasis/Metal/download/) using the pre-compiled binaries for you. An updated version of METAL that should work on machines requiring 64-bit is available [here](https://github.com/statgen/METAL/blob/master/README.md).    
 
+#### 1. Format files 
 Create a .bed file file from GLGC-LDL-preMeta.txt using Linux tools `awk` and `sed`. A [BED file](https://genome.ucsc.edu/FAQ/FAQformat.html#format1) is not to be confused with the binary PLINK format .bed, but is a frequently used standard format for genetic data which is required to have chromosome, position start, and position end columns.   
 
 **In the terminal:**
 ```
 awk 'NR > 1 {print $2"\t"$3"\t"$4"\t"$5}' GLGC-LDL-preMeta.txt | sed 's/:/\t/g' | awk '{print $1"\t"$2-1"\t"$2"\t"$1":"$2"\t"$4"\t"$5}' > GLCG.hg19.bed
 ```   
+
+#### 2. Use liftOver from hg19 to hg38
 
 **Web option:**
 Upload the `GLGC.hg.bed` file you made [here](http://genome.ucsc.edu/cgi-bin/hgLiftOver) if it's less than 500 mb. Select the genome you're coming from and the genome you're lifting over to.     
@@ -35,6 +38,7 @@ The liftover command requires 4 parameters in this order:
 Execute this command:     
 `/mnt/scratch/software/liftOver GLCG.hg19.bed hg19ToHg38.over.chain GLGC.h38.bed GLGC.hg38.unmapped`
 
+#### 4. Fix the file headers using a unix code (e.g join)
 
 Example code to create a file with compatible header is here:     
 `join -1 4 -2 2 <(sort -k 4 GLGC.h38.bed) <(sort -k 2 GLGC-LDL-preMeta.txt) | awk -v OFS='\t' '{$5=toupper($5);$6=toupper($6)}1' | awk '{print $0"\t"substr($2, 4)"\t"$4":"$5":"$6}' | awk '{print $0"\t"$16":"$17}'| awk -v OFS='\t' '{print $16, $4, $18, $5, $6, $15, $13, $11, $12, $14}'| sed  '1i\CHR\tPOS38\tSNPID\tAllele1\tAllele2\tAF_Allele2\tN\tBETA\tSE\tp.value' > GLGC-LDL-hg38-preMeta-v2.txt`   
