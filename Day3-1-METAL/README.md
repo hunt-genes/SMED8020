@@ -50,6 +50,8 @@ When running a meta analysis there are many issues that need to be addressed.
 
 This practical makes use of many Unix/Linux commands in the terminal like `head`, `awk`, `cut`. You can read about these [here].
 
+To know more about the steps we have done for you (e.g. liftOver) [read this!](https://github.com/hunt-genes/SMED8020/blob/main/Day3-1-METAL/ForReference.md)
+
 ## Instructions  
 
 #### 0. Install METAL
