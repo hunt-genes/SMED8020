@@ -158,7 +158,7 @@ wc -l GLGC-LDL-hg38-preMeta.txt
 
 The HUNT and BBJ summary statistics originally had millions of variants because imputation was done with the TOPMed imputation panel, which allows for higher resolution imputation due to the large amount of sequencing samples which make up the reference panel. We have subsetted the input files to only include variants seen in all 3 studies. We only want to perform meta-analysis on variants tested in 2 or more studies.    
 
-****What imputation panel was used for GLGC?**** HINT: Check the methods of the [paper](https://www.nature.com/articles/ng.2797).    
+****What imputation panel was used for GLGC?**** HINT: Check the methods of the [paper](https://www.nature.com/articles/ng.2797). This is sort of a trick question, there wasn't a clear imputation method described in the 2013 paper. See the answers for an explanation.   
 
 ****How many genome wide significant results are in each of the input files?****    
 
@@ -331,7 +331,7 @@ In RStudio:
 Open the ForestPlot.R script. 
 Run the code line by line to generate a forest plot. 
 
-#### 6.3 Manhattan plot
+#### 6.3 Manhattan plot (Currently broken, sorry!)
 
 Copy the script into your folder for meta-analysis.
 ```
