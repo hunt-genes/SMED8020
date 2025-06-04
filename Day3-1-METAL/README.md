@@ -265,8 +265,6 @@ METAL will perform a meta-analysis even on markers which are only present in one
 The column labelled "direction" shows '?', '+', or '-' to indicate missingness, positive direction of effect, or negative direction of effect, respectively.  
 One can use the `subset_meta_analysis.r` Rscript to exclude markers with more than one '?'. This is R code like we use in RStudio, but it's packaged in a script so we can call it from the command line and pass it parameters, like the input file.
 
-In terminal (ONLY FOR YOUR REFERENCE):
-
 First install the R packages we need:
 In terminal:
 ```
@@ -276,7 +274,6 @@ install.packages('stringr')
 install.packages("optparse")
 #Type q() and press "n" to exit
 ```
-
 
 ```
 #subset the results to variants with more than 1 study, may take 5 minutes
