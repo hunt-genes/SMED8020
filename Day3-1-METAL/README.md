@@ -338,10 +338,10 @@ Copy the script into your folder for meta-analysis.
 cd /mnt/work/workbench/$USER/SMED8020/Day3-1-METAL/
 mv /mnt/scratch/data/ManhattanPlot.r .
 ```
-You may need to specify some of the parameters. Use `Rscript ManhattanPlot.r -help` to figure out what.
+You may need to specify some of the parameters. Use `Rscript ManhattanPlot.r --help` to figure out what.
 In terminal:
 ```
-Rscript ManhattanPlot.r --input LDL_METAL_META1.tbl
+Rscript ManhattanPlot.r --input LDL_METAL_META1.tbl --pvalue P-value --af Freq1 --prefix LDL_METAL_MultiStudy
 ```
 
 #### 6.4 Open Targets
