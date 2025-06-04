@@ -285,6 +285,8 @@ Rscript subset_meta_analysis.r --input LDL_METAL_META1.tbl --output LDL_METAL_Mu
 ```
 
 #### 6. Plot the meta-analysis results
+
+#### 6.1 QQ-plot
 To visually inspect your results for significant findings you can make a QQ-plot. We have a script `QQplot.R` which creates an image file with the plot and a text file with lambda values. You don't need RStudio for this.
 
 First install the R packages we need:
@@ -325,7 +327,16 @@ In RStudio:
 Open the ForestPlot.R script. 
 Run the code line by line to generate a forest plot. 
 
-#### 6.3 Open Targets
+#### 6.3 Manhattan plot (To be finalized)
+
+Copy the script from `/path`
+
+In terminal:
+```
+Rscropt Manhattan.R
+```
+
+#### 6.4 Open Targets
 Check out the APOE region on the [Open Targets platform](https://genetics.opentargets.org/variant/19_44886339_G_A). This platform integrates a lot of data for interrogating genetic variants as drug targets.
 
 I would also recommend [this example](https://www.mv.helsinki.fi/home/mjxpirin/GWAS_course/material/GWAS9.html) of a meta-analysis by Matti Pirinen at the University of Helsinki using R.
