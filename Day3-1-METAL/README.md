@@ -67,6 +67,11 @@ Usually you would download publically available summary statistics from the inte
 
 You already copied the required data (See the main [README](https://github.com/hunt-genes/SMED8020/blob/main/README.md) for reference)
 
+Navigate to the directory with the data, remember to replace $USER with your username.
+```
+cd /mnt/work/workbench/$USER/SMED8020/Day3-1-METAL/
+```
+
 * The original summary statistics from Biobank Japan (BBJ) of LDL cholesterol in N=72,866 can be found [here](https://humandbs.biosciencedbc.jp/files/hum0014/hum0014_README_QTL_GWAS.html)  
 ```
 head BBJ-LDL-preMeta.txt
