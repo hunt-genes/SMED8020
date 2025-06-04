@@ -100,9 +100,9 @@ awk '$11 < 5e-8 {print 0}' HUNT-LDL-preMeta-U.txt | wc -l
 awk '$11 < 5e-8 {print 0}' BBJ-LDL-preMeta-U.txt | wc -l
 awk '$10 < 5e-8 {print 0}' GLGC-LDL-hg38-preMeta-U.txt | wc -l
 ```   
-1350
-957
-2397
+1350  
+957  
+2397  
 
 #### 3. Running METAL   
 
