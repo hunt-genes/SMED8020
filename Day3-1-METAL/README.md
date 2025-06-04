@@ -326,13 +326,17 @@ In RStudio:
 Open the ForestPlot.R script. 
 Run the code line by line to generate a forest plot. 
 
-#### 6.3 Manhattan plot (To be finalized)
+#### 6.3 Manhattan plot
 
-Copy the script from `/path`
-
+Copy the script into your folder for meta-analysis.
+```
+cd /mnt/work/workbench/$USER/SMED8020/Day3-1-METAL/
+mv /mnt/scratch/data/ManhattanPlot.r .
+```
+You may need to specify some of the parameters. Use `Rscript ManhattanPlot.r -help` to figure out what.
 In terminal:
 ```
-Rscropt Manhattan.R
+Rscript ManhattanPlot.r --input LDL_METAL_META1.tbl
 ```
 
 #### 6.4 Open Targets
