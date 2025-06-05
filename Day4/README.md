@@ -696,7 +696,7 @@ Remember to fill the following form during the exercise today and submit your re
 
 ###### In terminal:
 ```
-cp -Ru /mnt/work/workbench/{user_name} /mnt/scratch/results/ &
+cp -Ru /mnt/work/workbench/$USER/SMED8020 /mnt/scratch/results/ &
 ``` 
 
    [https://nettskjema.no/a/527813](https://nettskjema.no/a/527813)    
