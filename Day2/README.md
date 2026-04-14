@@ -510,7 +510,7 @@ the QC.
 
 #####  SNP Filters
  
-In a similar way to the sample filters above, the first step involves 
+In a similar way to the sample filters above, the second step involves 
 calculating the SNP statistics (missing rate, allele frequency, 
 p-value for the test of HWE and for the different call rates 
 between cases and controls) for each SNP.
