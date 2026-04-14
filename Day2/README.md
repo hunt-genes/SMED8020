@@ -548,6 +548,9 @@ mis1_genot_plot <- ggplot(lmis, aes(F_MISS)) +
         
 mis1_genot_plot
 ggsave("output/qc_ind_lmis_1.pdf", mis1_genot_plot)
+
+# Or simply
+hist(lmis$F_MISS[lmis$F_MISS>0.001])
 ```
 
 Based on this plot you can decide upon thresholds for removing SNPs, 
