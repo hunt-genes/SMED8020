@@ -86,10 +86,7 @@ install.packages(
 )
 ```
 
-```
-library(remotes)
-remotes::install_github("MRCIEU/TwoSampleMR")
-```
+
 ###### As an alternative install.pakages in R from the terminal
 ```
 conda activate r-base
