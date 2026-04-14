@@ -67,6 +67,26 @@ conda activate r-base
 R
 ```
 ```
+options(HTTPUserAgent = sprintf(
+  "R/%s R (%s)",
+  getRversion(),
+  paste(getRversion(),
+        R.version["platform"],
+        R.version["arch"],
+        R.version["os"])
+))
+
+install.packages(
+  'TwoSampleMR',
+  repos = c(
+    'https://mrcieu.r-universe.dev/bin/linux/noble/4.5/',
+    'https://p3m.dev/cran/__linux__/noble/latest',
+    'https://cloud.r-project.org'
+  )
+)
+```
+
+```
 library(remotes)
 remotes::install_github("MRCIEU/TwoSampleMR")
 ```
