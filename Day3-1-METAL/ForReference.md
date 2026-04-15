@@ -34,7 +34,7 @@ The liftover command requires 4 parameters in this order:
 1) oldFile (in .bed format) 
 2) map.chain 
 3) newFile (just the name) 
-4) unMapped
+4) unMapped   
 Execute this command:     
 `/mnt/scratch/software/liftOver GLCG.hg19.bed hg19ToHg38.over.chain GLGC.h38.bed GLGC.hg38.unmapped`
 
