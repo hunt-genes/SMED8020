@@ -203,3 +203,5 @@ In this section you learned how to:
 - Load packages and use functions from them
 
 These fundamentals are essential for all later data analysis work in R.
+
+[Jump back to the main tutorial](https://github.com/hunt-genes/SMED8020/blob/main/R_Unix_Intro/README.md)
