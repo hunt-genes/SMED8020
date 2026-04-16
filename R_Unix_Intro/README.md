@@ -299,6 +299,7 @@ Exit R:
 ```r
 q()
 ```
+A common way to use R is with Rstudio. Click here to jump to the (Rstudio tutorial)[https://github.com/hunt-genes/SMED8020/blob/main/R_Unix_Intro/RStudio_basic.md]    
 
 ---
 
