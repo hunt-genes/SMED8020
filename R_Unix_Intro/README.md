@@ -5,6 +5,7 @@
 By the end of this module, you will be able to:
 
 - Navigate the Ubuntu Terminal (command line interface)
+- Creating files using the `vim` text editor   
 - Execute command-line programs including **bash functions**, **PLINK**, and **R**
 - Understand how R fits into a terminal-based data analysis workflow
 - Run a basic R script from the Terminal using input and output files
@@ -50,10 +51,70 @@ mkdir test  # create a directory
 cd test     # move into the directory
 cd ..       # move back up one level
 ```
+---
+
+## Part 2: Create a new file in `vim`
+
+### Step 1: Create a new file
+
+```bash
+vim test.txt
+```
+
+- If the file does not exist, `vim` will create it
+- You are now inside the `vim` editor
 
 ---
 
-## Part 2: Working with Files and Text in the Terminal
+### Step 2: Enter insert mode
+
+Press:
+
+```text
+i
+```
+
+You are now in **insert mode**, which means you can type or paste text.
+
+---
+
+### Step 3: Copy and paste the following text
+
+Paste **exactly** this content:
+
+```text
+Hello world.
+Ready to learn R?
+Now you are using Terminal!
+```
+
+---
+
+### Step 4: Save and exit
+
+1. Press **Esc** to leave insert mode
+2. Type:
+
+```text
+:wq
+```
+
+3. Press **Enter**
+
+You are now back in the Terminal.
+
+---
+
+### Step 5: Verify the file
+
+```bash
+ls
+cat test.txt
+```
+
+---
+
+## Part 3: Working with Files and Text in the Terminal
 
 This section demonstrates how to inspect, search, copy, rename, and delete files using a sample text file called `test.txt`.
 
@@ -249,7 +310,7 @@ Linux commands are small tools designed to work together:
 
 These concepts are essential for working with data, logs, and outputs from tools like PLINK and R.   
 
-## Part 3: Executing Commands and Programs from the Terminal
+## Part 4: Executing Commands and Programs from the Terminal
 
 One of the most powerful features of the Terminal is the ability to **execute programs**.
 
@@ -308,13 +369,35 @@ A common way to use R is with Rstudio. Click here to jump to the [RStudio tutori
 
 ---
 
-## Part 4: Running an R Script from the Terminal
+## Part 5: Running an R Script from the Terminal
 
 R scripts can take **command-line input** and write output files.
 
 ### Example: `hello.R`
 
-Create a file called `hello.R` with the following contents:
+Create a file called `hello.R`:
+
+### Step 1: Open a new R script
+
+```bash
+vim hello.R
+```
+
+---
+
+### Step 2: Enter insert mode
+
+Press:
+
+```text
+i
+```
+
+---
+
+### Step 3: Copy and paste the R script
+
+Paste the following content:
 
 ```r
 #!/usr/bin/env Rscript
@@ -334,6 +417,21 @@ cat(message, file = outfile)
 cat(message, "
 ")
 ```
+
+---
+
+### Step 4: Save and exit
+
+1. Press **Esc**
+2. Type:
+
+```text
+:wq
+```
+
+3. Press **Enter**
+
+---
 
 Make the script executable (optional):
 
