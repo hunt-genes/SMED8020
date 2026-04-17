@@ -118,6 +118,11 @@ grep -i "r" test.txt   # ignore case
 grep -n "R" test.txt   # show line numbers
 ```
 
+Want to know more options:
+
+```bash
+grep --help   # open manual
+```
 ---
 
 ## Printing Text with `echo`
