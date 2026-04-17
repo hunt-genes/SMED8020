@@ -17,6 +17,17 @@
 
 [Day 5 - Mendelian randomization](Day5)
 
+# Login   
+
+1. Visit https://smed8020-2026.lab.hdc.ntnu.no/ in Google Chrome. Use your username and password to logon.
+   
+2. Select Terminal on the second row from the bottom.
+   
+3. When Terminal opens, you are in your workbench folder. If you need to get back to your workbench folder at any time, use the next command to change directory. Replace `$USER` with your username.  
+
+```
+cd /mnt/work/workbench/$USER/
+```     
 # Required data
 Go to your home directory
 
@@ -25,7 +36,7 @@ Go to your home directory
 cd /mnt/work/workbench/$USER
 ```
 
-Clone the repository
+Download the code from the github repository   
 ```
 git clone https://github.com/hunt-genes/SMED8020.git
 ```
