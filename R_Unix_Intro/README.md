@@ -462,4 +462,9 @@ In this module you learned:
 - How to run R both interactively and via scripts
 - How to pass input to an R script and produce output files
 
-This foundation will support reproducible and scalable data analysis workflows.
+### to-do
+- Add worked example using pipes to match ICD codes and unique IDs and or GWAS summary statsics
+- Add a loop to the R script and/or bash function
+- Add example copy file to a different folder
+- How bash functions, PLINK, and R are all executed from the command line
+This foundation will support reproducible and scalable data analysis workflows
