@@ -1,4 +1,4 @@
-# Module 0: Introduction to the Ubuntu Terminal and R
+# Introduction to the Ubuntu Terminal and R
 
 ## Learning objectives
 
