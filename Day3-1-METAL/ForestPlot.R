@@ -38,10 +38,11 @@ df$LB<-df$BETA-(1.96*df$SE)
 df<-df%>%mutate(study= fct_relevel(study,"meta-analysis","HUNT","BBJ","GLGC") )
 
 #make plot
-pdf(file="ForestPlot.pdf",height=4,width=5)
+#pdf(file="ForestPlot.pdf",height=4,width=5)
 ggplot(df,aes(x=BETA,y=study,color=study)) + geom_point() + theme_bw() +
   geom_vline(xintercept=0,linetype="dashed",color="red") +
   geom_errorbarh(aes(xmin=LB,xmax=UB),height=0.25) +
   labs(title="Forest plot for APOE (19:44897490:A:T)") +
   theme(legend.position="none")
+dev.copy(pdf, file="ForestPlot.pdf",height=4,width=5)
 dev.off()
