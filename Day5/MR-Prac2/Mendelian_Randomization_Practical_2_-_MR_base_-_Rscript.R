@@ -1,10 +1,10 @@
 # Install package (if these packages are already installed in your version of R then you can go down to the 'Load package' section below)
-install.packages('stringi')
-install.packages("devtools")
-library(devtools)
-install_github("MRCIEU/TwoSampleMR")
-install.packages("plyr")
-install.packages("ggplot2")
+#install.packages('stringi')
+#install.packages("devtools")
+#library(devtools)
+#install_github("MRCIEU/TwoSampleMR")
+#install.packages("plyr")
+#install.packages("ggplot2")
 
 # Load package
 library(TwoSampleMR)
