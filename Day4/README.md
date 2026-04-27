@@ -579,9 +579,7 @@ The PRS results corresponding to a range of P-value thresholds obtained by appli
 ###### RStudio session:
 ```R
     # We strongly recommend the use of ggplot2. (see code below – I’ve included this code here in case some people are unable to install the ggplot2 package).
-    # Specify that we want to generate plot in EUR.height.bar.png
-    png("EUR.height.bar.png",
-        height=10, width=10, res=300, unit="in")
+
     # First, obtain the colorings based on the p-value
     col <- suppressWarnings(colorRampPalette(c("dodgerblue", "firebrick")))
     # We want the color gradient to match the ranking of p-values
@@ -634,6 +632,8 @@ The PRS results corresponding to a range of P-value thresholds obtained by appli
     # plot legend title
     title(bquote(atop(-log[10] ~ model, italic(P) - value), ), 
             line=2, cex=1.5, font=2, adj=0)
+    # Specify that we want to generate plot in EUR.height.bar.png
+    dev.copy(png, "EUR.height.bar.png", height=10, width=10, res=300, units="in")
     # write the plot to file
     dev.off()
 ```
