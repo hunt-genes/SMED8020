@@ -2,7 +2,7 @@
 
 
 Please fill in the following form during the exercise today: 
-https://nettskjema.no/a/527813
+[https://nettskjema.no/a/527813](https://nettskjema.no/a/624797)
 
 Thank you!
 
