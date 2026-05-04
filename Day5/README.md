@@ -36,6 +36,9 @@ Do the same for [Prac 2](MR-Prac2/Mendelian_Randomization_Practical_2_-_MR_base_
 ```
 cp -Rup /mnt/work/workbench/$USER /mnt/scratch/results/ &
 ``` 
+## Post course research quiz:
+https://nettskjema.no/a/postsmed8020#/page/1   
+
 
 Thank you!
 Please ask the tutors for help if you have any trouble.
