@@ -18,6 +18,9 @@ HUNT-Cloud will give us an introduction to the server and services. You should a
 ### Part 4: Complete the handin for today    
 [https://nettskjema.no/a/527770](https://nettskjema.no/a/624782)   
      
+### Part 5: Pre-course research quiz    
+https://nettskjema.no/a/presmed8020#/page/1    
+
 ### Useful linux commands
 
 | Command | Meaning of abbreviation | What it does |
