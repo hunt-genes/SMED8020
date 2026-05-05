@@ -188,6 +188,30 @@ assoc_plot
 
 ggsave("output/assoc_plot.pdf", assoc_plot)
 ```
+
+```   
+## Alternative option without ggplot2
+
+## Transform p-values
+x <- assoc$BP
+y <- -log10(assoc$P)
+
+## Plot directly to screen
+plot(
+  x, y,
+  pch = 16,
+  cex = 0.6,
+  col = "black",
+  xlab = "position",
+  ylab = expression(-log[10]~p-value),
+  main = expression(-log[10]~p-values),
+  las = 1
+)
+
+## Optional significance threshold
+abline(h = -log10(5e-8), col = "red", lty = 2)
+```
+
 Ignore the warning messages that pop up when plotting this and some of the other plots in this practical.
 
 Now you have run association analysis by using PLINK on a dataset which have not been cleaned (QC´ed). 
