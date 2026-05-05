@@ -331,18 +331,17 @@ In RStudio:
 Open the ForestPlot.R script. 
 Run the code line by line to generate a forest plot. 
 
-#### 6.3 Manhattan plot (Currently broken, sorry!)
+#### 6.3 Manhattan plot
 
 Copy the script into your folder for meta-analysis.
 ```
 cd /mnt/work/workbench/$USER/SMED8020/Day3-1-METAL/
-mv /mnt/scratch/data/ManhattanPlot.r .
+mv /mnt/scratch/data/qqman_Manhattan_plot.R
 ```
-You may need to specify some of the parameters. Use `Rscript ManhattanPlot.r --help` to figure out what.
-In terminal:
-```
-Rscript ManhattanPlot.r --input LDL_METAL_META1.tbl --pvalue P-value --af Freq1 --prefix LDL_METAL_MultiStudy
-```
+
+In RStudio:
+Open the qqman_Manhattan_plot.R script.
+Run the code line by line to generate a manhattan plot. You can also use the `source()` function.  
 
 #### 6.4 Open Targets
 Check out the APOE region on the [Open Targets platform](https://genetics.opentargets.org/variant/19_44886339_G_A). This platform integrates a lot of data for interrogating genetic variants as drug targets.
