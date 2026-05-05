@@ -5,7 +5,8 @@ options(stringsAsFactors = FALSE)
 suppressMessages(library(data.table))
 suppressMessages(library(qqman))
 
-setwd("/mnt/work/workbench/nikhila/SMED8020/Day3-1-METAL")
+#navigate to your working directory
+#setwd("/mnt/work/workbench/$USER/SMED8020/Day3-1-METAL/")
 
 # -------------------------
 # Input / Output
