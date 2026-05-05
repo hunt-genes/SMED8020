@@ -1,4 +1,4 @@
-Meta-analysis steps in detail for your ference.
+Meta-analysis steps in detail for your reference.
 
 #### 0. We have [installed METAL](http://csg.sph.umich.edu/abecasis/Metal/download/) using the pre-compiled binaries for you. An updated version of METAL that should work on machines requiring 64-bit is available [here](https://github.com/statgen/METAL/blob/master/README.md).    
 
