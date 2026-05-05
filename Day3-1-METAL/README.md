@@ -14,7 +14,7 @@ Some [slides](SMED8020_2022_MetaAnalysis.pdf) with extra information may be help
 **Suggested reading:**
 
 * [Willer, C. J., Li, Y. & Abecasis, G. R. METAL: fast and efficient meta-analysis of genomewide association scans. Bioinformatics 26, 2190–2191 (2010).](https://academic.oup.com/bioinformatics/article/26/17/2190/198154)  
-* [Nielsen, J. et al. Loss-of-function genomic variants with impact on liver-related blood traits highlight potential therapeutic targets for cardiovascular disease. Biorxiv. (2019) ](https://www.biorxiv.org/content/10.1101/597377v1)  
+* [Graham et al, 2021. The power of genetic diversity in genome-wide association studies of lipids. Nature (2021).](https://www.nature.com/articles/s41586-021-04064-3) 
 * [Evangelos Evangelou & John P. A. Ioannidis. Meta-analysis methods for genome-wide association studies and beyond. Nature Reviews Genetics. 2013](https://www.nature.com/articles/nrg3472)
 
 [METAL](http://csg.sph.umich.edu/abecasis/metal/) was developed at the University of Michigan as a tool for meta-analysis of  genome-wide association analysis. For running METAL you can use either test statistics and standard error or p-values. For more info on METAL see the web-links in this document and the suggested readings paper. 
