@@ -61,7 +61,7 @@ For today's practical we have alreading installed the correct version here:
 
 #### 1. Gather summary statistics  
 
-Usually you would download publically available summary statistics from the internet to your local machine. For convience for this practical, we have already downloaded summary statistics from 3 studies, BBJ, HUNT, and GLGC.
+Usually you would download publicly available summary statistics from the internet to your local machine. For convience for this practical, we have already downloaded summary statistics from 3 studies, BBJ, HUNT, and GLGC.
 
 # Required data
 
