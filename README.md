@@ -95,6 +95,8 @@ install.packages(
     'https://cloud.r-project.org'
   )
 )
+
+#enter "q()" to quit and enter "n" exit
 ```
 
 
