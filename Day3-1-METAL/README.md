@@ -337,10 +337,11 @@ Run the code line by line to generate a forest plot.
 
 #### 6.3 Manhattan plot
 
-The Manhattan plot script is here:
+###### In terminal: 
 ```
-/mnt/work/workbench/$USER/SMED8020/Day3-1-METAL/qqman_Manhattan_plot.R
+Rscript qqman_Manhattan_plot.R
 ```
+You can also open the script in RStudio if you want to look at the code.
 
 ###### In RStudio: 
 Open the qqman_Manhattan_plot.R script.
