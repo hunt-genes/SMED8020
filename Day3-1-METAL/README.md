@@ -283,11 +283,8 @@ First install the R packages we need. Remember to use the Workbench Terminal and
 
 ###### In terminal: 
 ```
-#Type R  and press enter to open R
-install.packages("data.table")
-install.packages('stringr')
-install.packages("optparse")
-#Type q() and press "n" to exit
+conda activate r-base
+conda install -n r-stringr
 ```
 
 ```
@@ -302,15 +299,7 @@ Rscript subset_meta_analysis.r --input LDL_METAL_META1.tbl --output LDL_METAL_Mu
 To visually inspect your results for significant findings you can make a QQ-plot. We have a script `QQplot.R` which creates an image file with the plot and a text file with lambda values. You don't need RStudio for this.
 
 First install the R packages we need:
-###### In terminal: 
-```
-#Type R  and press enter to open R
-install.packages("plotrix")
-install.packages("data.table")
-install.packages("RColorBrewer")
-install.packages("optparse")
-#Type q() and press "n" to exit
-```
+
 
 ###### In terminal: 
 ```
