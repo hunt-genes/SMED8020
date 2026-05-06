@@ -337,10 +337,9 @@ Run the code line by line to generate a forest plot.
 
 #### 6.3 Manhattan plot
 
-Copy the script into your folder for meta-analysis.
+The Manhattan plot script is here:
 ```
-cd /mnt/work/workbench/$USER/SMED8020/Day3-1-METAL/
-cp /mnt/scratch/data/qqman_Manhattan_plot.R .
+/mnt/work/workbench/$USER/SMED8020/Day3-1-METAL/qqman_Manhattan_plot.R
 ```
 
 ###### In RStudio: 
