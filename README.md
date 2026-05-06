@@ -73,7 +73,7 @@ cp -v /mnt/scratch/software/plink/plink /mnt/work/workbench/$USER/.local/bin/pli
 
 ###### In terminal:
 ```
-conda install -n r-base -c conda-forge r-aer r-stringi r-devtools r-plyr r-ggplot2 r-data.table r-optparse r-rcolorbrewer r-remotes
+conda install -n r-base -c conda-forge r-aer r-stringi r-devtools r-plyr r-ggplot2 r-data.table r-optparse r-rcolorbrewer r-remotes r-stringr
 conda activate r-base
 R
 ```
@@ -106,6 +106,7 @@ R
 ```
 install.packages("AER")
 install.packages('stringi')
+install.packages('stringr')
 install.packages("devtools")
 install.packages("plyr")
 install.packages("ggplot2")
