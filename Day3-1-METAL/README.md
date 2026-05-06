@@ -48,7 +48,7 @@ When running a meta analysis there are many issues that need to be addressed.
   * flipped markers
   * population stratification
 
-This practical makes use of many Unix/Linux commands in the terminal like `head`, `awk`, `cut`. You can read about these [here].
+This practical makes use of many Unix/Linux commands in the terminal like `head`, `awk`, `cut`. You can read about these [here](https://ubuntu.com/tutorials/command-line-for-beginners#4-creating-folders-and-files).
 
 To know more about the steps we have done for you (e.g. liftOver) [read this!](https://github.com/hunt-genes/SMED8020/blob/main/Day3-1-METAL/ForReference.md)
 
@@ -59,7 +59,7 @@ To know more about the steps we have done for you (e.g. liftOver) [read this!](h
 For today's practical we have alreading installed the correct version here:    
 `/mnt/scratch/software/METAL-2020-05-05/build/bin/metal`    
 
-#### 1. Gather summary statistics  
+## 1. Gather summary statistics  
 
 Usually you would download publicly available summary statistics from the internet to your local machine. For convience for this practical, we have already downloaded summary statistics from 3 studies, BBJ, HUNT, and GLGC.
 
@@ -67,7 +67,7 @@ Usually you would download publicly available summary statistics from the intern
 
 You already copied the required data (See the main [README](https://github.com/hunt-genes/SMED8020/blob/main/README.md) for reference)
 
-Navigate to the directory with the data, remember to replace $USER with your username.
+Open a Terminal window. Navigate to the directory with the data, remember to replace $USER with your username.
 ```
 cd /mnt/work/workbench/$USER/SMED8020/Day3-1-METAL/
 ```
@@ -90,7 +90,7 @@ head HUNT-LDL-preMeta.txt
 ``` 
 The columns are CHR     POS38   SNPID   Allele1 Allele2 AC_Allele2      AF_Allele2      N       BETA    SE  p.value 
 
-#### 2. Check your summary statistics to make sure they're ready for meta-analysis.
+## 2. Check your summary statistics to make sure they're ready for meta-analysis.
 
 ### 2.1 Which genome build is used?
 
@@ -170,7 +170,7 @@ awk '$11 < 5e-8 {print 0}' BBJ-LDL-preMeta-U.txt | wc -l
 awk '$10 < 5e-8 {print 0}' GLGC-LDL-hg38-preMeta-U.txt | wc -l
 ```   
 
-#### 3. Running METAL   
+## 3. Running METAL   
 
 The [Wiki page for METAL](https://genome.sph.umich.edu/wiki/METAL_Documentation#Brief_Description)  may be useful.
 
@@ -238,7 +238,7 @@ And here is the first line of the file:
 18      32811534        18:32811534:C:G C       G       0.45      87041   -0.0015 0.0075  0.7029    
 
 
-#### 4. View the meta-analysis results
+## 4. View the meta-analysis results
 
 Some informative output was printing to "standard output" as METAL was running. We saved it in a file named `LDL_METAL.log`. Check out the information there. Just so you know, "standard output" is called stdout, and in the terminal, stdout defaults to the user's screen.    
 
