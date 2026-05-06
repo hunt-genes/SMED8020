@@ -257,14 +257,20 @@ There will be a .tbl and .tbl.info file created from the meta-analysis. You can 
 ```
 #output file
 less LDL_METAL_META1.tbl
+
+#press "q" to exit
 ```   
 ```
 #info about the output file format
 less LDL_METAL_META1.tbl.info
+
+#press "q" to exit
 ```   
 ```
 #where we saved the stdout when we ran METAL
 less LDL_METAL.log
+
+#press "q" to exit
 ```   
 
 ****Do you think we will we use the same genome-wide significance threshold (5xE-8) for the meta-analysis as we used for the GWAS? Why or why not?****  
