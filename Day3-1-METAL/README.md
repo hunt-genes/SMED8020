@@ -66,13 +66,15 @@ Usually you would download publicly available summary statistics from the intern
 # Required data
 
 You already copied the required data (See the main [README](https://github.com/hunt-genes/SMED8020/blob/main/README.md) for reference)
+Navigate to the directory with the data, remember to replace $USER with your username.
 
-Open a Terminal window. Navigate to the directory with the data, remember to replace $USER with your username.
+###### In terminal: 
 ```
 cd /mnt/work/workbench/$USER/SMED8020/Day3-1-METAL/
 ```
 
-* The original summary statistics from Biobank Japan (BBJ) of LDL cholesterol in N=72,866 can be found [here](https://humandbs.biosciencedbc.jp/files/hum0014/hum0014_README_QTL_GWAS.html)  
+* The original summary statistics from Biobank Japan (BBJ) of LDL cholesterol in N=72,866 can be found [here](https://humandbs.biosciencedbc.jp/files/hum0014/hum0014_README_QTL_GWAS.html)
+
 ```
 head BBJ-LDL-preMeta.txt
 ```
@@ -105,6 +107,7 @@ You can see more [here](https://genome.ucsc.edu/FAQ/FAQreleases.html#release1). 
 It looks like BBJ and HUNT have SNP coordinates from hg38, but GLGC has summary statistics from hg18 and hg19. 
 We can use [UCSC listOver](https://genome.ucsc.edu/cgi-bin/hgLiftOver) to convert the hg19 coordinates to hg38 before meta-analysis. We can use liftOver on the command line or via the web. To avoid extensive file manipulation on your part, we already used this .bed file to make a new version of the GLGC results: `GLGC-LDL-hg38-preMeta.txt`. This file also has a header that is consistent with the other two files. 
 
+###### In terminal: 
 ```
 head GLGC-LDL-hg38-preMeta.txt
 ```
@@ -121,15 +124,18 @@ You would then use R or another tool to merge GLGC.hg38.bed and GLGC-LDL-preMeta
 ### 2.2 Check the file formats and headers   
 
 ****What is the header of each file? What does the `-n 1` parameter do in `head`?****
-In terminal, use the `head` command with the flag `-n 1` to check the headers of the files:    
+
+Use the `head` command with the flag `-n 1` to check the headers of the files:    
+
+###### In terminal: 
 ```
 #Use head to check the headers
 head -n 1 BBJ-LDL-preMeta-U.txt
 head -n 1 HUNT-LDL-preMeta-U.txt
 head -n 1 GLGC-LDL-hg38-preMeta-U.txt
 ```
-
 ****Are your SNPIDs across the files formatted in the same way?****     
+
 ```
 #Use head to check SNPID formatting
 head -n 2 BBJ-LDL-preMeta-U.txt | cut -f 3 
@@ -139,9 +145,10 @@ head -n 2 HUNT-LDL-preMeta-U.txt | cut -f 3
 Yes, we need the SNPID to be consistent across files. The header could be called something different, but the software will match the markers across studies based on the column. 
 
 ### 2.3 How many variants will we be meta-analyzing?     
+
 ****How many variants are in each of the files?****  
 
-In terminal:
+###### In terminal: 
 ```
 #use the wc function to count the line numbers in the files
 wc -l BBJ-LDL-preMeta-U.txt
@@ -162,7 +169,7 @@ The HUNT and BBJ summary statistics originally had millions of variants because 
 
 ****How many genome wide significant results are in each of the input files?****    
 
-In terminal:
+###### In terminal: 
 ```
 #use awk to identify the rows that have a p-value < 5E-8
 awk '$11 < 5e-8 {print 0}' HUNT-LDL-preMeta-U.txt | wc -l
@@ -191,12 +198,12 @@ Input files:
 ### 3.1. Create config file
 A shell wrapper script will be used to create the config file needed to run METAL. This script, `LDL_metal.sh`, has been created for you. Create a config file with the bash script `LDL_METAL.sh` by filling in the appropriate arguments instead of "file1",  "file2",  "file3" and using "LDL_METAL" as your output prefix.
 
-In terminal:
+###### In terminal: 
 ```
 bash LDL_metal.sh HUNT-LDL-preMeta-U.txt GLGC-LDL-hg38-preMeta-U.txt BBJ-LDL-preMeta-U.txt LDL_METAL_META > LDL_METAL.conf
 ```   
 
-In terminal:
+###### In terminal: 
 ```
 # You can view the config file with less
 less LDL_METAL.conf
@@ -210,7 +217,7 @@ We will run METAL with the config file we just made. This should take less than 
 Remember, we have already installed METAL here:    
 `/mnt/scratch/software/METAL-2020-05-05/build/bin/metal`   
 
-In terminal:
+###### In terminal: 
 ```
 #Run METAL using the config file
 /mnt/scratch/software/METAL-2020-05-05/build/bin/metal LDL_METAL.conf > LDL_METAL.log
@@ -246,7 +253,7 @@ Some informative output was printing to "standard output" as METAL was running. 
 
 There will be a .tbl and .tbl.info file created from the meta-analysis. You can use `less` to view the files.
 
-In terminal:
+###### In terminal: 
 ```
 #output file
 less LDL_METAL_META1.tbl
@@ -272,8 +279,9 @@ METAL will perform a meta-analysis even on markers which are only present in one
 The column labelled "direction" shows '?', '+', or '-' to indicate missingness, positive direction of effect, or negative direction of effect, respectively.  
 One can use the `subset_meta_analysis.r` Rscript to exclude markers with more than one '?'. This is R code like we use in RStudio, but it's packaged in a script so we can call it from the command line and pass it parameters, like the input file.
 
-First install the R packages we need:
-In terminal:
+First install the R packages we need. Remember to use the Workbench Terminal and not RStudio's Terminal.
+
+###### In terminal: 
 ```
 #Type R  and press enter to open R
 install.packages("data.table")
@@ -294,7 +302,7 @@ Rscript subset_meta_analysis.r --input LDL_METAL_META1.tbl --output LDL_METAL_Mu
 To visually inspect your results for significant findings you can make a QQ-plot. We have a script `QQplot.R` which creates an image file with the plot and a text file with lambda values. You don't need RStudio for this.
 
 First install the R packages we need:
-In terminal:
+###### In terminal: 
 ```
 #Type R  and press enter to open R
 install.packages("plotrix")
@@ -304,7 +312,7 @@ install.packages("optparse")
 #Type q() and press "n" to exit
 ```
 
-In terminal:
+###### In terminal: 
 ```
 #make a QQplot using an Rscript
 Rscript QQplot.r --input LDL_METAL_META1.tbl --pvalue P-value --af Freq1 --prefix LDL_METAL_MultiStudy --break.top 120
@@ -315,7 +323,8 @@ The image file should exist in whatever the default directory your R is writing 
 ****How does the inflation appear to you?****  
 
 ****What is the lambda value for the smallest minor allele frequency (MAF) bin?****  
-In terminal:
+
+###### In terminal: 
 ```
 #use cat to view the file of lambda values
 cat *_lambda.txt
@@ -327,7 +336,7 @@ You can read more about R code to make this plot [here](https://cran.r-project.o
 
 We will make a Forest plot for a lead SNP in APOE.
 
-In RStudio:
+###### In RStudio: 
 Open the ForestPlot.R script. 
 Run the code line by line to generate a forest plot. 
 
@@ -339,7 +348,7 @@ cd /mnt/work/workbench/$USER/SMED8020/Day3-1-METAL/
 mv /mnt/scratch/data/qqman_Manhattan_plot.R
 ```
 
-In RStudio:
+###### In RStudio: 
 Open the qqman_Manhattan_plot.R script.
 Run the code line by line to generate a manhattan plot. You can also use the `source()` function.  
 
