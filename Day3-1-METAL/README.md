@@ -340,7 +340,7 @@ Run the code line by line to generate a forest plot.
 Copy the script into your folder for meta-analysis.
 ```
 cd /mnt/work/workbench/$USER/SMED8020/Day3-1-METAL/
-mv /mnt/scratch/data/qqman_Manhattan_plot.R
+cp /mnt/scratch/data/qqman_Manhattan_plot.R .
 ```
 
 ###### In RStudio: 
