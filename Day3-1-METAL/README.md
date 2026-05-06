@@ -348,7 +348,7 @@ Open the qqman_Manhattan_plot.R script.
 Run the code line by line to generate a manhattan plot. You can also use the `source()` function.  
 
 #### 6.4 Open Targets
-Check out the APOE region on the [Open Targets platform](https://genetics.opentargets.org/variant/19_44886339_G_A). This platform integrates a lot of data for interrogating genetic variants as drug targets.
+Check out the APOE region on the [Open Targets platform](https://platform.opentargets.org/variant/19_44908684_T_C). This platform integrates a lot of data for interrogating genetic variants as drug targets.
 
 I would also recommend [this example](https://www.mv.helsinki.fi/home/mjxpirin/GWAS_course/material/GWAS9.html) of a meta-analysis by Matti Pirinen at the University of Helsinki using R.
 
