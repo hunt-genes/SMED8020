@@ -289,8 +289,8 @@ First install the R packages we need. Remember to use the Workbench Terminal and
 
 ###### In terminal: 
 ```
+conda install -n r-base r-stringr r-qqman
 conda activate r-base
-conda install -n r-base r-stringr
 ```
 
 ```
