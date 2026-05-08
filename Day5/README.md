@@ -24,6 +24,8 @@ Write your answers in the Word document
 
 Do the same for [Prac 2](MR-Prac2/Mendelian_Randomization_Practical_2_-_MR_base_-_QUESTIONS.docx)   
 
+# Course evaluation
+https://nettskjema.no/a/624791   
 
 ## Remember to do the quiz and submit your results when you are finished:
 [https://nettskjema.no/a/527814](https://nettskjema.no/a/624785)
