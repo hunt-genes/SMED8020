@@ -1,6 +1,4 @@
-# DAY 5 - MR Practicals
-
-devtools::install_github("MRCIEU/TwoSampleMR")     
+# DAY 5 - MR Practicals   
 
 
 ## Description of the practicals
