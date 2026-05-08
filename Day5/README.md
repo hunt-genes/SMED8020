@@ -38,7 +38,7 @@ cp -Rup /mnt/work/workbench/$USER /mnt/scratch/results/ &
 ``` 
 ## Post course research quiz:
 https://nettskjema.no/a/postsmed8020#/page/1   
-
+https://nettskjema.no/a/postsmed8020#/page/1   
 
 Thank you!
 Please ask the tutors for help if you have any trouble.
